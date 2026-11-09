@@ -1,1 +1,1 @@
-# sit-cama-devsecops
+# SIT-CAMA DevSecOps
