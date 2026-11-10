@@ -1,0 +1,36 @@
+name: Experimento C - Analisis SCA
+
+on:
+  push:
+    branches:
+      - feature/test-sca
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  trivy-sca:
+    name: Analisis de dependencias vulnerables
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencias
+        working-directory: sca-lab
+        run: npm ci
+
+      - name: Analizar vulnerabilidades con Trivy
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: sca-lab
+          scanners: vuln
+          severity: HIGH,CRITICAL
+          exit-code: "1"
