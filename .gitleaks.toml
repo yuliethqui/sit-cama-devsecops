@@ -1,0 +1,10 @@
+title = "Reglas de seguridad SIT-Cama"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "sit-cama-demo-secret"
+description = "Detecta credenciales ficticias del taller"
+regex = '''SIT_CAMA_DEMO_SECRET_[A-Za-z0-9]{8,}'''
+keywords = ["SIT_CAMA_DEMO_SECRET_"]
