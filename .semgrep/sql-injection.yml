@@ -1,0 +1,16 @@
+rules:
+  - id: sit-cama-sql-injection
+    message: >
+      Posible inyeccion SQL: datos no confiables
+      llegan a una consulta de base de datos.
+      Utilice consultas parametrizadas.
+    severity: ERROR
+    languages:
+      - javascript
+    mode: taint
+
+    pattern-sources:
+      - pattern: req.query.id
+
+    pattern-sinks:
+      - pattern: db.query(...)
