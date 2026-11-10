@@ -1,0 +1,61 @@
+
+name: DevSecOps Complete Pipeline
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - main
+      - feature/test-sast
+
+permissions:
+  contents: read
+
+jobs:
+  secret-scan:
+    name: 1. Secret Scanning
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Instalar Gitleaks
+        run: |
+          VERSION=8.30.0
+          curl -fsSL \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${VERSION}/gitleaks_${VERSION}_linux_x64.tar.gz" \
+            -o gitleaks.tar.gz
+          tar -xzf gitleaks.tar.gz gitleaks
+          sudo install gitleaks /usr/local/bin/gitleaks
+
+      - name: Analizar secretos
+        run: gitleaks git --verbose --redact
+
+  code-security:
+    name: 2. Tests, SAST & SCA
+    needs: secret-scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar Semgrep
+        run: python -m pip install semgrep
+
+      - name: Analisis SAST con Semgrep
+        run: |
+          semgrep scan \
+            --config .semgrep/sql-injection.yml \
+            --error \
+            --severity ERROR \
+            src/
