@@ -1,0 +1,64 @@
+{
+  "started": "2026-11-15T01:48:58.815Z",
+  "isolatedNetwork": "sitcama-dast-6ba3d365-aa87-4ac8-95a6-c20ae16bb49b",
+  "probes": [
+    {
+      "role": "MEDICO",
+      "path": "/triage/panel",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "role": "AUDITOR",
+      "path": "/audit/events",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "role": "SERVICIOS",
+      "path": "/triage/panel",
+      "expected": 403,
+      "actual": 403
+    },
+    {
+      "role": "SERVICIOS",
+      "path": "/audit/events",
+      "expected": 403,
+      "actual": 403
+    },
+    {
+      "role": "anonymous",
+      "path": "/beds",
+      "expected": 401,
+      "actual": 401
+    }
+  ],
+  "scans": [
+    {
+      "role": "MEDICO",
+      "endpoints": [
+        "/api/health",
+        "/api/beds",
+        "/api/triage/panel",
+        "/api/patients/search",
+        "/api/triage/preview"
+      ],
+      "authenticatedReads": 10,
+      "alerts": 1,
+      "blocking": [],
+      "scannerNonzero": false
+    },
+    {
+      "role": "AUDITOR",
+      "endpoints": [
+        "/api/audit/events"
+      ],
+      "authenticatedReads": 10,
+      "alerts": 1,
+      "blocking": [],
+      "scannerNonzero": false
+    }
+  ],
+  "status": "passed",
+  "finished": "2026-11-15T01:49:40.445Z"
+}

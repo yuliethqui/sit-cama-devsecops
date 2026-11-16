@@ -1,0 +1,122 @@
+<div class="page-container">
+  <app-page-header
+    eyebrow="MEDICINA / PRIORIDADES"
+    title="Panel médico"
+    subtitle="Último triaje por paciente en las últimas 24 horas. Prioridad académica I / II."
+  >
+    <span class="connection-badge" [class.connected]="realtime.status() === 'En vivo'" role="status"
+      ><span aria-hidden="true">{{ realtime.status() === 'En vivo' ? '↔' : '○' }}</span>{{ realtime.status() }}</span
+    >
+  </app-page-header>
+  <section class="panel panel-toolbar" aria-label="Controles del panel">
+    <div>
+      <strong>Consulta y avisos</strong>
+      <p>Los datos se recuperan al reconectar o volver a abrir el panel.</p>
+    </div>
+    <div class="button-row">
+      <ion-button (click)="load()" [disabled]="loading()">Actualizar panel</ion-button
+      ><ion-button fill="outline" (click)="enableAudio()" [disabled]="audioEnabled()"
+        >{{ audioEnabled() ? 'Sonido habilitado' : 'Habilitar sonido de aviso' }}</ion-button
+      >
+    </div>
+  </section>
+  @if (notice()) {
+  <div class="notice info realtime-notice" role="alert">
+    <span class="notice-symbol" aria-hidden="true">!</span><span>{{ notice() }}</span>
+  </div>
+  } @if (error()) {
+  <div class="notice danger" role="alert">{{ error() }}</div>
+  } @if (loading()) {
+  <div class="loading-state compact" role="status"><ion-spinner name="crescent" /> Consultando triajes…</div>
+  } @if (data(); as result) {
+  <section class="overview-stats priority-stats" aria-label="Resumen de triajes">
+    <div class="mini-stat priority-stat critical-stat">
+      <span>Nivel I demo</span><strong>{{ result.totals.levelI }}</strong><small>Primera prioridad académica</small
+      ><span class="priority-watermark" aria-hidden="true">I</span>
+    </div>
+    <div class="mini-stat priority-stat second-stat">
+      <span>Nivel II demo</span><strong>{{ result.totals.levelII }}</strong><small>Segunda prioridad académica</small
+      ><span class="priority-watermark" aria-hidden="true">II</span>
+    </div>
+    <div class="mini-stat priority-stat pending-stat">
+      <span>Revisión pendiente</span><strong>{{ result.totals.pending }}</strong
+      ><small>Sin clasificación I/II utilizable</small><span class="priority-watermark" aria-hidden="true">?</span>
+    </div>
+  </section>
+  <div class="section-line">
+    <div>
+      <span class="eyebrow">ORDEN POR PRIORIDAD Y TIEMPO</span>
+      <h2>Triajes recientes</h2>
+    </div>
+    <span class="muted">{{ result.totals.total }} registros · Página {{ result.page }}</span>
+  </div>
+  <section class="triage-grid" aria-label="Triajes recientes">
+    @for (item of result.items; track item.patientId) {
+    <article
+      class="panel triage-card"
+      [class.priority-one]="item.level === 'I'"
+      [class.priority-two]="item.level === 'II'"
+      [attr.data-patient]="item.patientId"
+    >
+      <div class="triage-card-top">
+        <span class="triage-symbol" aria-hidden="true">{{ item.level ?? '?' }}</span
+        ><span class="pill" [class.critical]="item.level === 'I'" [class.warning]="item.level !== 'I'"
+          >{{ item.level ? 'Nivel ' + item.level + ' · Demo' : 'Revisión pendiente' }}</span
+        >
+      </div>
+      <h3>
+        {{ item.level === 'I' ? 'Prioridad inmediata demostrativa' : item.level === 'II' ? 'Prioridad II demostrativa' :
+        'Requiere revisión clínica' }}
+      </h3>
+      <div class="elapsed-block">
+        <strong>{{ item.elapsedMinutes }}<span> min</span></strong
+        ><span>Tiempo desde registro</span>
+      </div>
+      <dl class="detail-list">
+        <div>
+          <dt>Paciente · ID</dt>
+          <dd class="identifier">{{ item.patientId }}</dd>
+        </div>
+        <div>
+          <dt>Triaje registrado</dt>
+          <dd>{{ item.createdAt | date:'dd/MM/yyyy HH:mm:ss' }}</dd>
+        </div>
+        <div>
+          <dt>Espera máxima demo</dt>
+          <dd>{{ item.maxWaitMinutes === null ? 'Sin propuesta' : item.maxWaitMinutes + ' min' }}</dd>
+        </div>
+      </dl>
+    </article>
+    } @empty {
+    <div class="panel empty-state">
+      <span class="empty-symbol" aria-hidden="true">✓</span>
+      <h3>Sin triajes recientes</h3>
+      <p>No hay registros en la ventana de 24 horas.</p>
+    </div>
+    }
+  </section>
+  <div class="pagination-bar">
+    <span>Página {{ result.page }}</span>
+    <div class="button-row">
+      <ion-button fill="outline" (click)="changePage(-1)" [disabled]="loading() || page() === 1">Anterior</ion-button
+      ><ion-button
+        fill="outline"
+        (click)="changePage(1)"
+        [disabled]="loading() || page() * result.limit >= result.totals.total"
+        >Siguiente</ion-button
+      >
+    </div>
+  </div>
+  }
+  <div class="panel panel-academic-note">
+    <strong>Demostración académica</strong>
+    <p>
+      Los avisos son de mejor esfuerzo mientras esta pantalla está abierta. El sonido de 3 segundos requiere activación.
+      No sustituye una alarma clínica.
+    </p>
+    <p>
+      No se infieren niveles III–V. “Pendiente” deriva del triaje, no constituye un estado clínico nuevo. El panel no
+      representa episodios activos ni decisiones de atención.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+{
+  "createdAt": "2026-11-16T15:50:30.771234+00:00",
+  "reference": "origin/feature/test-secret",
+  "historicalConfigurationSha256": "c7c37f109ed0f55105dcda6e607b98db32630b1212f148f26e6c55e8afd528c6",
+  "findings": [
+    {
+      "commit": "aa7911a2796d70e8e9972ac5f125a7072cee6efe",
+      "path": "src/config.js",
+      "line": 1,
+      "ruleId": "sit-cama-demo-secret",
+      "markerSha256": "ab821538d07eadafe07a01f20c2df03bd1d63ff831dfe1e45b519a3b21267384",
+      "value": "REDACTED",
+      "blobSha256": "e5edd44f66bbd80d1c7716f115f637cc7cc3f2c65e1780669def2b7f41275b18"
+    }
+  ],
+  "exceptionApplied": false,
+  "approvalStatus": "Pending security-owner review",
+  "proposal": "If the historical demonstration rule is activated for all history, review only these exact commit/path/line/rule findings and compare marker hashes; use scanner fingerprints only after explicit approval. Do not add generic allowlists, suppress other secrets or rewrite history.",
+  "scannerAssessment": {
+    "name": "gitleaks-historical-demo-rule",
+    "started": "2026-11-16T15:53:32.726865+00:00",
+    "finished": "2026-11-16T15:53:33.175619+00:00",
+    "exitCode": 1,
+    "log": ".reports/integration-local/gitleaks-historical-demo-rule.log",
+    "findingCount": 1,
+    "findings": [
+      {
+        "RuleID": "sit-cama-demo-secret",
+        "File": "src/config.js",
+        "StartLine": 1,
+        "EndLine": 1,
+        "Commit": "aa7911a2796d70e8e9972ac5f125a7072cee6efe",
+        "Fingerprint": "aa7911a2796d70e8e9972ac5f125a7072cee6efe:src/config.js:sit-cama-demo-secret:1"
+      }
+    ],
+    "redacted": true
+  }
+}

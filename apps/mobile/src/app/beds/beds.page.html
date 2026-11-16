@@ -1,0 +1,241 @@
+<div class="page-container">
+  <app-page-header
+    eyebrow="DISPONIBILIDAD / CENSO"
+    title="Cada cama, a la vista."
+    subtitle="Disponibilidad por servicio y acciones habilitadas para tu rol."
+  >
+    <ion-button fill="outline" type="button" (click)="load()" [disabled]="loading()"
+      ><ion-icon name="refresh-outline" slot="start" /> Actualizar censo</ion-button
+    >
+  </app-page-header>
+  @if (success()) {
+  <div class="notice info operation-success" role="status"><span aria-hidden="true">✓</span>{{ success() }}</div>
+  } @if (loading()) {
+  <section class="panel loading-state" role="status">
+    <ion-spinner name="crescent" /> Consultando camas en la API…
+  </section>
+  } @else if (error()) {
+  <section class="panel empty-state" role="alert">
+    <h2>No pudimos cargar el censo</h2>
+    <p>{{ error() }}</p>
+    <ion-button type="button" (click)="load()">Reintentar</ion-button>
+  </section>
+  } @else {
+  <section class="bed-stats" aria-label="Resumen de camas">
+    <div class="stat-total">
+      <span>CENSO TOTAL</span><strong data-testid="bed-total">{{ beds().length }}<small>/ 38</small></strong>
+      <p>Camas registradas / capacidad esperada</p>
+    </div>
+    @for (state of states; track state.value) {
+    <div class="stat-card">
+      <span class="status-indicator" [class]="'status-indicator ' + state.className"></span
+      ><span>{{ state.label }}</span><strong>{{ count(state.value) }}</strong><small>{{ state.value }}</small>
+    </div>
+    }
+  </section>
+  <section class="panel beds-panel" aria-label="Matriz de camas por servicio">
+    <div class="section-line">
+      <div>
+        <h2>Distribución por servicio</h2>
+        <p class="muted">{{ visible().length }} de {{ beds().length }} camas · Consulta manual</p>
+      </div>
+      <span class="updated-at">Consultado {{ loadedAt() | date:'HH:mm:ss' }}</span>
+    </div>
+    <div class="filter-bar">
+      <div class="field">
+        <label for="service-filter">Servicio</label
+        ><select id="service-filter" [value]="selectedService()" (change)="filterService($event)">
+          <option value="">Todos los servicios</option>
+          @for (service of services(); track service) {
+          <option [value]="service">{{ serviceName(service) }}</option>
+          }
+        </select>
+      </div>
+      <div class="field">
+        <label for="status-filter">Estado</label
+        ><select id="status-filter" [value]="selectedStatus()" (change)="filterStatus($event)">
+          <option value="">Todos los estados</option>
+          @for (state of states; track state.value) {
+          <option [value]="state.value">{{ state.label }}</option>
+          }
+        </select>
+      </div>
+      <button type="button" class="text-button" (click)="resetFilters()">Limpiar filtros</button>
+    </div>
+    <ul class="bed-legend" aria-label="Leyenda de estados">
+      @for (state of states; track state.value) {
+      <li>
+        <span [class]="'legend-symbol ' + state.className" aria-hidden="true"
+          >{{ state.value === 'AVAILABLE' ? '✓' : state.value === 'OCCUPIED' ? '●' : state.value === 'CLEANING' ? '✦' :
+          '⊘' }}</span
+        ><span>{{ state.label }}</span>
+      </li>
+      }
+    </ul>
+    @if (visible().length === 0) {
+    <div class="empty-state" role="status">
+      <ion-icon name="bed-outline" />
+      <h3>Sin resultados</h3>
+      <p>No hay camas que coincidan con los filtros seleccionados.</p>
+      <button type="button" class="text-button" (click)="resetFilters()">Ver todo el censo</button>
+    </div>
+    } @for (group of groups(); track group.service) {
+    <section class="service-group" [attr.aria-label]="serviceName(group.service)">
+      <div class="service-heading">
+        <h3>{{ serviceName(group.service) }}</h3>
+        <span>{{ group.beds.length }} camas</span>
+      </div>
+      <div class="bed-grid">
+        @for (bed of group.beds; track bed.code) {
+        <article [class]="'bed-card ' + stateClass(bed.status)" data-testid="bed-card">
+          <div>
+            <ion-icon name="bed-outline" aria-hidden="true" /><span class="bed-status-symbol" aria-hidden="true"
+              >{{ bed.status === 'AVAILABLE' ? '✓' : bed.status === 'OCCUPIED' ? '●' : bed.status === 'CLEANING' ? '✦' :
+              '⊘' }}</span
+            >
+          </div>
+          <h4>{{ bed.code }}</h4>
+          <span class="bed-state">{{ statusName(bed.status) }}</span
+          ><small>Estado desde {{ bed.updated_at | date:'dd/MM, HH:mm' }}</small> @if (canAssign() && bed.status ===
+          'AVAILABLE') { <button type="button" class="bed-action" (click)="openAction('assign', bed)">Asignar</button> }
+          @if (canAssign() && bed.status === 'OCCUPIED') {
+          <button type="button" class="bed-action" (click)="openAction('release', bed)">Liberar</button> } @if
+          (canClean() && bed.status === 'CLEANING') {
+          <button type="button" class="bed-action" (click)="openAction('cleaning', bed)">Completar limpieza</button> }
+          @if (bed.status === 'BLOCKED') { <small>Sin acciones de desbloqueo.</small> }
+        </article>
+        }
+      </div>
+    </section>
+    }
+  </section>
+  @if (beds().length !== 38) {
+  <div class="notice warning" role="status">
+    La API devolvió {{ beds().length }} camas; la capacidad de referencia es 38. Se muestra exclusivamente lo recibido.
+  </div>
+  } }
+  <p class="page-footnote">
+    Asignación y liberación: MEDICO · Limpieza: SERVICIOS · Actualización manual y tras cada operación
+  </p>
+</div>
+<dialog
+  #bedDialog
+  class="bed-dialog"
+  (cancel)="closeAction($event)"
+  aria-labelledby="bed-dialog-title"
+  [attr.aria-busy]="actionBusy()"
+>
+  @if (action(); as current) {
+  <div class="section-line">
+    <span class="eyebrow">{{ current.bed.code }} · {{ serviceName(current.bed.service) }}</span
+    ><button type="button" class="text-button" (click)="closeAction()" [disabled]="actionBusy()">Cerrar</button>
+  </div>
+  <h2 id="bed-dialog-title">
+    {{ current.kind === 'assign' ? 'Asignar cama' : current.kind === 'release' ? 'Liberar para limpieza' : 'Confirmar
+    limpieza' }}
+  </h2>
+  @if (actionError()) {
+  <div class="notice danger" role="alert">{{ actionError() }}</div>
+  } @if (current.kind === 'assign') {
+  <p class="fine-print">
+    Datos ficticios y triaje I/II: una restricción del MVP. La app no evalúa compatibilidad por edad o aislamiento.
+  </p>
+  <form [formGroup]="assignmentForm" (ngSubmit)="searchPatient()" novalidate autocomplete="off">
+    <div class="field">
+      <label for="assignment-service">Servicio solicitado</label
+      ><select
+        id="assignment-service"
+        formControlName="service"
+        (change)="clearLocalError()"
+        [attr.disabled]="actionBusy() || actionStale() ? '' : null"
+      >
+        @for (service of services(); track service) {
+        <option [value]="service">{{ serviceName(service) }}</option>
+        }
+      </select>
+    </div>
+    <div class="field">
+      <label for="assignment-document">Documento sintético exacto</label
+      ><input
+        id="assignment-document"
+        formControlName="document"
+        (input)="clearPatient()"
+        maxlength="40"
+        spellcheck="false"
+        [readOnly]="actionBusy() || actionStale()"
+        [attr.aria-invalid]="assignmentForm.controls.document.touched && assignmentForm.controls.document.invalid"
+        aria-describedby="assignment-help"
+      /><small
+        id="assignment-help"
+        [class.field-error]="assignmentForm.controls.document.touched && assignmentForm.controls.document.invalid"
+        >@if (assignmentForm.controls.document.touched && assignmentForm.controls.document.invalid) { Ingresa un
+        documento válido de 3–40 caracteres. } @else { Letras, números, puntos y guiones; comienza con letra o número.
+        }</small
+      >
+    </div>
+    <button class="primary-button" type="submit" [disabled]="actionBusy() || actionStale()">Buscar para asignar</button>
+  </form>
+  @if (selectedPatient(); as patient) {
+  <div class="assignment-review">
+    <h3>Revisa la asignación</h3>
+    <p class="mono">Paciente: {{ patient.patientId }}</p>
+    <p>Cama <strong>{{ current.bed.code }}</strong> · {{ serviceName(current.bed.service) }}</p>
+    <p>Triaje: <strong>{{ patient.latestTriage?.level || 'Pendiente' }}</strong></p>
+    @if (!patientEligible()) {
+    <div class="notice warning" role="status">
+      Este caso no cumple la restricción I/II del MVP. La asignación está deshabilitada.
+    </div>
+    }
+    <button
+      type="button"
+      class="primary-button"
+      (click)="confirmAction()"
+      [disabled]="actionBusy() || actionStale() || !patientEligible()"
+    >
+      Confirmar asignación
+    </button>
+  </div>
+  } } @else if (current.kind === 'release') { @if (reviewedAssignment(); as assignment) {
+  <dl class="detail-list">
+    <div>
+      <dt>Paciente sintético</dt>
+      <dd class="mono">{{ assignment.patientId }}</dd>
+    </div>
+    <div>
+      <dt>Ocupación desde</dt>
+      <dd>{{ assignment.assignedAt | date:'dd/MM/yyyy, HH:mm' }}</dd>
+    </div>
+  </dl>
+  <p>
+    Confirma que quieres finalizar esta asignación. La cama pasará a <strong>En limpieza</strong>. Esta operación no
+    registra un alta clínica.
+  </p>
+  <button type="button" class="primary-button" (click)="confirmAction()" [disabled]="actionBusy() || actionStale()">
+    Confirmar liberación
+  </button>
+  } } @else {
+  <p>
+    Confirma que completaste la limpieza de <strong>{{ current.bed.code }}</strong>. La cama pasará a
+    <strong>Disponible</strong>.
+  </p>
+  <dl class="detail-list">
+    <div>
+      <dt>Inicio del ciclo</dt>
+      <dd>{{ current.bed.updated_at | date:'dd/MM/yyyy, HH:mm:ss' }}</dd>
+    </div>
+    <div>
+      <dt>Tiempo al consultar</dt>
+      <dd>{{ cleaningMinutes(current.bed) }} min aprox.</dd>
+    </div>
+  </dl>
+  <p class="fine-print">
+    La API registra la duración del estado de limpieza al confirmar. No se impone una duración mínima no definida en los
+    artefactos.
+  </p>
+  <button type="button" class="primary-button" (click)="confirmAction()" [disabled]="actionBusy() || actionStale()">
+    Confirmar limpieza
+  </button>
+  } @if (actionBusy()) {
+  <div class="loading-state compact" role="status"><ion-spinner name="crescent" /> Procesando…</div>
+  } }
+</dialog>

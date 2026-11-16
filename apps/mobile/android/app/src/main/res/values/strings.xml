@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SIT-CAMA</string>
+    <string name="title_activity_main">SIT-CAMA</string>
+    <string name="package_name">edu.sitcama.mvp</string>
+    <string name="custom_url_scheme">edu.sitcama.mvp</string>
+</resources>

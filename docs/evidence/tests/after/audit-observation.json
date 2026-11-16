@@ -1,0 +1,18 @@
+{
+  "input": {
+    "from": "2026-01-01T00:00:00.123457Z",
+    "to": "2026-01-01T00:00:00.123456Z"
+  },
+  "expectedStatus": 400,
+  "actualStatus": 200,
+  "response": {
+    "items": [],
+    "nextCursor": null,
+    "limit": 25
+  },
+  "javascriptFromMillis": 1767225600123,
+  "javascriptToMillis": 1767225600123,
+  "auditReadsBefore": 5,
+  "auditReadsAfter": 6,
+  "scope": "Fresh Inc08 schema in disposable PostgreSQL; no production patient/credential data"
+}

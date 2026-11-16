@@ -1,0 +1,27 @@
+rules:
+  - id: sitcama.pg-input-concatenation
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Use PostgreSQL parameters, never concatenate request input into SQL.
+    mode: taint
+    pattern-sources:
+      - pattern: $REQ.body.$FIELD
+      - pattern: $REQ.query.$FIELD
+      - pattern: $REQ.params.$FIELD
+    pattern-sinks:
+      - patterns:
+          - pattern: $DB.query($SQL, ...)
+          - focus-metavariable: $SQL
+    metadata:
+      category: security
+      cwe: ["CWE-89: SQL Injection"]
+  - id: sitcama.disable-tls-verification
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: TLS certificate validation must remain enabled.
+    pattern-either:
+      - pattern: "{rejectUnauthorized: false}"
+      - pattern: process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+    metadata:
+      category: security
+      cwe: ["CWE-295: Improper Certificate Validation"]

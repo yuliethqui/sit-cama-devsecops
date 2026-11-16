@@ -1,0 +1,67 @@
+<a class="skip-link" href="#main-content" (click)="$event.preventDefault(); content.focus()">Saltar al contenido</a>
+<div class="app-layout">
+  <aside class="sidebar">
+    <a class="brand" routerLink="/app/home" aria-label="SIT-CAMA inicio"
+      ><span class="brand-mark" aria-hidden="true">+</span
+      ><span>SIT<span class="brand-light">CAMA</span><small>GESTIÓN HOSPITALARIA</small></span></a
+    >
+    <div class="sidebar-label">ESPACIO DE TRABAJO</div>
+    <nav aria-label="Navegación principal">
+      @for (link of links(); track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+          ><ion-icon [name]="link.icon" aria-hidden="true" /><span>{{ link.label }}</span
+          ><span class="nav-arrow" aria-hidden="true">↗</span></a
+        >
+      }
+    </nav>
+    <div class="sidebar-note">
+      <ion-icon name="shield-checkmark-outline" aria-hidden="true" /><strong>Un entorno para aprender</strong>
+      <p>Usa únicamente información sintética. El triaje es demostrativo.</p>
+      <span>MVP ACADÉMICO</span>
+    </div>
+    <div class="sidebar-footer">
+      <span class="avatar"><ion-icon name="medical-outline" aria-hidden="true" /></span>
+      <div>
+        <strong>{{ roleName() }}</strong><small>Sesión temporal</small>
+      </div>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="topbar-label">
+        <a class="mobile-brand" routerLink="/app/home" aria-label="SIT-CAMA inicio"
+          ><span class="brand-mark" aria-hidden="true">+</span>SITCAMA</a
+        >
+        <span class="desktop-label"
+          >Espacio de trabajo <span class="slash" aria-hidden="true">/</span><strong>{{ roleName() }}</strong></span
+        >
+      </div>
+      <div class="topbar-actions">
+        <span class="pill neutral role-badge"
+          ><span class="desktop-label">Entorno académico</span><span class="mobile-role">{{ roleName() }}</span></span
+        ><button type="button" class="logout-button" (click)="session.logout()" aria-label="Cerrar sesión">
+          <ion-icon name="log-out-outline" aria-hidden="true" /><span>Salir</span>
+        </button>
+      </div>
+    </header>
+    <main #content id="main-content" class="page-scroll" tabindex="-1" aria-label="Contenido principal">
+      <router-outlet />
+    </main>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      @for (link of links(); track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+          [attr.aria-label]="link.label"
+          ><ion-icon [name]="link.icon" aria-hidden="true" /><span>{{ link.mobileLabel }}</span></a
+        >
+      }
+    </nav>
+  </div>
+</div>
