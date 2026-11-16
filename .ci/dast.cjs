@@ -1,6 +1,7 @@
 // Active scanning is physically confined to a new internal Docker network.
 // No .env, existing container, public patient or named volume is used.
 const { randomBytes, randomUUID } = require('node:crypto');
+const { spawnSync } = require('node:child_process');
 const { mkdirSync, writeFileSync, readFileSync, existsSync } = require('node:fs');
 const { resolve, sep } = require('node:path');
 const { root, reports, lock, run, execute, json, mask } = require('./lib.cjs');
@@ -23,6 +24,40 @@ function sanitize(value) {
   for (const secret of secrets) clean = clean.replaceAll(secret, '[REDACTED]');
   return clean.replace(/eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/g, '[REDACTED_JWT]');
 }
+// The entrypoint's temporary server accepts Unix sockets during init, but not TCP.
+async function waitForPostgres() {
+  const started = Date.now(), deadline = started + 60_000;
+  const state = result.postgres = { host: '127.0.0.1', port: 5432, attempts: 0, ready: false };
+  let lastProbe;
+  while (Date.now() < deadline) {
+    state.attempts++;
+    try {
+      run('docker', ['exec', db, 'pg_isready', '-h', '127.0.0.1', '-p', '5432', '-t', '1', '-U', 'sitcama_dast', '-d', 'sitcama_dast'], { timeout: 5000 });
+      state.ready = true; state.elapsedMs = Date.now() - started; return;
+    } catch (error) {
+      lastProbe = error;
+      let running;
+      try { running = run('docker', ['inspect', db, '--format', '{{.State.Running}}'], { timeout: 5000 }); }
+      catch (stateError) { throw new Error(`PostgreSQL state check failed: ${stateError.message}; last TCP probe: ${error.message}`, { cause: stateError }); }
+      if (running !== 'true') throw new Error(`PostgreSQL exited before TCP readiness: ${error.message}`, { cause: error });
+      const remaining = deadline - Date.now();
+      if (remaining > 0) await new Promise(r => setTimeout(r, Math.min(1000, remaining)));
+    }
+  }
+  state.elapsedMs = Date.now() - started;
+  throw new Error(`PostgreSQL TCP readiness timeout (60s); last probe: ${lastProbe?.message}`, { cause: lastProbe });
+}
+function postgresDiagnostics() {
+  const diagnostics = { container: db };
+  const state = '{"status":{{json .State.Status}},"running":{{json .State.Running}},"exitCode":{{json .State.ExitCode}},"oomKilled":{{json .State.OOMKilled}}}';
+  for (const [key, args] of [['state', ['inspect', db, '--format', state]], ['logs', ['logs', '--timestamps', '--tail', '60', db]]]) {
+    const capture = spawnSync('docker', args, { cwd: root, encoding: 'utf8', timeout: 5000, maxBuffer: 128 * 1024 });
+    diagnostics[key] = { exitCode: capture.status, output: capture.error ? '[Collection failed; partial output omitted]' : sanitize(`${capture.stdout || ''}${capture.stderr || ''}`).slice(-16000),
+      ...(capture.error ? { error: sanitize(capture.error.message) } : {}) };
+  }
+  result.postgresDiagnostics = diagnostics;
+  console.error(`PostgreSQL initialization diagnostics: ${JSON.stringify(diagnostics)}`);
+}
 function operation(method, path, body) {
   return [path, { [method.toLowerCase()]: { operationId: `${method}_${path.replace(/\W/g, '_')}`, responses: { 200: { description: 'API response' } },
     ...(body ? { requestBody: { required: true, content: { 'application/json': { schema: { type: 'object', properties: Object.fromEntries(Object.entries(body).map(([k,v]) => [k, { type: typeof v === 'boolean' ? 'boolean' : typeof v === 'number' ? 'integer' : 'string', example: v }])) } } } } } : {}) } }];
@@ -33,13 +68,13 @@ async function main() {
     run('docker', ['network', 'create', '--internal', '--label', 'sitcama.owner=devsecops-dast', name]); network = true;
     run('docker', ['run', '-d', '--name', db, '--network', name, '--tmpfs', '/var/lib/postgresql/data:rw,noexec,nosuid,size=512m',
       '-e', 'POSTGRES_PASSWORD', '-e', 'POSTGRES_USER=sitcama_dast', '-e', 'POSTGRES_DB=sitcama_dast', lock.postgres], { env }); created.push(db);
+    try {
+      await waitForPostgres();
+      run('docker', ['exec', '-i', '-e', 'PGPASSWORD', '-e', 'PGCONNECT_TIMEOUT=3', db,
+        'psql', '-h', '127.0.0.1', '-p', '5432', '-w', '-v', 'ON_ERROR_STOP=1', '-U', 'sitcama_dast', '-d', 'sitcama_dast'],
+        { input: readFileSync(resolve(root, 'apps/api/db/001_initial.sql')), env, timeout: 60_000 });
+    } catch (error) { postgresDiagnostics(); throw error; }
     let ready = false;
-    for (let i = 0; i < 60; i++) {
-      try { run('docker', ['exec', db, 'pg_isready', '-U', 'sitcama_dast', '-d', 'sitcama_dast']); ready = true; break; }
-      catch { await new Promise(r => setTimeout(r, 1000)); }
-    }
-    if (!ready) throw new Error('PostgreSQL readiness timeout');
-    run('docker', ['exec', '-i', db, 'psql', '-v', 'ON_ERROR_STOP=1', '-U', 'sitcama_dast', '-d', 'sitcama_dast'], { input: readFileSync(resolve(root, 'apps/api/db/001_initial.sql')), env });
     const apiEnv = ['-e', `PGHOST=${db}`, '-e', 'PGUSER=sitcama_dast', '-e', 'PGDATABASE=sitcama_dast', '-e', 'PGPASSWORD',
       '-e', 'JWT_SECRET', '-e', 'PATIENT_DATA_KEY', '-e', 'PATIENT_HMAC_KEY', '-e', 'NODE_ENV=production', '-e', 'APP_ORIGIN=https://dast.test'];
     run('docker', ['run', '--rm', '--network', name, ...apiEnv, '-e', 'DAST_PASSWORD', '-e', 'SITCAMA_DAST_ISOLATED=true',
