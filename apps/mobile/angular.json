@@ -117,6 +117,7 @@
           "options": {
             "buildTarget": "::development",
             "runnerConfig": "vitest.config.mts",
+            "isolate": true,
             "setupFiles": ["src/test-setup.ts"],
             "tsConfig": "tsconfig.spec.json",
             "coverageInclude": ["src/app/**/*.ts"],

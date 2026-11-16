@@ -7,7 +7,7 @@ const { strict: assert } = require('node:assert');
 const { root, reports, lock, run, execute, json, mask } = require('./lib.cjs');
 const image = process.env.SITCAMA_CI_IMAGE || 'sitcama-api:inc07-distroless';
 const verifyImage = process.env.SITCAMA_VERIFY_IMAGE || 'sitcama-api:inc07-verify';
-const name = `sitcama-inc07-${randomUUID()}`, db = `${name}-db`, api = `${name}-api`;
+const name = `sitcama-inc07-${randomUUID()}`, db = `${name}-db`, api = `${name}-api`, tests = `${name}-tests`;
 const password = randomBytes(32).toString('base64url'), databasePassword = randomBytes(32).toString('base64url');
 const env = { ...process.env, POSTGRES_PASSWORD: databasePassword, TEST_PGPASSWORD: databasePassword, PGPASSWORD: databasePassword,
   JWT_SECRET: randomBytes(48).toString('base64'), PATIENT_DATA_KEY: randomBytes(32).toString('base64'),
@@ -31,10 +31,23 @@ function sanitized(message) { for (const secret of secrets) message = message.re
     }
     if (!ready) throw new Error('Private PostgreSQL readiness timeout');
     const linux = resolve(reports, 'linux'); mkdirSync(linux, { recursive: true });
-    await execute('docker', ['run', '--rm', '--network', name, '--cap-drop=ALL', '--security-opt=no-new-privileges',
-      '-e', `TEST_PGHOST=${db}`, '-e', 'TEST_PGPORT=5432', '-e', 'TEST_PGDATABASE=sitcama_dast', '-e', 'TEST_PGUSER=sitcama_dast', '-e', 'TEST_PGPASSWORD',
-      '--mount', `type=bind,source=${linux},target=/reports`, verifyImage,
-      'npm', 'run', 'test:cov', '--', '--coverageDirectory=/reports/coverage', '--json', '--outputFile=/reports/api-tests.json'], { env });
+    // Write as a non-root user into the container layer, not a host-owned bind mount.
+    // Keep the stopped container long enough to collect reports, including on Jest failure.
+    created.push(tests);
+    let suiteError;
+    try {
+      await execute('docker', ['run', '--name', tests, '--network', name, '--cap-drop=ALL', '--security-opt=no-new-privileges',
+        '--user', '10001:10001',
+        '-e', `TEST_PGHOST=${db}`, '-e', 'TEST_PGPORT=5432', '-e', 'TEST_PGDATABASE=sitcama_dast', '-e', 'TEST_PGUSER=sitcama_dast', '-e', 'TEST_PGPASSWORD',
+        verifyImage, 'npm', 'run', 'test:cov', '--', '--coverageDirectory=/tmp/sitcama-reports/coverage',
+        '--json', '--outputFile=/tmp/sitcama-reports/api-tests.json'], { env });
+    } catch (error) { suiteError = error; }
+    try { run('docker', ['cp', `${tests}:/tmp/sitcama-reports/.`, linux]); }
+    catch (error) {
+      if (suiteError) throw new AggregateError([suiteError, error], 'API tests failed and reports could not be collected');
+      throw error;
+    }
+    if (suiteError) throw suiteError;
     const suite = JSON.parse(readFileSync(resolve(linux, 'api-tests.json'), 'utf8'));
     assert.equal(suite.numFailedTests, 0); assert.ok(suite.numPassedTests >= 168);
     result.checks.push({ name: 'Complete API Linux suite and coverage gate', passed: suite.numPassedTests, failed: suite.numFailedTests });

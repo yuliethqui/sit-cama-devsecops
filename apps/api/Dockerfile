@@ -12,6 +12,8 @@ FROM build AS verify
 COPY jest.config.cjs ./
 COPY test ./test
 COPY db ./db
+ENV HOME=/tmp
+USER 10001:10001
 CMD ["npm", "run", "test:cov"]
 
 FROM node:22.23.5-trixie-slim@sha256:68c76cfad89921b927eae28ba21407475e29d0ce450afcdbe70c1532db042b64 AS production-deps

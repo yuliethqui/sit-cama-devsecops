@@ -3,6 +3,7 @@ const { cpSync, mkdirSync, readFileSync, writeFileSync, existsSync } = require('
 const { resolve, relative, dirname } = require('node:path');
 const { createHash } = require('node:crypto');
 const { root, reports, cache, lock, run, json, gitMountTrust, workspaceOutput } = require('./lib.cjs');
+const { listSourceFiles } = require('./source-files.cjs');
 const mode = process.argv[2];
 const image = process.env.SITCAMA_CI_IMAGE || 'sitcama-api:devsecops';
 const trivyCache = workspaceOutput('SITCAMA_TRIVY_CACHE_DIR', '.cache', resolve(cache, 'trivy'));
@@ -17,7 +18,7 @@ function exportSource() {
   const { randomUUID } = require('node:crypto');
   const fresh = `${destination}-${randomUUID()}`;
   mkdirSync(fresh, { recursive: true });
-  const files = run('rg', ['--files', '--hidden', '--no-require-git', '-g', '!.git', '-g', '!docs/evidence/**']).split(/\r?\n/).filter(Boolean);
+  const files = listSourceFiles(root);
   if (!files.length) throw new Error('Empty scan source');
   for (const file of files) {
     if (/(^|[\\/])\.env($|\.)/.test(file) && !file.endsWith('.env.example')) throw new Error('Secret env file in scan input');

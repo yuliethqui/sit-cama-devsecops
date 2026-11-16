@@ -47,7 +47,7 @@ jobs:
         working-directory: apps/mobile
       - run: npx --no-install playwright install --with-deps chromium
         working-directory: apps/mobile
-      - run: node --test .ci/policy.test.cjs
+      - run: node --test .ci/policy.test.cjs .ci/source-files.test.cjs
       - run: node .ci/positive-controls.cjs
       - run: node .ci/run-tests.cjs
       - run: node .ci/security.cjs source

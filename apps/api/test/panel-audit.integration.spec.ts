@@ -325,4 +325,3 @@ describe('HU-02/HU-08 HTTP y Socket.IO con PostgreSQL', () => {
     client = await connected(short); await event(client, 'disconnect');
   });
 });
-
