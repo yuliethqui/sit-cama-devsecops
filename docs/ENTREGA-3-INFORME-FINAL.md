@@ -1,8 +1,10 @@
 # INFORME FINAL DE ENTREGA 3 — SIT-CAMA
 
-**Corte documental:** 16 de noviembre de 2026, hora de Bogotá. **Repositorio:** [yuliethqui/sit-cama-devsecops](https://github.com/yuliethqui/sit-cama-devsecops). **Rama:** feature/sit-cama-mvp-entrega-3. **Commit evaluado:** [50d7c0cdc39332a7b9e1837476f3c3060d78ae4f](https://github.com/yuliethqui/sit-cama-devsecops/commit/50d7c0cdc39332a7b9e1837476f3c3060d78ae4f).
+**Corte documental:** 16 de noviembre de 2026, hora de Bogotá. **Repositorio:** [yuliethqui/sit-cama-devsecops](https://github.com/yuliethqui/sit-cama-devsecops). **Rama:** feature/sit-cama-mvp-entrega-3. **Commit de los ZIP históricos:** [50d7c0cdc39332a7b9e1837476f3c3060d78ae4f](https://github.com/yuliethqui/sit-cama-devsecops/commit/50d7c0cdc39332a7b9e1837476f3c3060d78ae4f).
 
-**Actualización ALM:** 16 de noviembre de 2026, sobre HEAD documental bb8f0be2b3a75ba94f5201706f3ed32a56f2515f. Se incorporan las capturas de GitHub Projects; las pruebas y el run aprobado citados siguen correspondiendo a 50d7c0c, sin atribuirlos a una nueva ejecución.
+**Cierre documental y Android:** 16 de noviembre de 2026, sobre HEAD 284afeb0d62d8ab59665a2944327b224704321f9. Los ZIP de CI conservados pertenecen a 50d7c0c; el último run 43995126035 corresponde a 284afeb y terminó success, verificado separadamente. Se incorpora APK histórico y nueva compilación android-debug con login MEDICO confirmado.
+
+**Cierre del paquete académico:** 16/11/2026, hora de Bogotá, desde HEAD **284afeb0d62d8ab59665a2944327b224704321f9**. [Actions 43995126035](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43995126035) terminó **completed / success** para ese SHA; Quality e Image/DAST success y publicación skipped. Los seis ZIP originales continúan documentando sus ejecuciones de origen, incluido el run 43924092624 de 50d7c0c. Se incorporan por separado un APK histórico verificado y una nueva compilación android-debug de este HEAD.
 
 **Estado de entrega:** MVP académico con controles técnicos comprobados y requisitos pendientes. PR #11 abierto; HU #12–#19 abiertas; publicación y firma del backend MVP bloqueadas. Este informe no constituye aceptación clínica, habilitación sanitaria ni autorización de despliegue.
 
@@ -12,7 +14,7 @@ SIT-CAMA aborda el registro de pacientes sintéticos, la priorización académic
 
 Se contrastaron código, documentación, Issues, reportes originales de los cuatro experimentos y artefactos del pipeline aprobado. La fuente de evaluación es exclusivamente **Guia-Entrega-3-SIT-CAMA-v3.pdf**, 13 páginas, SHA-256 **0d2329ef229f0c60f5eba6bef46d89104fe302fa56fbe0fe06df2676ee615d75**. La rúbrica está en la página 13; los experimentos, en las páginas 10–11; el cuestionario, en las páginas 11–12. El encabezado interno dice «Taller ALM VERSIÓN 1.0»; se conserva la identificación y el hash del PDF recibido, sin sustituirlo por otro taller.
 
-Las ejecuciones citadas son anteriores a esta preparación documental. Aquí se descargaron y verificaron evidencias; no se repitieron las pruebas de aplicación, los experimentos ni DAST.
+Se conservaron las evidencias originales y se consultaron los logs del último commit. No se repitieron localmente las suites API/frontend, los experimentos ni DAST. Con autorización posterior se compiló, sincronizó e instaló android-debug desde una copia aislada de las fuentes del HEAD actual; el estudiante introdujo manualmente sus credenciales sintéticas y confirmó el login MEDICO, respaldado por una captura inspeccionada.
 
 ## 2. Objetivo general y objetivos específicos
 
@@ -100,7 +102,7 @@ El workflow activo es [.github/workflows/mvp-ci.yml](../.github/workflows/mvp-ci
 | DAST | Autenticación y RBAC verificados; fallo del escáner, ausencia de acceso autenticado o alertas MEDIUM/HIGH bloquean. |
 | Publicación | Requiere ambos jobs, main, despacho manual autorizado, revisión de riesgo aprobada y concordancia de bases. Actualmente bloqueada. |
 
-El [run 43924092624](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43924092624) corresponde al HEAD evaluado: Quality **success**, Image/DAST **success**, publicación **skipped**. El salto de publicación en un PR obedece al evento; además, la política rechaza de forma independiente el estado blocked.
+El [run histórico 43924092624](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43924092624) corresponde a 50d7c0c: Quality **success**, Image/DAST **success**, publicación **skipped**. El salto de publicación en un PR obedece al evento; además, la política rechaza de forma independiente el estado blocked.
 
 **Diferencia respecto a la guía:** Quality e Image/DAST corren en paralelo. Un ERROR SAST hace fallar Quality y evita publicación, pero no garantiza impedir que comience la construcción. Por tanto, no está acreditado el requisito del Experimento 2 de detenerse antes del empaquetado. No se modificó el workflow para ocultar esa diferencia.
 
@@ -165,7 +167,9 @@ Para completar el experimento: resolver formalmente la revisión; obtener aproba
 
 ## 10. Resultados de pruebas automatizadas
 
-Los siguientes datos proceden de los ZIP originales del **run 43924092624**, descargados y verificados ahora; no son nuevas ejecuciones locales.
+La tabla y los porcentajes siguientes proceden de los ZIP originales del **run 43924092624 / 50d7c0c**, cuyos hashes se conservan; no se atribuyen al último commit.
+
+Para el último HEAD **284afeb**, se verificó separadamente el [run 43995126035](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43995126035), terminado success. Sus logs confirman 18 suites y 244/244 API en Quality y de nuevo en Linux, 105 pruebas frontend y 43 E2E aprobadas. No se suman las dos ejecuciones API como casos diferentes. Los seis ZIP adjuntos siguen siendo los originales del run anterior; el estado y extractos del nuevo run se entregan como evidencias separadas.
 
 | Comprobación | Resultado del pipeline aprobado |
 |---|---|
@@ -206,7 +210,13 @@ El código confirma censo y colores oficiales en apps/mobile/src/styles/_pages.s
 
 Android/Capacitor y el perfil debug están implementados. [android-debug.md](android-debug.md) documenta compilación/instalación y conectividad histórica en emulador, con excepción restringida a http://10.0.2.2:3000/api y verificación nativa de APK depurable. Un 401 con cuenta ficticia inexistente prueba conectividad, no login válido ni las ocho HU.
 
-En este clon **no están** app-debug.apk ni la captura android-debug-login.png citada históricamente. No se reconstruyeron ni se inventaron hashes. El estudiante debe adjuntar el APK exacto, hash, procedencia de build y evidencia Android sintética revisada. La configuración release necesita endpoint HTTPS autorizado y validación propia.
+**APK histórico incorporado:** se comprobó físicamente el archivo de SIT-CAMA-incremento-01, de **8.621.347 bytes**, fecha de modificación local **14/11/2026 18:17:42** y SHA-256 **4188438fb2accd3570160f314c44945d6fb1f71c2f4b3dc489ff64d161e8422e**. Android SDK apksigner devolvió 0 y verificó firma **Android Debug, esquema v2**. Se conserva como [android/app-debug.apk](../../SIT-CAMA-Entrega-3/android/app-debug.apk). La fecha es metadato del archivo; no prueba su commit de origen. **No se atribuye este APK al último HEAD ni se afirma haber comprobado su login.**
+
+**APK actual android-debug:** se exportaron explícitamente 159 archivos versionados de apps/mobile del HEAD **284afeb**, se reutilizaron dependencias instaladas sin diferencias de versión respecto al lock en los registros presentes y se compiló en una copia aislada, con Node 22.23.5, JDK 21.0.11 y Gradle 8.14.3 offline. Angular build, Capacitor sync y assembleDebug terminaron en 0. El resultado tiene **5.124.394 bytes**, SHA-256 **64d9bae2fa739c7ee47ff693210b5952b6ede980f0b53d5f9b7fd96c1bc64ef8**, firma Android Debug v2 verificada y se entrega como [android/app-debug-284afeb.apk](../../SIT-CAMA-Entrega-3/android/app-debug-284afeb.apk). El hash del APK instalado en emulator-5554 coincide exactamente.
+
+El estudiante introdujo manualmente las credenciales de una cuenta sintética MEDICO y confirmó el login correcto. Tras una primera captura que solo mostraba el formulario de entrada, se obtuvo e inspeccionó la [pantalla de inicio Medicina](../../SIT-CAMA-Entrega-3/android/inicio-medico.png), SHA-256 **9700140514ae5489bb5dc5cbe2d51bc007e0dc26c8a33186dde148d16ea895e6**. Muestra sesión iniciada y censo agregado, sin contraseñas, JWT ni datos individuales de pacientes. Esta es una comprobación manual de acceso del APK nuevo, no una validación completa de las ocho HU ni evidencia funcional del APK histórico.
+
+La URL usada es exclusivamente http://10.0.2.2:3000/api bajo los controles debug existentes. La configuración release necesita endpoint HTTPS autorizado y validación propia. La firma Android Debug de estos APK es independiente de Cosign y no firma el backend MVP.
 
 ## 13. Riesgos, limitaciones y trabajo pendiente
 
@@ -219,7 +229,7 @@ En este clon **no están** app-debug.apk ni la captura android-debug-login.png c
 | Empaquetado paralelo al SAST | Evaluación del orden exigido por la guía; la publicación sí depende de ambos jobs. No se cambió CI en este trabajo. |
 | Firma del backend MVP pendiente | Revisión zlib y autorización formal; luego publicación/firma/verificación del digest propio. |
 | Alcance de defensa limitado | DAST parcial, MEDIUM de dependencias pendientes de revisión y sin prueba de admisión Kyverno/Kubernetes o SLSA 3. |
-| Android y aceptación institucional | APK con hash, capturas/video sintéticos revisados, validación release; no equiparar capturas web con Android. |
+| Android y aceptación institucional | Dos APK identificados y firma v2 verificada; login MEDICO del APK nuevo confirmado y capturado. Quedan validación release, pruebas funcionales ampliadas y aceptación institucional. |
 | Caducidad de artefactos GitHub | Conservar los ZIP descargados: Quality/Image reportes expiran el 30/11/2026; scanned-image expira el 17/11/2026 y no se descargó por no ser necesario para este informe. |
 
 ### Cumplimiento de la rúbrica oficial (página 13)
@@ -266,7 +276,7 @@ El MVP cuenta con pruebas y controles de seguridad reproducibles, un pipeline re
 
 Cosign verificó correctamente Distroless y Express histórico. La firma del backend, los requisitos clínicos pendientes y la aceptación formal continúan abiertos. Mantener blocked preserva una decisión de seguridad explícita aunque los escaneos automáticos no reporten HIGH/CRITICAL.
 
-La entrega se apoya en ZIP íntegros y hashes comprobados, y hace visible qué debe aportar o autorizar después el estudiante. Durante esta preparación permanecieron intactos los 317 archivos originales, el historial, el índice Git y la política de publicación.
+La entrega se apoya en ZIP íntegros y hashes comprobados, y hace visible qué debe aportar o autorizar después el estudiante. Durante esta preparación permanecieron intactos los 317 archivos originales, el historial, el contenido preparado del índice Git y la política de publicación.
 
 ## 16. Referencias y anexos de evidencia
 
@@ -276,4 +286,5 @@ La entrega se apoya en ZIP íntegros y hashes comprobados, y hace visible qué d
 - Originales locales: .reports/experiment-1/result.json y .reports/experiment-2, experiment-3 y experiment-4/export-reviewed/. Los anexos Gitleaks entregables excluyen su marcador.
 - [Advisory CVE-2022-23539](https://github.com/advisories/GHSA-8cf7-32gw-wr33), [CVE-2022-23540](https://github.com/advisories/GHSA-qwph-4952-7xr6), [CVE-2022-23541](https://github.com/advisories/GHSA-hjrf-2m68-5959): fuentes preservadas en Experimento 3.
 - [Revisión de zlib existente](../.reports/experiment-4/export-reviewed/zlib-review.json); fuentes y límites registrados allí, sin alterar la investigación.
+- Cierre: [Actions del HEAD 284afeb](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43995126035), APK histórico y APK nuevo identificados por sus hashes, y captura Android MEDICO en el paquete externo.
 - [Inventario de anexos, rutas, hashes y entrega manual](ENTREGA-3-INVENTARIO-EVIDENCIAS.md). Los enlaces hacia .reports son **locales**: esos archivos están ignorados por Git y se adjuntan manualmente; no son publicaciones en GitHub.

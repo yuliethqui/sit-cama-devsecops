@@ -4,9 +4,9 @@
 
 **Rama:** feature/sit-cama-mvp-entrega-3
 
-**HEAD de esta actualización documental:** bb8f0be2b3a75ba94f5201706f3ed32a56f2515f
+**HEAD del cierre y de la nueva compilación Android:** 284afeb0d62d8ab59665a2944327b224704321f9
 
-**Commit de las evidencias técnicas del pipeline aprobado:** 50d7c0cdc39332a7b9e1837476f3c3060d78ae4f; sus resultados no se atribuyen al HEAD documental ni a una ejecución nueva.
+**Commit de los ZIP históricos del pipeline:** 50d7c0cdc39332a7b9e1837476f3c3060d78ae4f. El último HEAD 284afeb se comprobó por separado: [run 43995126035](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43995126035), completed / success, Quality e Image/DAST success y publicación skipped. No se atribuyen al último commit los ZIP ni porcentajes del run anterior.
 
 **Corte:** 16/11/2026, hora de Bogotá. Las verificaciones posteriores a 00:00 UTC del 17/11 corresponden todavía al 16/11 en Bogotá.
 
@@ -39,7 +39,7 @@ Se verificaron los **314 miembros de seis ZIP**, sin errores de CRC/descompresi�
 
 Completitud significa **completos respecto a su selección declarada**, no una copia de todo .reports ni de las bases de vulnerabilidades.
 
-La revisión de miembros buscó JWT completos, PAT, claves privadas y asignaciones explícitas de contraseñas/Authorization; no obtuvo coincidencias. Se contrastó además la procedencia sintética y se inspeccionaron las cuatro capturas web usadas. Esta actualización añade la inspección de dos capturas ALM, conservadas fuera de los seis ZIP originales. Los certificados públicos de Cosign y sus firmas son evidencia pública, no claves privadas. No se anexan .env, bases clínicas, node_modules, APK, herramientas descargadas, caches ni índices Git. Este resultado describe los archivos seleccionados y no certifica todo el disco.
+La revisión de miembros buscó JWT completos, PAT, claves privadas y asignaciones explícitas de contraseñas/Authorization; no obtuvo coincidencias. Se contrastó además la procedencia sintética y se inspeccionaron las cuatro capturas web usadas. Esta actualización añade la inspección de dos capturas ALM, conservadas fuera de los seis ZIP originales. Los certificados públicos de Cosign y sus firmas son evidencia pública, no claves privadas. Los seis ZIP no incluyen .env, bases clínicas, node_modules, APK, herramientas descargadas, caches ni índices Git. El paquete externo sí incorpora por separado los dos APK debug expresamente verificados y autorizados. Este resultado describe los archivos seleccionados y no certifica todo el disco.
 
 Registro detallado: **.reports/final-entrega-3/archive-review.json**. Su lista contiene ruta, tamaño y SHA-256 de cada miembro de los seis ZIP.
 
@@ -78,7 +78,7 @@ Los archivos quality-approved-excerpt.log e image-dast-approved-excerpt.log son 
 | SBOM/runtime | A5: image.json, sbom.cdx.json, trivy-image-gate.json, runtime-verification.json | 1681 componentes, cero bloqueantes, runtime no root probado; publicación sigue bloqueada. |
 | ALM | Consultas históricas github-issue-12.json a github-issue-19.json, github-pr11.json y github-reviews.json; nueva inspección projects-review.json y dos capturas en docs/evidence/entrega-3/ | Tablero_Kanban configurado con las ocho HU, campos y estados comprobados por capturas. Cuatro In Progress, cuatro Security Review y cero Done. Siguen pendientes revisión por pares, aceptación PO y trazabilidad histórica estricta. |
 | MVP web | docs/evidence/tema-azul/360/, cuatro PNG inspeccionados | Demostración web sintética de 14/11; no capturas Android. |
-| Android | docs/android-debug.md, docs/android.md y apps/mobile/android/ | Implementación y registro histórico; APK/captura no presentes en este clon. |
+| Android | Paquete externo: android/app-debug.apk, android/app-debug-284afeb.apk, android/inicio-medico.png y android/VERIFICACION-ANDROID.json | APK histórico identificado sin atribución al HEAD; APK nuevo compilado desde 284afeb, instalado con hash coincidente y login MEDICO manual confirmado con captura. No acredita release ni validación integral de HU. |
 
 La carpeta manual **.reports/experimento-1/** contiene otro positive-controls.json, timestamp 22:19:36 UTC. Se conserva, pero el informe utiliza el original de **A6, timestamp 18:01:49 UTC**, para atribuir la ejecución al pipeline aprobado. Los nombres similares no hacen intercambiables sus procedencias.
 
@@ -166,11 +166,30 @@ Las cuatro capturas funcionales de tema-azul/360/ fueron inspeccionadas visualme
 
 Los manifiestos de A2–A4 contienen también hashes de fixtures, reportes JSON, comandos y extractos históricos. archive-review.json conserva esos hashes sin obligar a duplicar aquí las 314 filas. El manifiesto final de los documentos y anexos seleccionados es **.reports/final-entrega-3/manifest-final.json**; se recalcula tras esta actualización e incluye las dos capturas ALM y projects-review.json. Excluye su propio hash. El catálogo y manifiesto anteriores y la comprobación de integridad previa se conservan en .reports/final-entrega-3/history/before-projects-update-*.json. Los ZIP A1–A6 permanecen idénticos; las capturas ALM se adjuntan por separado.
 
+### APK Android y cierre del paquete externo
+
+Destino: **C:\Users\Usuario\Downloads\SIT-CAMA-Entrega-3**. Las rutas de esta tabla son relativas a ese paquete; los hashes se comprueban de nuevo después de copiar.
+
+| Archivo entregado | Bytes | SHA-256 | Alcance |
+|---|---:|---|---|
+| android/app-debug.apk | 8621347 | 4188438fb2accd3570160f314c44945d6fb1f71c2f4b3dc489ff64d161e8422e | Histórico del origen SIT-CAMA-incremento-01; fecha local 14/11/2026 18:17:42. No atribuido al HEAD actual ni al login nuevo. |
+| android/app-debug-284afeb.apk | 5124394 | 64d9bae2fa739c7ee47ff693210b5952b6ede980f0b53d5f9b7fd96c1bc64ef8 | Compilación android-debug autorizada desde las 159 fuentes versionadas de apps/mobile de 284afeb, en copia aislada. |
+| android/inicio-medico.png | 223724 | 9700140514ae5489bb5dc5cbe2d51bc007e0dc26c8a33186dde148d16ea895e6 | Captura inspeccionada tras confirmación manual del login sintético MEDICO; muestra Medicina e inicio, sin datos individuales ni credenciales. |
+
+Ambos APK verifican firma **Android Debug v2** con apksigner, salida 0. Certificado público SHA-256: **e749a42d6fa3f1d7ab42474f3cdc6b5844413bf719b5a08a39b6843fdd94fd49**. Esta firma no es Cosign ni firma del backend.
+
+Se comprobó que el APK nuevo instalado tiene el mismo hash que el archivo entregado. El perfil restringe la API al emulador en http://10.0.2.2:3000/api. El estudiante escribió su contraseña directamente en el emulador; no se recibió ni se registra. La primera captura solo mostraba login; la evidencia de sesión es la captura posterior inicio-medico.png. Alcance: instalación, arranque e inicio de sesión manual; quedan pendientes release y aceptación funcional institucional.
+
+El paquete contiene README de entrega, resumen de rúbrica, dos documentos finales, dos capturas Projects, seis ZIP originales, dos APK, captura Android y evidencias seleccionadas. **No contiene una copia completa de .reports.** README incluye el mapa entre las rutas originales del repositorio y las rutas de entrega. Las otras rutas históricas y de código citadas en estos documentos remiten al repositorio de origen.
+
+El manifiesto de los archivos efectivamente entregados es **MANIFIESTO-SHA256.json**; SHA256SUMS.txt ofrece los mismos hashes para lectura directa. Ambos excluyen sus propios bytes para evitar autorreferencia. No deben confundirse con los manifiestos históricos del repositorio.
+
 ## 6. Anexos que el estudiante debe adjuntar manualmente
 
 **Disponibles y revisados:**
 
-- [ ] Informe final e inventario, en Markdown o convertidos para la plataforma académica. Una conversión requiere comprobar su presentación y calcular un hash nuevo.
+- [ ] Adjuntar el paquete externo SIT-CAMA-Entrega-3, con los archivos enumerados en su README y MANIFIESTO-SHA256.json. Informe e inventario están en docs/. Una conversión requiere comprobar presentación y calcular un hash nuevo.
+- [ ] Adjuntar los dos APK identificados y la captura Android nueva, junto con sus logs de verificación; no sustituir el APK histórico por el nuevo ni atribuirle su login.
 - [ ] A1–A4: cuatro ZIP de experimentos indicados en la sección 2, conservando nombres, hashes y manifiestos.
 - [ ] A5–A6: los dos ZIP originales del run aprobado; contienen los HTML/JSON DAST, cobertura, SBOM y controles positivos.
 - [ ] .reports/final-entrega-3/archive-review.json, evidence-catalog.json, verified-results.json y manifest-final.json.
@@ -186,8 +205,8 @@ Los manifiestos de A2–A4 contienen también hashes de fixtures, reportes JSON,
 |---|---|
 | URL directa de GitHub Projects | Tablero y planificación acreditados por las capturas disponibles; queda verificar la URL exacta y adjuntarla. La configuración ya no se considera pendiente. |
 | Aceptación y revisión | Revisión formal por pares y aceptación del Product Owner, con alcance y criterios pendientes. PR #11 permanece abierto; no se solicita ni simula aprobación. |
-| APK Android debug | Archivo exacto, tamaño y SHA-256; commit/configuración de build, dispositivo/emulador y fecha. En este clon no existe apps/mobile/android/app/build/outputs/apk/debug/app-debug.apk. |
-| Funcionamiento Android | Capturas o video con cuentas y pacientes sintéticos, inspeccionados antes de adjuntar, distinguiendo conexión 401 de login válido y de validación funcional. No existe apps/mobile/test-results/android-debug-login.png en este clon. |
+| Android release y procedencia histórica | APK debug histórico y nuevo disponibles y verificados; el commit exacto del histórico sigue sin acreditarse. Release necesita endpoint HTTPS autorizado, firma y validación propias. |
+| Validación Android ampliada | Login válido MEDICO del APK nuevo confirmado manualmente y capturado. No se infiere prueba completa de las ocho HU, latencia, todos los roles o aceptación institucional. |
 | Bloqueos remotos E1–E3 | PR/run/check fallido por Gitleaks, Semgrep o Trivy y prueba de merge impedido por checks requeridos. Los controles positivos del run verde no sustituyen esos PRs. |
 | Orden SAST→empaquetado | Aclarar con el docente la ejecución paralela actual o planificar una corrección autorizada posterior. Este informe no altera workflows. |
 | Firma backend MVP | Revisión zlib y autorización formal; digest OCI publicado, firma/atestación y verificación de identidad e issuer de mvp-ci.yml@main. No utilizar Distroless o Express como sustitutos. |
@@ -217,4 +236,4 @@ Get-FileHash -Algorithm SHA256 .reports\final-entrega-3\github-artifacts\image-s
 Get-Content .reports\final-entrega-3\manifest-final.json
 ```
 
-Esta actualización no requiere commit, push, merge, publicación ni firma. Se conserva baseline.json como referencia de los 317 archivos originales y projects-update-baseline.json como referencia del HEAD documental bb8f0be (319 archivos versionados). Solo se modifican estos dos documentos; las dos capturas ALM ya estaban presentes y no versionadas al comenzar. Se comprueban también rama, HEAD, índice Git, hashes de las capturas y política blocked. No se repiten pruebas de aplicación ni se reescriben los ZIP. La comprobación actual queda en .reports/final-entrega-3/final-integrity.json; la anterior se conserva en history/.
+El cierre no ejecuta commit, push, merge, publicación ni firma de imágenes. La compilación y firma Android Debug son las autorizadas para el APK nuevo. Se conserva baseline.json como referencia de los 317 archivos originales y delivery-baseline.json como referencia del HEAD 284afeb (321 archivos versionados, árbol inicialmente limpio). Solo se modifican estos dos documentos; código, dependencias, workflows, capturas Projects y política blocked permanecen intactos. Se comprueban rama, HEAD e índice Git, y se mantienen los seis ZIP originales. No se ejecutaron operaciones sobre Docker ni PostgreSQL; el login fue realizado manualmente por el estudiante. La verificación del paquete queda en VERIFICACION-INTEGRIDAD.json y su manifiesto; las comprobaciones históricas del repositorio se conservan.
