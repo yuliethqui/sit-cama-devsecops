@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-sitcama}
+      POSTGRES_USER: ${POSTGRES_USER:-sitcama}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Definir POSTGRES_PASSWORD en .env local}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./apps/api/db/001_initial.sql:/docker-entrypoint-initdb.d/001_initial.sql:ro
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      PGHOST: db
+      PGPORT: "5432"
+      PGDATABASE: ${POSTGRES_DB:-sitcama}
+      PGUSER: ${POSTGRES_USER:-sitcama}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?Definir POSTGRES_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?Definir JWT_SECRET en .env}
+      PATIENT_DATA_KEY: ${PATIENT_DATA_KEY:-}
+      PATIENT_HMAC_KEY: ${PATIENT_HMAC_KEY:-}
+      APP_ORIGIN: ${APP_ORIGIN:-}
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+volumes:
+  pgdata:

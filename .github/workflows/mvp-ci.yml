@@ -1,0 +1,141 @@
+name: SIT-CAMA MVP - Quality Gates
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      publish_image:
+        description: 'Publicar en GHCR y firmar después de revisar la entrega'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: devsecops-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+env:
+  SITCAMA_CI_IMAGE: sitcama-api:devsecops
+  PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+  IONIC_CLI_TELEMETRY: 'false'
+jobs:
+  quality:
+    name: Secrets, tests, coverage, SAST and SCA
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - &checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - &node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22.23.5'
+      - run: node .ci/security.cjs secrets
+      - name: Validate workflow (pinned actionlint and checksum)
+        run: |
+          curl -fsSLo "$RUNNER_TEMP/actionlint.tar.gz" https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz
+          printf '%s  %s\n' '8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8' "$RUNNER_TEMP/actionlint.tar.gz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/actionlint.tar.gz" -C "$RUNNER_TEMP" actionlint
+          "$RUNNER_TEMP/actionlint" -color .github/workflows/mvp-ci.yml
+      - run: npm ci
+        working-directory: apps/api
+      - run: npm ci
+        working-directory: apps/mobile
+      - run: npx --no-install playwright install --with-deps chromium
+        working-directory: apps/mobile
+      - run: node --test .ci/policy.test.cjs .ci/source-files.test.cjs
+      - run: node .ci/positive-controls.cjs
+      - run: node .ci/run-tests.cjs
+      - run: node .ci/security.cjs source
+        if: ${{ !cancelled() }}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: quality-reports
+          path: |
+            .reports/devsecops/
+            apps/api/coverage/
+            apps/mobile/coverage/
+            apps/mobile/playwright-report/
+          include-hidden-files: true
+          retention-days: 14
+  image-dast:
+    name: Image, SBOM and isolated authenticated DAST
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - *checkout
+      - *node
+      - uses: sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532 # v4.1.3
+        with:
+          cosign-release: v3.1.4
+      - name: Verify pinned runtime base (public signature only)
+        run: node .ci/verify-base.cjs
+      - id: image
+        run: node .ci/security.cjs image
+      - name: Full API suite on Linux and final-runtime compatibility
+        if: ${{ !cancelled() && steps.image.outcome != 'skipped' }}
+        env:
+          SITCAMA_VERIFY_IMAGE: sitcama-api:ci-verify
+        run: |
+          docker build --pull --target verify -t "$SITCAMA_VERIFY_IMAGE" -f apps/api/Dockerfile apps/api
+          node .ci/verify-runtime.cjs
+      - name: DAST assessment even if image policy blocks publication
+        if: ${{ !cancelled() && steps.image.outcome != 'skipped' }}
+        run: |
+          if test -f .cache/devsecops/image/api.tar; then node .ci/dast.cjs; else exit 1; fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: image-security-reports
+          path: .reports/devsecops/
+          include-hidden-files: true
+          retention-days: 14
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: scanned-image
+          path: .cache/devsecops/image/api.tar
+          include-hidden-files: true
+          retention-days: 1
+  publish-verify:
+    name: Optional reviewed publication and keyless verification
+    needs: [quality, image-dast]
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_image && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    environment: academic-delivery
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - *checkout
+      - *node
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: scanned-image
+          path: .cache/devsecops/image
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: image-security-reports
+          path: .reports/devsecops
+      - uses: sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532 # v4.1.3
+        with:
+          cosign-release: v3.1.4
+      - name: Publish scanned digest, sign and verify image and SBOM
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPOSITORY: ${{ github.repository }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: node .ci/publish.cjs
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cosign-verification
+          path: .reports/devsecops/cosign*.json
+          include-hidden-files: true
+          retention-days: 30

@@ -1,0 +1,94 @@
+<div class="page-container">
+  <app-page-header
+    eyebrow="PANORAMA GENERAL"
+    title="Tu espacio de trabajo"
+    [subtitle]="'Bienvenido, ' + roleName() + '. Accede a las tareas de tu rol.'"
+  >
+    <span class="pill outline">MVP académico</span>
+  </app-page-header>
+  <section class="welcome-banner">
+    <div>
+      <span class="eyebrow light">CUIDADO CONECTADO</span>
+      <h2>La información que necesitas.<br />En un mismo lugar.</h2>
+      <p>Consulta la disponibilidad de camas y continúa tu trabajo con accesos claros para cada tarea.</p>
+      <ion-button routerLink="/app/beds" class="light-button"
+        >Ver censo de camas <ion-icon name="bed-outline" slot="end" aria-hidden="true"
+      /></ion-button>
+    </div>
+    <div class="hero-context">
+      <span class="hero-context-icon" aria-hidden="true">+</span><strong>Un entorno para aprender</strong
+      ><span>Triaje demostrativo I/II<br />Solo datos sintéticos</span>
+    </div>
+  </section>
+  <section aria-label="Resumen del censo" class="overview-stats home-stats">
+    @if (loading()) {
+    <div class="panel loading-state" role="status"><ion-spinner name="crescent" /> Consultando censo…</div>
+    } @else if (error()) {
+    <div class="notice danger" role="alert">
+      {{ error() }} <button type="button" class="text-button" (click)="load()">Reintentar</button>
+    </div>
+    } @else {
+    <div class="mini-stat">
+      <span>Camas en el censo</span><strong>{{ beds().length }}</strong><small>Capacidad de referencia: 38</small>
+    </div>
+    <div class="mini-stat">
+      <span>Disponibles</span><strong>{{ available() }}</strong><small>Según la última consulta</small>
+    </div>
+    <div class="mini-stat">
+      <span>Servicios</span><strong>{{ services() }}</strong><small>Con camas registradas</small>
+    </div>
+    }
+  </section>
+  <div class="section-line">
+    <div>
+      <span class="eyebrow">CONTINÚA TU TRABAJO</span>
+      <h2>¿Por dónde empezamos?</h2>
+    </div>
+    <span class="muted">Accesos para {{ roleName() }}</span>
+  </div>
+  <section class="action-grid" aria-label="Tareas disponibles">
+    @if (session.role() === 'MEDICO') {
+    <a class="action-card featured-action" routerLink="/app/panel"
+      ><span class="action-icon"><ion-icon name="medical-outline" aria-hidden="true" /></span
+      ><span class="eyebrow">PRIORIDADES Y REVISIÓN</span>
+      <h3>Panel médico <span aria-hidden="true">↗</span></h3>
+      <p>Triajes recientes y avisos en vivo mientras tienes el panel abierto.</p></a
+    >
+    } @if (session.role() === 'AUDITOR') {
+    <a class="action-card featured-action" routerLink="/app/audit"
+      ><span class="action-icon"><ion-icon name="shield-checkmark-outline" aria-hidden="true" /></span
+      ><span class="eyebrow">TRAZABILIDAD</span>
+      <h3>Consulta de auditoría <span aria-hidden="true">↗</span></h3>
+      <p>Revisa acciones, actores y entidades con filtros y paginación.</p></a
+    >
+    } @if (canRegister()) {
+    <a class="action-card" routerLink="/app/register"
+      ><span class="action-icon"><ion-icon name="person-add-outline" aria-hidden="true" /></span
+      ><span class="eyebrow">IDENTIFICACIÓN Y TRIAJE</span>
+      <h3>Registrar paciente <span aria-hidden="true">↗</span></h3>
+      <p>Registra un caso sintético y consulta el resultado demostrativo.</p></a
+    >
+    } @if (canSearch()) {
+    <a class="action-card" routerLink="/app/search"
+      ><span class="action-icon"><ion-icon name="search-outline" aria-hidden="true" /></span
+      ><span class="eyebrow">CONSULTA EXACTA</span>
+      <h3>Buscar paciente <span aria-hidden="true">↗</span></h3>
+      <p>Consulta el resumen permitido mediante el documento completo.</p></a
+    >
+    }
+    <a class="action-card" routerLink="/app/beds"
+      ><span class="action-icon"><ion-icon name="bed-outline" aria-hidden="true" /></span
+      ><span class="eyebrow">DISPONIBILIDAD</span>
+      <h3>Censo de camas <span aria-hidden="true">↗</span></h3>
+      <p>Explora la matriz por servicio y las acciones habilitadas para tu rol.</p></a
+    >
+  </section>
+  <div class="workspace-note">
+    <ion-icon name="shield-checkmark-outline" aria-hidden="true" />
+    <div>
+      <strong>Tu sesión es temporal</strong>
+      <p>Al salir o recargar, debes volver a ingresar. Utiliza únicamente información sintética.</p>
+    </div>
+    <span class="pill neutral">{{ roleName() }}</span>
+  </div>
+</div>

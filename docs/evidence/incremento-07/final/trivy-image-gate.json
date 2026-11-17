@@ -1,0 +1,430 @@
+{
+  "count": 53,
+  "blocking": [],
+  "findings": [
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-102010",
+      "package": "gcc-14-base",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-114690",
+      "package": "gcc-14-base",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-114691",
+      "package": "gcc-14-base",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115455",
+      "package": "gcc-14-base",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-95619",
+      "package": "gcc-14-base",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115456",
+      "package": "gcc-14-base",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-18374",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-19499",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-19542",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-5435",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-6238",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-6368",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-6791",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-77117",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-80489",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-84243",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-8674",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-86805",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-89092",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-95818",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2010-4756",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2018-20796",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2019-1010022",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2019-1010023",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2019-1010024",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2019-1010025",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2019-9192",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-97399",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-100290",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "UNKNOWN"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115819",
+      "package": "libc6",
+      "version": "2.41-12+deb13u4",
+      "fixed": null,
+      "severity": "UNKNOWN"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-102010",
+      "package": "libgcc-s1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-114690",
+      "package": "libgcc-s1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-114691",
+      "package": "libgcc-s1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115455",
+      "package": "libgcc-s1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-95619",
+      "package": "libgcc-s1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115456",
+      "package": "libgcc-s1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-102010",
+      "package": "libgomp1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-114690",
+      "package": "libgomp1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-114691",
+      "package": "libgomp1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115455",
+      "package": "libgomp1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-95619",
+      "package": "libgomp1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115456",
+      "package": "libgomp1",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "LOW"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-107496",
+      "package": "libssl3t64",
+      "version": "3.5.7-1~deb13u3",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-88822",
+      "package": "libssl3t64",
+      "version": "3.5.7-1~deb13u3",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-88823",
+      "package": "libssl3t64",
+      "version": "3.5.7-1~deb13u3",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-95691",
+      "package": "libssl3t64",
+      "version": "3.5.7-1~deb13u3",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-95692",
+      "package": "libssl3t64",
+      "version": "3.5.7-1~deb13u3",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-102010",
+      "package": "libstdc++6",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-114690",
+      "package": "libstdc++6",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-114691",
+      "package": "libstdc++6",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115455",
+      "package": "libstdc++6",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-95619",
+      "package": "libstdc++6",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "MEDIUM"
+    },
+    {
+      "target": "/image/api.tar (debian 13.7)",
+      "id": "CVE-2026-115456",
+      "package": "libstdc++6",
+      "version": "14.2.0-19",
+      "fixed": null,
+      "severity": "LOW"
+    }
+  ]
+}

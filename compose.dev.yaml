@@ -1,0 +1,6 @@
+# Browser and Android debug development; preserve the existing database/volume.
+services:
+  api:
+    environment:
+      NODE_ENV: development
+      APP_ORIGIN: "http://localhost:8100,https://localhost"

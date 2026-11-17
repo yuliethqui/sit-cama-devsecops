@@ -1,0 +1,152 @@
+{
+  "createdAt": "2026-11-16T15:50:30.671086+00:00",
+  "scope": "Partial reviewed selection; original evidence folders were not copied wholesale",
+  "files": [
+    {
+      "path": "docs/evidence/tests/summary.json",
+      "bytes": 4080,
+      "sha256": "0db6229ff5947dec73ce7e3422a1e36ffe8ab76835acce555ffdb02fcdf7ae93",
+      "origin": "docs/evidence/tests/summary.json",
+      "sourceLastWriteUtc": "2026-11-15T02:37:40.639461+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/tests/preservation.json",
+      "bytes": 249,
+      "sha256": "e95f694bcb5115b0a52904c458656d3744c4db82dc4bdee69ffd36c9ebdd84f5",
+      "origin": "docs/evidence/tests/preservation.json",
+      "sourceLastWriteUtc": "2026-11-15T02:34:44.993543+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/tests/after/audit-observation.json",
+      "bytes": 456,
+      "sha256": "c4bb47f32db4928c469fea851d10cc47216e82733b655806d7abf23dcb2bed65",
+      "origin": "docs/evidence/tests/after/audit-observation.json",
+      "sourceLastWriteUtc": "2026-11-15T02:37:40.629261+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/incremento-07/summary.json",
+      "bytes": 7337,
+      "sha256": "d84d2a42e2fe33687040ba183a0349fdf29eedd437d9861a8e79122cc308a46b",
+      "origin": "docs/evidence/incremento-07/summary.json",
+      "sourceLastWriteUtc": "2026-11-15T02:02:19.981852+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/incremento-07/comparison.md",
+      "bytes": 2670,
+      "sha256": "914fb0faeb9cfbebb24ee95b555891c43d55b930436d5b6506ca1805c68e66fc",
+      "origin": "docs/evidence/incremento-07/comparison.md",
+      "sourceLastWriteUtc": "2026-11-15T02:02:18.698448+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/incremento-07/blocking-before-after.csv",
+      "bytes": 10414,
+      "sha256": "127711b19a4deed295e1d271176f21c7a2cbd5a97b86843c37c5410ffe14e98d",
+      "origin": "docs/evidence/incremento-07/blocking-before-after.csv",
+      "sourceLastWriteUtc": "2026-11-15T02:02:18.698448+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/incremento-07/final/image.json",
+      "bytes": 1496,
+      "sha256": "7aa3d4614b2013e43f54a34a3a371a9fd8b3eb71a2e3b0296f0bb2c12592ff2d",
+      "origin": "docs/evidence/incremento-07/final/image.json",
+      "sourceLastWriteUtc": "2026-11-15T01:47:25.268712+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/incremento-07/final/trivy-image-gate.json",
+      "bytes": 10688,
+      "sha256": "d4f430660826d01ddcd41e408350c6d985befe0b061f56cd5208ef01a52a2512",
+      "origin": "docs/evidence/incremento-07/final/trivy-image-gate.json",
+      "sourceLastWriteUtc": "2026-11-15T01:47:25.268712+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/incremento-07/final/sbom.cdx.json",
+      "bytes": 674708,
+      "sha256": "21a7119e879166503ab44babfa6880e199c52346246a12eca32ae0dbd4612b6c",
+      "origin": "docs/evidence/incremento-07/final/sbom.cdx.json",
+      "sourceLastWriteUtc": "2026-11-15T01:47:22.190938+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/incremento-07/final/base-signature.json",
+      "bytes": 3548,
+      "sha256": "a3a227798971cf50da243f74b2bc97d6e2be15d7a612001ba33ed603194013ec",
+      "origin": "docs/evidence/incremento-07/final/base-signature.json",
+      "sourceLastWriteUtc": "2026-11-15T01:47:13.142026+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/incremento-07/final/dast.json",
+      "bytes": 1278,
+      "sha256": "16b8a1d361d0cd8349a86bbc54cdf03921942d6daa9971f8a5a98a52f8fe48a3",
+      "origin": "docs/evidence/incremento-07/final/dast.json",
+      "sourceLastWriteUtc": "2026-11-15T01:49:40.447121+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/tema-azul/360/01-login.png",
+      "bytes": 29760,
+      "sha256": "42ca54c00f64f763f244ebd97bcce00dfd884706879673cc2c01e9463c71469c",
+      "origin": "docs/evidence/tema-azul/360/01-login.png",
+      "sourceLastWriteUtc": "2026-11-14T23:16:19.923311+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/tema-azul/360/04-registro-confirmado.png",
+      "bytes": 36324,
+      "sha256": "f9379334d3dc66baa6dd5854484207052643ebf8112fe0d00c2372a2f0b59531",
+      "origin": "docs/evidence/tema-azul/360/04-registro-confirmado.png",
+      "sourceLastWriteUtc": "2026-11-14T23:16:20.422911+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/tema-azul/360/08-panel-medico.png",
+      "bytes": 44444,
+      "sha256": "2b3d60b389f80a7b1169681a6ef7785620ebe82152bd360f42c39c7f93918fdf",
+      "origin": "docs/evidence/tema-azul/360/08-panel-medico.png",
+      "sourceLastWriteUtc": "2026-11-14T23:16:20.891174+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/tema-azul/360/10-auditoria.png",
+      "bytes": 44352,
+      "sha256": "07b270baf3dd8800d9b50a78f6e9fa2e61d06706a85ba6aeacdae0cc053c4d88",
+      "origin": "docs/evidence/tema-azul/360/10-auditoria.png",
+      "sourceLastWriteUtc": "2026-11-14T23:16:21.290958+00:00",
+      "scope": "Historical evidence, reviewed before integration; not a run of the integrated commit",
+      "redactedDuringIntegration": false
+    },
+    {
+      "path": "docs/evidence/api-recheck-2026-11-16/summary.json",
+      "bytes": 2531,
+      "sha256": "52d122fb9a160a4da5f86027b3770adfd5d85fe526cbf8f474b8383b31a9b9cd",
+      "origin": ".reports/audit-date-fix/recheck (prior execution, derived summary)",
+      "scope": "Preserved prior execution; NOT rerun during local integration",
+      "redactedDuringIntegration": true,
+      "priorExecutionFinished": "2026-11-16T15:13:02.476Z"
+    }
+  ],
+  "fileCount": 16,
+  "images": "Only the four PNGs explicitly inspected in the diagnosis"
+}

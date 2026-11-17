@@ -1,0 +1,7 @@
+title = "SIT-CAMA: default secret detectors, without clinical-data allowlists"
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated dependencies, scanner cache and reports; never application source"
+paths = ['''(^|/)(node_modules|\.tools|\.cache|\.reports|coverage|\.angular|www|dist|\.gradle|build)/''']

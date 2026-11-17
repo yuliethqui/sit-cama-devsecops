@@ -1,0 +1,222 @@
+{
+  "recordedAt": "2026-11-16T15:59:54.902035+00:00",
+  "actionlint": {
+    "version": "1.7.12",
+    "exitCode": 0
+  },
+  "javascriptSyntax": {
+    "checkedScripts": 24,
+    "failed": 0
+  },
+  "runs": {
+    "gitleaks-history": {
+      "name": "gitleaks-history",
+      "started": "2026-11-16T15:53:30.733061+00:00",
+      "finished": "2026-11-16T15:53:31.301738+00:00",
+      "exitCode": 0,
+      "log": ".reports/integration-local/gitleaks-history.log",
+      "findingCount": 0,
+      "findings": [],
+      "redacted": true
+    },
+    "gitleaks-worktree": {
+      "name": "gitleaks-worktree",
+      "started": "2026-11-16T15:53:31.302780+00:00",
+      "finished": "2026-11-16T15:53:32.725834+00:00",
+      "exitCode": 0,
+      "log": ".reports/integration-local/gitleaks-worktree.log",
+      "findingCount": 0,
+      "findings": [],
+      "redacted": true
+    },
+    "gitleaks-historical-demo-rule": {
+      "name": "gitleaks-historical-demo-rule",
+      "started": "2026-11-16T15:53:32.726865+00:00",
+      "finished": "2026-11-16T15:53:33.175619+00:00",
+      "exitCode": 1,
+      "log": ".reports/integration-local/gitleaks-historical-demo-rule.log",
+      "findingCount": 1,
+      "findings": [
+        {
+          "RuleID": "sit-cama-demo-secret",
+          "File": "src/config.js",
+          "StartLine": 1,
+          "EndLine": 1,
+          "Commit": "aa7911a2796d70e8e9972ac5f125a7072cee6efe",
+          "Fingerprint": "aa7911a2796d70e8e9972ac5f125a7072cee6efe:src/config.js:sit-cama-demo-secret:1"
+        }
+      ],
+      "redacted": true
+    },
+    "source-security": {
+      "name": "source-security",
+      "started": "2026-11-16T15:53:29.359599+00:00",
+      "finished": "2026-11-16T15:54:26.004463+00:00",
+      "exitCode": 0,
+      "log": ".reports/integration-local/source-security.log"
+    },
+    "policy-and-legacy-tests": {
+      "name": "policy-and-legacy-tests",
+      "started": "2026-11-16T15:53:30.936884+00:00",
+      "finished": "2026-11-16T15:53:31.073821+00:00",
+      "exitCode": 0,
+      "log": ".reports/integration-local/policy-and-legacy-tests.log"
+    }
+  },
+  "sast": {
+    "scannedFiles": 95,
+    "findings": 0,
+    "blocking": 0
+  },
+  "scaAndIac": {
+    "trivy-api-gate.json": {
+      "count": 2,
+      "blockingCount": 0,
+      "findings": [
+        {
+          "target": "package-lock.json",
+          "id": "CVE-2026-118773",
+          "package": "glob",
+          "version": "13.0.6",
+          "fixed": "14.0.2",
+          "severity": "MEDIUM"
+        },
+        {
+          "target": "package-lock.json",
+          "id": "CVE-2026-118764",
+          "package": "minimatch",
+          "version": "10.2.6",
+          "fixed": "11.0.1",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "trivy-mobile-gate.json": {
+      "count": 1,
+      "blockingCount": 0,
+      "findings": [
+        {
+          "target": "package-lock.json",
+          "id": "CVE-2026-118764",
+          "package": "minimatch",
+          "version": "10.2.6",
+          "fixed": "11.0.1",
+          "severity": "MEDIUM"
+        }
+      ]
+    },
+    "trivy-config-gate.json": {
+      "count": 1,
+      "blockingCount": 0,
+      "findings": [
+        {
+          "target": "Dockerfile",
+          "id": "DS-0026",
+          "severity": "LOW",
+          "title": "No HEALTHCHECK defined"
+        }
+      ]
+    }
+  },
+  "ciReferences": {
+    "paths": [
+      ".ci/dast.cjs",
+      ".ci/policy.test.cjs",
+      ".ci/positive-controls.cjs",
+      ".ci/publish.cjs",
+      ".ci/run-tests.cjs",
+      ".ci/security.cjs",
+      ".ci/verify-base.cjs",
+      ".ci/verify-runtime.cjs"
+    ],
+    "missing": [],
+    "basesMatchLock": true,
+    "onlyActiveWorkflow": [
+      "mvp-ci.yml"
+    ],
+    "manualPublicationAndNeedsPreserved": true
+  },
+  "ignorePolicy": {
+    "blockedSamples": [
+      ".env",
+      ".env.local",
+      ".env.production",
+      ".cache/scan/db/trivy.db",
+      ".reports/check/log.json",
+      "apps/api/node_modules/pg/package.json",
+      "apps/api/dist/main.js",
+      "apps/mobile/.tools/node.exe",
+      "apps/mobile/android/local.properties",
+      "apps/mobile/android/app/build/app.apk",
+      "apps/mobile/test-results/result.png",
+      "data/patients.db",
+      "secrets/signing.keystore"
+    ],
+    "requiredFilesRemainIncluded": [
+      ".env.example",
+      "apps/api/db/001_initial.sql",
+      "apps/mobile/android/gradle/wrapper/gradle-wrapper.jar"
+    ]
+  },
+  "evidence": {
+    "historicalFilesCopied": 15,
+    "derivedPriorApiSummary": 1,
+    "imagesInspectedAndCopied": 4
+  },
+  "priorApiResults": {
+    "passed": 244,
+    "failed": 0,
+    "rerunDuringIntegration": false,
+    "summary": "docs/evidence/api-recheck-2026-11-16/summary.json"
+  },
+  "notExecuted": [
+    "positive-controls.cjs (would execute forbidden Git write commands)",
+    "new image build/publication/signature",
+    "new API/frontend/Android test run"
+  ],
+  "postgresDataOrVolumesAccessed": false,
+  "exceptionOrAllowlistAdded": false,
+  "finalInventory": {
+    "statusCounts": {
+      " D": 1,
+      " M": 2,
+      "??": 304
+    },
+    "candidateFilesIncludingPreserved": 311,
+    "textFilesScanned": 279,
+    "localSecretsCompared": 4,
+    "findings": [],
+    "forbiddenInCandidate": [],
+    "largestFiles": [
+      {
+        "path": "docs/evidence/incremento-07/final/sbom.cdx.json",
+        "bytes": 674708
+      },
+      {
+        "path": "apps/mobile/package-lock.json",
+        "bytes": 436097
+      },
+      {
+        "path": ".ci/rules/owasp-javascript.json",
+        "bytes": 330217
+      },
+      {
+        "path": "apps/api/package-lock.json",
+        "bytes": 310694
+      },
+      {
+        "path": "docs/integration/source-manifest.json",
+        "bytes": 49730
+      },
+      {
+        "path": "docs/evidence/tema-azul/360/08-panel-medico.png",
+        "bytes": 44444
+      }
+    ],
+    "ignoredFileCount": 946,
+    "diffCheckExit": 0,
+    "stagedChanges": false,
+    "indexUnchanged": true,
+    "lineEndingWarnings": "Git core.autocrlf warns LF-to-CRLF normalization for README.md and .gitignore; no whitespace error"
+  }
+}

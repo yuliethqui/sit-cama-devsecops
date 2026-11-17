@@ -1,0 +1,189 @@
+<div class="page-container">
+  <app-page-header
+    eyebrow="PACIENTES / NUEVO REGISTRO"
+    title="Registrar paciente"
+    subtitle="Identificación y triaje inicial, en una sola operación."
+    ><span class="pill outline">Registro académico</span></app-page-header
+  >
+  @if (error()) {
+  <div class="notice danger" role="alert">{{ error() }}</div>
+  }
+  <div class="notice info registration-intro">
+    <strong>Solo datos sintéticos.</strong> Las reglas I/II son de demostración; los demás casos requieren revisión
+    clínica.
+  </div>
+  @if (result(); as saved) {
+  <section class="panel registration-success" role="status">
+    <div class="success-heading">
+      <span class="success-mark" aria-hidden="true">✓</span>
+      <div>
+        <span class="pill success">Registro confirmado por la API</span>
+        <h2>Paciente sintético registrado</h2>
+      </div>
+    </div>
+    <dl class="detail-list">
+      <div>
+        <dt>Identificador</dt>
+        <dd class="mono">{{ saved.patientId }}</dd>
+      </div>
+      <div>
+        <dt>Registro provisional</dt>
+        <dd>{{ saved.provisional ? 'Sí' : 'No' }}</dd>
+      </div>
+    </dl>
+    <app-triage-summary [summary]="saved.triage" /><ion-button type="button" (click)="newRegistration()"
+      >Registrar otro paciente</ion-button
+    >
+  </section>
+  } @else {
+  <div class="registration-layout">
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate autocomplete="off" [attr.aria-busy]="loading()">
+      <fieldset class="panel" [disabled]="loading()">
+        <legend><span class="step-number">01</span> Identificación sintética</legend>
+        <p class="muted">Usa un documento único y un nombre ficticio.</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="document">Documento exacto</label
+            ><input
+              id="document"
+              formControlName="document"
+              maxlength="40"
+              autocapitalize="characters"
+              spellcheck="false"
+              placeholder="Documento sintético"
+              aria-describedby="document-help"
+              [attr.aria-invalid]="invalid('document')"
+            /><small id="document-help" [class.field-error]="invalid('document')"
+              >@if (invalid('document')) { Ingresa entre 3 y 40 caracteres válidos. } @else { Letras, números, puntos y
+              guiones; comienza con letra o número. }</small
+            >
+          </div>
+          <div class="field">
+            <label for="fullName">Nombre completo sintético</label
+            ><input
+              id="fullName"
+              formControlName="fullName"
+              maxlength="160"
+              placeholder="Nombre de una persona ficticia"
+              aria-describedby="name-help"
+              [attr.aria-invalid]="invalid('fullName')"
+            /><small id="name-help" [class.field-error]="invalid('fullName')"
+              >@if (invalid('fullName')) { Ingresa entre 2 y 160 caracteres, sin caracteres de control. } @else { Entre
+              2 y 160 caracteres. No uses nombres de pacientes reales. }</small
+            >
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="panel" [disabled]="loading()">
+        <legend><span class="step-number">02</span> Triaje inicial</legend>
+        <div class="field">
+          <label for="chiefComplaint">Motivo de consulta sintético</label
+          ><textarea
+            id="chiefComplaint"
+            formControlName="chiefComplaint"
+            rows="3"
+            maxlength="1000"
+            placeholder="Describe únicamente un caso ficticio"
+            aria-describedby="complaint-help"
+            [attr.aria-invalid]="invalid('chiefComplaint')"
+          ></textarea
+          ><small id="complaint-help" [class.field-error]="invalid('chiefComplaint')"
+            >@if (invalid('chiefComplaint')) { Escribe un motivo de consulta de entre 1 y 1000 caracteres. } @else {
+            Máximo 1000 caracteres. }</small
+          >
+        </div>
+        <div class="form-grid three">
+          <div class="field">
+            <label for="spo2">SpO₂ (%)</label
+            ><input
+              id="spo2"
+              type="number"
+              inputmode="numeric"
+              min="0"
+              max="100"
+              step="1"
+              formControlName="spo2"
+              placeholder="0–100"
+              aria-describedby="spo2-help"
+              [attr.aria-invalid]="invalid('spo2')"
+            /><small id="spo2-help" [class.field-error]="invalid('spo2')"
+              >@if (invalid('spo2')) { Ingresa un entero de 0 a 100. } @else { Entero de 0 a 100. }</small
+            >
+          </div>
+          <div class="field">
+            <label for="glasgow">Escala de Glasgow</label
+            ><input
+              id="glasgow"
+              type="number"
+              inputmode="numeric"
+              min="3"
+              max="15"
+              step="1"
+              formControlName="glasgow"
+              placeholder="3–15"
+              aria-describedby="glasgow-help"
+              [attr.aria-invalid]="invalid('glasgow')"
+            /><small id="glasgow-help" [class.field-error]="invalid('glasgow')"
+              >@if (invalid('glasgow')) { Ingresa un entero de 3 a 15. } @else { Entero de 3 a 15. }</small
+            >
+          </div>
+          <div class="field">
+            <label for="eva">Dolor · EVA</label
+            ><input
+              id="eva"
+              type="number"
+              inputmode="numeric"
+              min="0"
+              max="10"
+              step="1"
+              formControlName="eva"
+              placeholder="0–10"
+              aria-describedby="eva-help"
+              [attr.aria-invalid]="invalid('eva')"
+            /><small id="eva-help" [class.field-error]="invalid('eva')"
+              >@if (invalid('eva')) { Ingresa un entero de 0 a 10. } @else { Entero de 0 a 10. }</small
+            >
+          </div>
+        </div>
+        <div class="criteria-heading">
+          <strong>Criterios del caso ficticio</strong><span class="muted">Marca solo los que correspondan</span>
+        </div>
+        <div class="criteria">
+          <label class="checkbox-label"><input type="checkbox" formControlName="paroInminente" /> Paro inminente</label
+          ><label class="checkbox-label"
+            ><input type="checkbox" formControlName="dolorToracicoTipico" /> Dolor torácico típico</label
+          >
+        </div>
+      </fieldset>
+      <div class="form-actions panel submit-panel">
+        <p class="fine-print">Revisa los datos antes de guardar. El resultado se calcula al confirmar el registro.</p>
+        <ion-button type="submit" [disabled]="loading()"
+          >@if (loading()) { <ion-spinner name="crescent" aria-label="Registrando" /> Guardando… } @else { Registrar y
+          consultar resultado <ion-icon name="person-add-outline" slot="end" aria-hidden="true" /> }</ion-button
+        >
+      </div>
+    </form>
+    <aside class="registration-guide" aria-label="Guía de registro">
+      <div class="panel guide-panel">
+        <span class="eyebrow">ANTES DE CONFIRMAR</span>
+        <h2>Un registro claro, desde el inicio.</h2>
+        <ol class="guide-steps">
+          <li><strong>Identifica el caso</strong><span>Todos los datos deben ser sintéticos.</span></li>
+          <li><strong>Completa el triaje</strong><span>Los campos numéricos requieren valores enteros.</span></li>
+          <li>
+            <strong>Consulta el resultado</strong><span>La propuesta demostrativa aparece después de guardar.</span>
+          </li>
+        </ol>
+        <div class="notice info">
+          <strong>Solo demostración I/II</strong>
+          <p>Los demás casos quedan pendientes de revisión clínica. No se asignan niveles III–V.</p>
+        </div>
+        <p class="fine-print">
+          Todos los campos son obligatorios salvo las dos casillas de criterios. La clasificación no sustituye la
+          valoración profesional.
+        </p>
+      </div>
+    </aside>
+  </div>
+  }
+</div>

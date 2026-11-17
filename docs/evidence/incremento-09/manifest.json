@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-11-16T17:02:59.473153+00:00",
+  "baseCommit": "a9b668340d0f51eaf639332a63c84ca4e4ffc528",
+  "scope": "Incremento 09 changed files, including sanitized evidence; excludes this manifest itself. Original evidence and raw ignored logs unchanged.",
+  "files": [
+    {
+      "path": ".ci/security.cjs",
+      "bytes": 8254,
+      "sha256": "11d8205c6b27098204e922ffb0b8eb3985dbb6d2df41284cc2573238a53b6fd5"
+    },
+    {
+      "path": ".ci/source-files.cjs",
+      "bytes": 1348,
+      "sha256": "a03276ca87494d39a10c3f3263c6e956bb3e4e9d540b299a848c23ef099087dc"
+    },
+    {
+      "path": ".ci/source-files.test.cjs",
+      "bytes": 3952,
+      "sha256": "273731589426ac81ae98a1ee79df2508c3db96cf2da7a6d58e43ee3be1b3efee"
+    },
+    {
+      "path": ".ci/verify-runtime.cjs",
+      "bytes": 9777,
+      "sha256": "1e25cbd63bacc1b56f9074241f27c3dc251ed862d6336dadd5aa8dbbf5994ab0"
+    },
+    {
+      "path": ".github/workflows/mvp-ci.yml",
+      "bytes": 5616,
+      "sha256": "378556418944725d757f5463eeeafbd00119a4a512f8ebf9b9e64a3d1785c24b"
+    },
+    {
+      "path": "apps/api/Dockerfile",
+      "bytes": 1547,
+      "sha256": "cb1f325b2ef68ff00e07da87386a729ae0244d456edca47dea17df5a868111af"
+    },
+    {
+      "path": "apps/api/test/panel-audit.integration.spec.ts",
+      "bytes": 20824,
+      "sha256": "5cad54b789a8ff2ec4ad757d892fbbc8d09412adacfc9ece80d4a99e66806140"
+    },
+    {
+      "path": "apps/mobile/android/build.gradle",
+      "bytes": 633,
+      "sha256": "e2aa5075e1fcfd5e77c63eb8d662932b3c8586c927376b88a4986365af3b635f"
+    },
+    {
+      "path": "apps/mobile/angular.json",
+      "bytes": 5122,
+      "sha256": "75a9dd1d46d5f1f9df20357bce23155a3da49a3731749f9703a9599b37433367"
+    },
+    {
+      "path": "docs/INCREMENTO-09-CI.md",
+      "bytes": 10697,
+      "sha256": "65fcf9818d3e55030a730c4115d94e3d580a8aa07466d351ae9a758f43579a8f"
+    },
+    {
+      "path": "docs/evidence/incremento-09/summary.json",
+      "bytes": 6709,
+      "sha256": "9ccf55361ffd79c1e3b07f47f99f7e0e948323e94f8f8c1d12e16e13a79d6092"
+    }
+  ]
+}

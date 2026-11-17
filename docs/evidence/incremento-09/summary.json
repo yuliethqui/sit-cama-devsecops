@@ -1,0 +1,217 @@
+{
+  "generatedAt": "2026-11-16T17:01:18.623725+00:00",
+  "scope": "Incremento 09: CI fixes; uncommitted working tree on feature/sit-cama-mvp-entrega-3",
+  "baseCommit": "a9b668340d0f51eaf639332a63c84ca4e4ffc528",
+  "remoteRun": {
+    "url": "https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43906234662",
+    "qualityJob": 133435721706,
+    "imageJob": 133435722225,
+    "logs": "Full logs retained locally under ignored .reports/inc09; not republished",
+    "sha256": {
+      "quality": "a13e5ee3873223e1e82b0d373f74aa5f01bb399d5afd8c1e2637cd839f4b55de",
+      "image": "c6718f5ba3545ab133b4e5af3dda99557c5e466d05eadbb6d2f94f6784175a22"
+    }
+  },
+  "reproductions": {
+    "sourceBefore": "spawnSync rg ENOENT with rg absent from PATH",
+    "reportPermissionsBefore": {
+      "uid": 0,
+      "directoryOwnerUid": 1001,
+      "directoryMode": "0755",
+      "coverage": "EACCES",
+      "json": "EACCES",
+      "capabilities": "ALL dropped"
+    },
+    "frontendBefore": {
+      "controlledOrder": true,
+      "passed": 102,
+      "failed": 3,
+      "normalOrderPassed": 105
+    }
+  },
+  "localChecks": {
+    "apiLinux": {
+      "passedSuites": 18,
+      "passedTests": 244,
+      "failedTests": 0,
+      "user": "10001:10001",
+      "reportsExported": true,
+      "coveragePercent": {
+        "statements": {
+          "covered": 600,
+          "total": 603,
+          "percent": 99.5
+        },
+        "branches": {
+          "covered": 167,
+          "total": 180,
+          "percent": 92.77
+        },
+        "functions": {
+          "covered": 103,
+          "total": 104,
+          "percent": 99.03
+        },
+        "lines": {
+          "covered": 497,
+          "total": 497,
+          "percent": 100.0
+        }
+      }
+    },
+    "frontend": {
+      "normalPassed": 105,
+      "controlledOrderPassed": 105,
+      "failed": 0,
+      "coveragePercent": {
+        "statements": 84.49,
+        "branches": 86.81,
+        "functions": 81.63,
+        "lines": 87.45
+      }
+    },
+    "infrastructure": {
+      "windows": {
+        "passed": 10,
+        "failed": 0
+      },
+      "linux": {
+        "passed": 10,
+        "failed": 0
+      }
+    },
+    "lintAndBuild": "Frontend ESLint, E2E typecheck, Prettier and production build passed; API image build and Ionic CLI build passed",
+    "e2e": {
+      "exitCode": 0,
+      "copyExitCode": 0,
+      "stats": {
+        "startTime": "2026-11-16T16:55:49.070Z",
+        "duration": 42255.378,
+        "expected": 42,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 1
+      }
+    },
+    "sourceScan": {
+      "rgOnPath": false,
+      "semgrep": {
+        "scannedFiles": 95,
+        "findings": 0,
+        "blocking": 0
+      },
+      "trivy": {
+        "api": {
+          "count": 2,
+          "blocking": [],
+          "findings": [
+            {
+              "target": "package-lock.json",
+              "id": "CVE-2026-118773",
+              "package": "glob",
+              "version": "13.0.6",
+              "fixed": "14.0.2",
+              "severity": "MEDIUM"
+            },
+            {
+              "target": "package-lock.json",
+              "id": "CVE-2026-118764",
+              "package": "minimatch",
+              "version": "10.2.6",
+              "fixed": "11.0.1",
+              "severity": "MEDIUM"
+            }
+          ]
+        },
+        "mobile": {
+          "count": 1,
+          "blocking": [],
+          "findings": [
+            {
+              "target": "package-lock.json",
+              "id": "CVE-2026-118764",
+              "package": "minimatch",
+              "version": "10.2.6",
+              "fixed": "11.0.1",
+              "severity": "MEDIUM"
+            }
+          ]
+        },
+        "config": {
+          "count": 1,
+          "blocking": [],
+          "findings": [
+            {
+              "target": "Dockerfile",
+              "id": "DS-0026",
+              "severity": "LOW",
+              "title": "No HEALTHCHECK defined"
+            }
+          ]
+        }
+      }
+    },
+    "imageScan": {
+      "sbomComponents": 1681,
+      "blockingHighCritical": 0,
+      "findingsBySeverity": {
+        "MEDIUM": 43,
+        "LOW": 12,
+        "UNKNOWN": 2
+      }
+    },
+    "dast": {
+      "status": "passed",
+      "roles": [
+        "MEDICO",
+        "AUDITOR"
+      ],
+      "blocking": 0,
+      "informationalAlertsPerRole": 1
+    },
+    "gitleaks": {
+      "history": "passed, zero findings",
+      "nativeHook": "passed with empty staged index; not proof of unstaged files",
+      "worktree": "passed, zero findings; all tracked and new nonignored candidates, including evidence"
+    },
+    "actionlint": {
+      "exitCode": 0,
+      "version": "1.7.12",
+      "archiveSha256": "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8",
+      "source": "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz"
+    },
+    "diffAndPaths": {
+      "diffCheck": "passed",
+      "oldWhitespaceFixed": "passed",
+      "newFilesWhitespace": "passed",
+      "ciReferences": "all exist",
+      "syntaxChecks": "passed",
+      "ignoredArtifacts": [
+        ".cache/",
+        ".reports/"
+      ]
+    }
+  },
+  "preserved": {
+    "publicationReviewStatus": "blocked",
+    "publicationReviewSha256": "40a0e9871c2e040a63f35738785e0e6717b653f842d19c2ea15f18f1ce826265",
+    "indexUnchanged": true,
+    "clinicalSourcesContractsSqlAndDependencyLocks": "byte-identical to baseline",
+    "coverageThresholds": {
+      "apiEachMetric": 80,
+      "frontendEachMetric": 80
+    }
+  },
+  "limitations": [
+    "No new GitHub Actions run: no commit or push authorized.",
+    "Full .ci/run-tests.cjs orchestration not executed as one host process; its six build/test phases were exercised in Linux containers.",
+    "One E2E passed only after retry (panel 401 timeout). No E2E or functional code changed.",
+    "core.hooksPath is unset; native hook was invoked explicitly. Python pre-commit is unavailable.",
+    "Positive controls that create Git fixture repositories were not repeated locally; their previous Actions success is not a new local result.",
+    "Cosign public-base verification not repeated locally; its workflow and all signing/publication controls are unchanged."
+  ],
+  "redaction": {
+    "method": "Summary assembled from counts, statuses and hashes only; no raw logs, screenshots, credentials, JWTs or patient data copied.",
+    "rawReports": "Ignored .reports/inc09 and .cache/inc09 remain local."
+  }
+}

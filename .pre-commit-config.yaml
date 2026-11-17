@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: Gitleaks staged (OCI version and digest in .ci/tools.lock.json)
+        entry: node .ci/precommit.cjs
+        language: system
+        pass_filenames: false
+        always_run: true

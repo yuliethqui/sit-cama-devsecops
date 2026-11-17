@@ -1,0 +1,89 @@
+{
+  "collectedAt": "2026-11-16T15:50:30.663580+00:00",
+  "scope": "Preserved prior execution; NOT rerun during local integration",
+  "execution": {
+    "api": {
+      "phase": "api",
+      "started": "2026-11-16T15:12:50.442Z",
+      "isolated": true,
+      "status": "passed",
+      "finished": "2026-11-16T15:13:02.476Z"
+    },
+    "originalRegression": {
+      "phase": "probe",
+      "started": "2026-11-16T15:12:33.899Z",
+      "isolated": true,
+      "status": "passed",
+      "finished": "2026-11-16T15:12:41.274Z"
+    }
+  },
+  "api": {
+    "success": true,
+    "numPassedTests": 244,
+    "numFailedTests": 0,
+    "numTotalTests": 244,
+    "numPassedTestSuites": 18,
+    "numFailedTestSuites": 0
+  },
+  "originalRegression": {
+    "passed": 3,
+    "failed": 0,
+    "actualStatus": 400,
+    "expectedStatus": 400,
+    "auditReadsBefore": 5,
+    "auditReadsAfter": 5
+  },
+  "coverage": {
+    "scope": "API src except main.ts; original configuration, global minimum 80%",
+    "metrics": {
+      "statements": {
+        "covered": 600,
+        "total": 603,
+        "pct": 99.5
+      },
+      "branches": {
+        "covered": 167,
+        "total": 180,
+        "pct": 92.77
+      },
+      "functions": {
+        "covered": 103,
+        "total": 104,
+        "pct": 99.03
+      },
+      "lines": {
+        "covered": 497,
+        "total": 497,
+        "pct": 100.0
+      }
+    },
+    "globalGatePassed": true
+  },
+  "redaction": "Derived summary only; raw test names, absolute paths, stack traces and credentials omitted",
+  "provenance": [
+    {
+      "origin": ".reports/audit-date-fix/recheck/api-tests.json",
+      "sha256": "ac7ecd58ae3a60a31457cbefade249fef244de27707307344df08445f3c6b5af"
+    },
+    {
+      "origin": ".reports/audit-date-fix/recheck/api-coverage.json",
+      "sha256": "b124e9ec8495a7ce35e303d2213e20d90e95e9831a3e0a24c61b7d98f5491c37"
+    },
+    {
+      "origin": ".reports/audit-date-fix/recheck/api-run.json",
+      "sha256": "6b4bd727960bbe1b1137cb37f64e26f2b426a98579c8b4cdc555b49fcb170595"
+    },
+    {
+      "origin": ".reports/audit-date-fix/recheck/audit-probe.json",
+      "sha256": "08b3cb4ad6844ba64b7ba54de736015d7b5dfb9316283b52e59e0695077abfdb"
+    },
+    {
+      "origin": ".reports/audit-date-fix/recheck/audit-observation.json",
+      "sha256": "20c628c4cbe56a3888f1b17325fd1b19bad287ae9a0da643555b59d8b5318f5e"
+    },
+    {
+      "origin": ".reports/audit-date-fix/recheck/probe-run.json",
+      "sha256": "e110ee7025aaf6fa41e84dfa3d3cea546f84942d5fee180487757a8842d93571"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-11-16T15:59:54.801216+00:00",
+  "headBefore": "f66bcd7f608aef2f599cd12dfb3ac1c2a4c0043b",
+  "headAfter": "f66bcd7f608aef2f599cd12dfb3ac1c2a4c0043b",
+  "branch": "feature/sit-cama-mvp-entrega-3",
+  "indexUnchanged": true,
+  "sourceFilesCompared": 277,
+  "sourceAndCopyIdentical": true,
+  "publicationReviewIdenticalAndBlocked": true,
+  "originalFiles": {
+    ".github/workflows/sign-image.yml": {
+      "state": "archived",
+      "archive": "docs/legacy-workflows/sign-image.yml.txt",
+      "sha256": "64106aa075b0a1c8b8c890e6159ba4e6bd04d2d29b0792732e171240a1118a6f",
+      "identical": true
+    },
+    ".gitignore": {
+      "state": "updated as authorized",
+      "beforeSha256": "760d836ea45b90c716ed3393413f0fca028752e6a4c5c5f30a2451e81698a8b6",
+      "afterSha256": "447b13e3216cda5396714a4fe5c25e3f317e472b686986030ed7baa84fc72677"
+    },
+    "Dockerfile": {
+      "state": "preserved",
+      "sha256": "dc590f1146aeaf78c68e4abb4bb86a93a0e1bb5bd32aa3a18d48350e413a02e4",
+      "identical": true
+    },
+    "README.md": {
+      "state": "updated as authorized",
+      "beforeSha256": "7473cebb23b9f7e88fe133b631631ad55e8c813308418b280724d7593827c2de",
+      "afterSha256": "0ad04143fd9658eb93b95650aa3d7f15d82656bbf7121db370953c137ba61ead"
+    },
+    "package-lock.json": {
+      "state": "preserved",
+      "sha256": "52a0bcd3022ad0ea9258654091ffdc8a83112a4377680d9f9d1cae2c03af3290",
+      "identical": true
+    },
+    "package.json": {
+      "state": "preserved",
+      "sha256": "e43f0e922e726ee5e8645fb1f8bed93b54868b24d2674c4813424ba802a04708",
+      "identical": true
+    },
+    "src/server.js": {
+      "state": "preserved",
+      "sha256": "79af23536457a0458431830aa66ed682d9a57746b575b3a082ed979b549674f6",
+      "identical": true
+    },
+    "test/basico.test.js": {
+      "state": "preserved",
+      "sha256": "ba3d03a1056b6487eaa3ef8a5d54ac53f6fd68378a3672ceafc2a06179c5e4a2",
+      "identical": true
+    }
+  },
+  "gitWriteCommandsExecuted": false
+}

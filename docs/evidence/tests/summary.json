@@ -1,0 +1,184 @@
+{
+  "collected": "2026-11-15T02:37:40.587Z",
+  "node": "v22.23.5",
+  "platform": "win32",
+  "baseline": {
+    "api": 168,
+    "frontend": 76,
+    "e2e": 35
+  },
+  "expandedPassingRuns": {
+    "api": 203,
+    "frontend": 105,
+    "e2e": 43
+  },
+  "finalAuditProbe": {
+    "passed": 2,
+    "failed": 1
+  },
+  "uniqueFinalCases": {
+    "api": 206,
+    "frontend": 105,
+    "e2e": 43
+  },
+  "newCases": {
+    "api": 38,
+    "frontend": 29,
+    "e2e": 8
+  },
+  "fullFinalApiSuiteRerunAfterDefect": false,
+  "status": "Stopped at reproduced production validation defect; regression left enabled, production unchanged",
+  "coverage": {
+    "before": {
+      "api": {
+        "lines": {
+          "total": 490,
+          "covered": 490,
+          "skipped": 0,
+          "pct": 100
+        },
+        "statements": {
+          "total": 594,
+          "covered": 591,
+          "skipped": 0,
+          "pct": 99.49
+        },
+        "functions": {
+          "total": 104,
+          "covered": 103,
+          "skipped": 0,
+          "pct": 99.03
+        },
+        "branches": {
+          "total": 172,
+          "covered": 159,
+          "skipped": 0,
+          "pct": 92.44
+        },
+        "branchesTrue": {
+          "total": 0,
+          "covered": 0,
+          "skipped": 0,
+          "pct": "Unknown"
+        }
+      },
+      "frontend": {
+        "lines": {
+          "total": 622,
+          "covered": 544,
+          "skipped": 0,
+          "pct": 87.45
+        },
+        "statements": {
+          "total": 806,
+          "covered": 681,
+          "skipped": 0,
+          "pct": 84.49
+        },
+        "functions": {
+          "total": 196,
+          "covered": 160,
+          "skipped": 0,
+          "pct": 81.63
+        },
+        "branches": {
+          "total": 455,
+          "covered": 394,
+          "skipped": 0,
+          "pct": 86.59
+        },
+        "branchesTrue": {
+          "total": 0,
+          "covered": 0,
+          "skipped": 0,
+          "pct": 100
+        }
+      }
+    },
+    "afterExpandedPassingRuns": {
+      "api": {
+        "lines": {
+          "total": 490,
+          "covered": 490,
+          "skipped": 0,
+          "pct": 100
+        },
+        "statements": {
+          "total": 594,
+          "covered": 591,
+          "skipped": 0,
+          "pct": 99.49
+        },
+        "functions": {
+          "total": 104,
+          "covered": 103,
+          "skipped": 0,
+          "pct": 99.03
+        },
+        "branches": {
+          "total": 172,
+          "covered": 159,
+          "skipped": 0,
+          "pct": 92.44
+        },
+        "branchesTrue": {
+          "total": 0,
+          "covered": 0,
+          "skipped": 0,
+          "pct": "Unknown"
+        }
+      },
+      "frontend": {
+        "lines": {
+          "total": 622,
+          "covered": 544,
+          "skipped": 0,
+          "pct": 87.45
+        },
+        "statements": {
+          "total": 806,
+          "covered": 681,
+          "skipped": 0,
+          "pct": 84.49
+        },
+        "functions": {
+          "total": 196,
+          "covered": 160,
+          "skipped": 0,
+          "pct": 81.63
+        },
+        "branches": {
+          "total": 455,
+          "covered": 395,
+          "skipped": 0,
+          "pct": 86.81
+        },
+        "branchesTrue": {
+          "total": 0,
+          "covered": 0,
+          "skipped": 0,
+          "pct": 100
+        }
+      }
+    },
+    "limitation": "API after coverage belongs to the complete 203-case passing run, before adding the final 3-case audit probe. No coverage claimed for a green final API suite."
+  },
+  "defect": {
+    "input": {
+      "from": "2026-01-01T00:00:00.123457Z",
+      "to": "2026-01-01T00:00:00.123456Z"
+    },
+    "expectedStatus": 400,
+    "actualStatus": 200,
+    "response": {
+      "items": [],
+      "nextCursor": null,
+      "limit": 25
+    },
+    "javascriptFromMillis": 1767225600123,
+    "javascriptToMillis": 1767225600123,
+    "auditReadsBefore": 5,
+    "auditReadsAfter": 6,
+    "scope": "Fresh Inc08 schema in disposable PostgreSQL; no production patient/credential data"
+  }
+}

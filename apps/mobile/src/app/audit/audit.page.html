@@ -1,0 +1,128 @@
+<div class="page-container">
+  <app-page-header
+    eyebrow="TRAZABILIDAD / AUDITORÍA"
+    title="Consulta de auditoría"
+    subtitle="Revisa las acciones registradas. Acceso restringido y de solo lectura."
+    ><span class="pill outline">AUDITOR</span></app-page-header
+  >
+  <app-filter-disclosure heading="Filtros de consulta">
+    <form class="audit-filters" [formGroup]="form" (ngSubmit)="apply()">
+      <div class="field">
+        <label for="audit-from">Desde (hora local)</label
+        ><input id="audit-from" type="datetime-local" formControlName="from" />
+      </div>
+      <div class="field">
+        <label for="audit-to">Hasta (hora local)</label
+        ><input id="audit-to" type="datetime-local" formControlName="to" />
+      </div>
+      <div class="field">
+        <label for="audit-actor">Actor · UUID</label
+        ><input
+          id="audit-actor"
+          type="text"
+          formControlName="actorId"
+          placeholder="UUID del usuario"
+          autocomplete="off"
+          maxlength="36"
+          [attr.aria-invalid]="form.controls.actorId.invalid && (form.controls.actorId.dirty || form.controls.actorId.touched)"
+          [attr.aria-describedby]="form.controls.actorId.invalid && (form.controls.actorId.dirty || form.controls.actorId.touched) ? 'audit-actor-error' : null"
+        />
+        @if (form.controls.actorId.invalid && (form.controls.actorId.dirty || form.controls.actorId.touched)) {
+        <small class="field-error" id="audit-actor-error">Ingresa un UUID v4 válido.</small> }
+      </div>
+      <div class="field">
+        <label for="audit-action">Acción</label
+        ><select id="audit-action" formControlName="action">
+          <option value="">Todas las acciones</option>
+          @for (action of actions; track action) {
+          <option [value]="action">{{ action }}</option>
+          }
+        </select>
+      </div>
+      <div class="field">
+        <label for="audit-entity">Entidad</label
+        ><select id="audit-entity" formControlName="entityType">
+          <option value="">Todas las entidades</option>
+          @for (entity of entities; track entity) {
+          <option [value]="entity">{{ entity }}</option>
+          }
+        </select>
+      </div>
+      <div class="audit-filter-actions">
+        <span class="fine-print">Los filtros se aplican al confirmar la consulta.</span>
+        <div class="button-row">
+          <ion-button type="submit" [disabled]="loading()">Aplicar filtros</ion-button
+          ><ion-button fill="outline" (click)="clear()" [disabled]="loading()">Limpiar filtros</ion-button>
+        </div>
+      </div>
+    </form>
+  </app-filter-disclosure>
+  @if (error()) {
+  <div class="notice danger" role="alert">{{ error() }}</div>
+  } @if (loading()) {
+  <div class="loading-state compact" role="status"><ion-spinner name="crescent" /> Consultando eventos…</div>
+  } @if (data(); as result) {
+  <div class="section-line">
+    <div>
+      <span class="eyebrow">BITÁCORA PROTEGIDA</span>
+      <h2>Eventos registrados</h2>
+    </div>
+    <span class="muted">Página {{ history().length }} · ID descendente</span>
+  </div>
+  @if (result.items.length) {
+  <div class="audit-table-wrap">
+    <table class="audit-table" aria-label="Eventos de auditoría">
+      <caption class="sr-only">
+        Fecha, actor, acción y entidad de los eventos registrados. Solo lectura.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Fecha / evento</th>
+          <th scope="col">Acción</th>
+          <th scope="col">Actor · UUID</th>
+          <th scope="col">Entidad</th>
+          <th scope="col">Identificador</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (event of result.items; track event.id) {
+        <tr class="audit-event">
+          <td data-label="Fecha / evento">
+            <time>{{ event.recordedAt | date:'dd/MM/yyyy HH:mm:ss' }}</time
+            ><span class="eyebrow">EVENTO {{ event.id }}</span>
+          </td>
+          <td class="audit-action" data-label="Acción">{{ event.action }}</td>
+          <td data-label="Actor · UUID">
+            <span class="identifier">{{ event.actorId ?? 'Sistema / sin actor' }}</span>
+          </td>
+          <td data-label="Entidad"><span class="entity-tag">{{ event.entityType }}</span></td>
+          <td data-label="Identificador"><span class="identifier">{{ event.entityId }}</span></td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  } @else {
+  <section class="panel empty-state">
+    <span class="empty-symbol" aria-hidden="true">⌕</span>
+    <h3>Sin eventos para estos filtros</h3>
+    <p>Prueba otro intervalo o acción.</p>
+  </section>
+  }
+  <div class="pagination-bar">
+    <span>{{ result.items.length }} eventos en esta consulta</span>
+    <div class="button-row">
+      <ion-button fill="outline" (click)="previous()" [disabled]="loading() || history().length === 1"
+        >Anterior</ion-button
+      ><ion-button fill="outline" (click)="next()" [disabled]="loading() || !result.nextCursor">Siguiente</ion-button>
+    </div>
+  </div>
+  }
+  <div class="privacy-note audit-privacy">
+    <span class="privacy-symbol" aria-hidden="true">⊘</span>
+    <p>
+      Se omiten identidad de pacientes, IP y estados JSON. REDACTED indica valores fuera del catálogo seguro. Cada
+      consulta queda registrada. Vuelve a aplicar filtros para consultar eventos nuevos.
+    </p>
+  </div>
+</div>

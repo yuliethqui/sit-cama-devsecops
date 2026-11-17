@@ -1,0 +1,1393 @@
+{
+  "origin": "SIT-CAMA-incremento-01",
+  "preparedAt": "2026-11-16T15:50:30.643047+00:00",
+  "files": [
+    {
+      "path": ".ci/cross-runtime.cjs",
+      "bytes": 1292,
+      "sha256": "e13e441e6c4a42682ee4206b4478de5db303514dc8edbc81ee42bb668dc9b1f1"
+    },
+    {
+      "path": ".ci/dast-seed.cjs",
+      "bytes": 798,
+      "sha256": "3e8c763a13cd55c26bbad497d1a024469ad93aa9c16f66ef89f8cc8a4055e98d"
+    },
+    {
+      "path": ".ci/dast.cjs",
+      "bytes": 10186,
+      "sha256": "d02a85ce9e425d80b06c6fb95518e6cec10ccc8d3557ca9714d7ce8c0ad207f4"
+    },
+    {
+      "path": ".ci/docker/Dockerfile.bookworm",
+      "bytes": 982,
+      "sha256": "a20467cdd1e1703a8ae9e077462de60b17e3f51f120f84201d6eeaa847f798f7"
+    },
+    {
+      "path": ".ci/docker/Dockerfile.distroless",
+      "bytes": 1480,
+      "sha256": "5bfb1274dc589b08d052c40891a1d9b1e8feb411469a923290cfc1a9c5cc01b9"
+    },
+    {
+      "path": ".ci/docker/Dockerfile.trixie",
+      "bytes": 978,
+      "sha256": "46e9cfee46098f53214875a4cb8b3101e5845d43e3491caa5b30121ed744bacf"
+    },
+    {
+      "path": ".ci/lib.cjs",
+      "bytes": 1991,
+      "sha256": "a6c02fc7d63c611aadf96fef52c00d53d29eb6fad6dece815358d0f86a3bb431"
+    },
+    {
+      "path": ".ci/policy.test.cjs",
+      "bytes": 2041,
+      "sha256": "ea137591402ada745a2de5708fde27199962ed234c00bac52fdec70186347e13"
+    },
+    {
+      "path": ".ci/positive-controls.cjs",
+      "bytes": 3532,
+      "sha256": "5dfd679a6798ae3f505b9acf916db48dd931705b1f03702fcd3c5332cada7cd0"
+    },
+    {
+      "path": ".ci/precommit.cjs",
+      "bytes": 832,
+      "sha256": "dab46ffe359ac987b71ee35fb6f92d6dde95d9fa4d98191318ddfcfc9a5dfddd"
+    },
+    {
+      "path": ".ci/publication-review.json",
+      "bytes": 956,
+      "sha256": "40a0e9871c2e040a63f35738785e0e6717b653f842d19c2ea15f18f1ce826265"
+    },
+    {
+      "path": ".ci/publish.cjs",
+      "bytes": 2863,
+      "sha256": "68f6f2b7dfb3267a1d7c4415815e8c73b7f5e2d746e0c98641caf585222b151b"
+    },
+    {
+      "path": ".ci/release-policy.cjs",
+      "bytes": 486,
+      "sha256": "d8a66f69769fdd2258b653e938cebeb9df2bd447f061999c15b24037888bb2af"
+    },
+    {
+      "path": ".ci/remediation-report.cjs",
+      "bytes": 13655,
+      "sha256": "24f01078cdccbdaf5b6709d4d34373b38a1074b2488ceeb98243387f87a9ef1f"
+    },
+    {
+      "path": ".ci/report.cjs",
+      "bytes": 5308,
+      "sha256": "147978813a5f710f1a5274fcf288d577b8a9dbcfd207fe3f70f1b321e3b0f536"
+    },
+    {
+      "path": ".ci/rules/README.md",
+      "bytes": 955,
+      "sha256": "1064c763e3950d931af5ffd206da148b6735d5a340c6e1cf3e870d809fb7fdd3"
+    },
+    {
+      "path": ".ci/rules/owasp-javascript.json",
+      "bytes": 330217,
+      "sha256": "f1e0d7bc7839aa5fd11d9c24d4009cf6ea042f6400dce8d5c0e0adbe8d61e8fd"
+    },
+    {
+      "path": ".ci/rules/sitcama.yml",
+      "bytes": 910,
+      "sha256": "0e91485c370d2a6fa388916a5b180fce97154dd2936ec5753d28422b5df7a268"
+    },
+    {
+      "path": ".ci/run-tests.cjs",
+      "bytes": 3228,
+      "sha256": "5fe23e5eb55610b4a3840e14a52c4fb28421a77d9fcfa1d20f632c1e0db0d435"
+    },
+    {
+      "path": ".ci/runtime-audit.cjs",
+      "bytes": 4822,
+      "sha256": "594af2268f6a3bf7029eb7538c270f6eccafea6986bde820badc5c4c0382fcd9"
+    },
+    {
+      "path": ".ci/runtime-hash-fixture.cjs",
+      "bytes": 1781,
+      "sha256": "a97548791b11ff2576b40e7f3e5a1429ccc1dc3c4ae13716d8e0935eb5afa270"
+    },
+    {
+      "path": ".ci/security.cjs",
+      "bytes": 8194,
+      "sha256": "0ab3d6279a9e45b331b863f9d282b5c26cfa30ccbe315715ae401cbbe4bfb26a"
+    },
+    {
+      "path": ".ci/test-08.cjs",
+      "bytes": 2744,
+      "sha256": "046b68aacb1a35c62e5e5a4e61eac139bc7483da8761d78abf8f71f4c237eb51"
+    },
+    {
+      "path": ".ci/tests-evidence.cjs",
+      "bytes": 4742,
+      "sha256": "6a74eb9c792cfee135c2b7b647db2512c770cf1477900d3ef6ef3c0ff5b46d63"
+    },
+    {
+      "path": ".ci/tools.lock.json",
+      "bytes": 984,
+      "sha256": "150032b4f315ad48b13b02216606316998d3282f62146a0ce293e17c6034b454"
+    },
+    {
+      "path": ".ci/verify-base.cjs",
+      "bytes": 842,
+      "sha256": "78106884dfe586db314ac9a94cc22a4fa187fecff6df0f6572670d3c4bd723d4"
+    },
+    {
+      "path": ".ci/verify-runtime.cjs",
+      "bytes": 9067,
+      "sha256": "efdc4366592029f4795c5248b7e5aa230e51cc43b254a477f1b3d670d79deebe"
+    },
+    {
+      "path": ".env.example",
+      "bytes": 382,
+      "sha256": "5da53d70e089a4e5a07277403981dfc88c79368ee167935fa7394fec7c76e223"
+    },
+    {
+      "path": ".githooks/pre-commit",
+      "bytes": 84,
+      "sha256": "f31059eecfbf0217206e54aea0f80f5def0dfd4b8e40e2152f3aa3ec2b25fe5c"
+    },
+    {
+      "path": ".github/workflows/mvp-ci.yml",
+      "bytes": 5449,
+      "sha256": "a09470df964c502729f7fe4572cfa3441cc002ea97b02bf5fdf96d458075836d"
+    },
+    {
+      "path": ".gitleaks.toml",
+      "bytes": 320,
+      "sha256": "1bcdeebc5170c5d4ea8f1b2f43558b2d66f772899e5bf963eba1262c14600291"
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "bytes": 251,
+      "sha256": "44cc9c94ee4d6257db03616e811f887f88d590fffb2ac396eaf87edc4352294d"
+    },
+    {
+      "path": "MANIFEST.md",
+      "bytes": 1951,
+      "sha256": "5513aa989cc0b83e40d6c9aa27bc6d0fb5de4ef14e00c6a5d8a64e0b157fb95a"
+    },
+    {
+      "path": "README-MVP.md",
+      "bytes": 8171,
+      "sha256": "9d66bd5d6d37bb7d91e64bd3578ff00ccbe66f75ccaa815f4e064f078b5817ec"
+    },
+    {
+      "path": "apps/api/.dockerignore",
+      "bytes": 50,
+      "sha256": "b92e6a9071a1d9e0f5acead52d1fc9b712cc39b277a8fd93b225e2837ac9040f"
+    },
+    {
+      "path": "apps/api/Dockerfile",
+      "bytes": 1480,
+      "sha256": "5bfb1274dc589b08d052c40891a1d9b1e8feb411469a923290cfc1a9c5cc01b9"
+    },
+    {
+      "path": "apps/api/db/001_initial.sql",
+      "bytes": 3429,
+      "sha256": "1fb08adbdfe4586338a751c0d51fb56d5d6e5439d4b93a97816f2248fa968b58"
+    },
+    {
+      "path": "apps/api/jest.config.cjs",
+      "bytes": 298,
+      "sha256": "fa381497e8b907d7c62b00d1b2bc160088110483555bb4fb6d120d1ee9ee8362"
+    },
+    {
+      "path": "apps/api/nest-cli.json",
+      "bytes": 145,
+      "sha256": "5ae6b560be6ab30a2a468a756dd2a4b24da5cc918537f1eeba06703e6a59cdf5"
+    },
+    {
+      "path": "apps/api/package-lock.json",
+      "bytes": 310694,
+      "sha256": "f41ac6e527b4ca1b534f7bf9d2cfd604dfeba5abca2a27e9dc8e6e6b523b0b76"
+    },
+    {
+      "path": "apps/api/package.json",
+      "bytes": 1114,
+      "sha256": "ad13b0a8eca98ad8b9ed5693c0171ab5acee9ff8b9e50804c0008bf5061f2ac2"
+    },
+    {
+      "path": "apps/api/scripts/seed-user.ts",
+      "bytes": 927,
+      "sha256": "e491fca5e22a96fedf54f2b15d7200b0236957af14435e5128f60d45c9ef20b7"
+    },
+    {
+      "path": "apps/api/src/app.module.ts",
+      "bytes": 871,
+      "sha256": "0d32e3a443345ba8a24250dce6b1b8c712640bf305fe15f6d9ca5cba9e3e1237"
+    },
+    {
+      "path": "apps/api/src/audit/audit-date-validation.spec.ts",
+      "bytes": 6793,
+      "sha256": "781fa08b40f535b8688e0940b56dda89e79b79b6db303057af3e6ae87e86deff"
+    },
+    {
+      "path": "apps/api/src/audit/audit.dto.ts",
+      "bytes": 847,
+      "sha256": "a45237ccf3eb8a71adae5c059dc4058cdef14c20d0f598cbe82e6737dd11f323"
+    },
+    {
+      "path": "apps/api/src/audit/audit.module.ts",
+      "bytes": 950,
+      "sha256": "e36188ec6a852fbaadcb8bc7375db0d4e99d60d782cf07ee6ffea1c21121d645"
+    },
+    {
+      "path": "apps/api/src/audit/audit.service.spec.ts",
+      "bytes": 1566,
+      "sha256": "86a298e52d1d8a63e0b15c3729f2bb6479325525732ac2da761a329ca379bd51"
+    },
+    {
+      "path": "apps/api/src/audit/audit.service.ts",
+      "bytes": 3595,
+      "sha256": "db09f0efab068fe5b1031aba25dad057d4892ff0448ae363ef28c0eb187dd142"
+    },
+    {
+      "path": "apps/api/src/auth/auth.controller.ts",
+      "bytes": 384,
+      "sha256": "a4d0562e356b37a092e8543c2fc1102d0595f735162a2c1dcab95fbb1614e687"
+    },
+    {
+      "path": "apps/api/src/auth/auth.module.ts",
+      "bytes": 897,
+      "sha256": "8019b3df29ce8a5c5611589ad821bdc299c9a00c728c85b4b17c156b45565c22"
+    },
+    {
+      "path": "apps/api/src/auth/auth.service.ts",
+      "bytes": 1117,
+      "sha256": "af0c4ccef9fc2715054c34c38c6113ce5eb336a30d00f4fe9a747a16aee8d53a"
+    },
+    {
+      "path": "apps/api/src/auth/guards.spec.ts",
+      "bytes": 1546,
+      "sha256": "934014a6bd93564f89b1dc5e442ba7187ff54bb63dde3c4b5717e6c7b7e30b99"
+    },
+    {
+      "path": "apps/api/src/auth/jwt-auth.guard.ts",
+      "bytes": 1147,
+      "sha256": "71d92bb91cbd9e27491aa71289a72e3f4a475c33a9a479b1a9bdb55fe5816565"
+    },
+    {
+      "path": "apps/api/src/auth/login.dto.ts",
+      "bytes": 166,
+      "sha256": "21c8d0344e1baa10772aa0f7befa0101f4e0c3cca11bcbe2eb14b466ff26b5ab"
+    },
+    {
+      "path": "apps/api/src/auth/roles.decorator.ts",
+      "bytes": 219,
+      "sha256": "324844112078a4d8c6034a2bf75b4e5a9a6ae7d373cf3f28bc432879187c8754"
+    },
+    {
+      "path": "apps/api/src/auth/roles.guard.ts",
+      "bytes": 772,
+      "sha256": "7e47ed0c7e98a82a759d5e7f43b7b3616b4b3408efb4764c07ad3d6eae229681"
+    },
+    {
+      "path": "apps/api/src/beds/beds.controller.ts",
+      "bytes": 1824,
+      "sha256": "e2ba81039d73069571c77b9d8078e8a5c49cebba73bf0bcf870e5d5808a4b796"
+    },
+    {
+      "path": "apps/api/src/beds/beds.dto.ts",
+      "bytes": 511,
+      "sha256": "4eecc4f5a975794595f150b1e94c98a8ac10c7856fa159d36b55354cc2aadf30"
+    },
+    {
+      "path": "apps/api/src/beds/beds.module.ts",
+      "bytes": 308,
+      "sha256": "d809a66af5e0c5c88b4d6c939e973f76ce2ed779c195ed27b4c6bb97dcf25318"
+    },
+    {
+      "path": "apps/api/src/beds/beds.service.spec.ts",
+      "bytes": 1397,
+      "sha256": "edd936bcdd7971120fa78bb6dd09ce4ed6699d8972ac26dbb1d17a0923c069d2"
+    },
+    {
+      "path": "apps/api/src/beds/beds.service.ts",
+      "bytes": 7689,
+      "sha256": "4f59034ef6c58a03754cf53e4c3b79dcbf9cc25ed48d9b8fdecb0ac4680a4630"
+    },
+    {
+      "path": "apps/api/src/configure-app.spec.ts",
+      "bytes": 1102,
+      "sha256": "0669c34b3555342ff8967a21a9965077e5749db756d0f887f9a1ab9efa477b73"
+    },
+    {
+      "path": "apps/api/src/configure-app.ts",
+      "bytes": 1679,
+      "sha256": "391e94d790cf5a96eae1d107999efec1cb0a8a3d216644bff9606b80d15f2f7e"
+    },
+    {
+      "path": "apps/api/src/db/database.module.ts",
+      "bytes": 215,
+      "sha256": "a48b2ff831b43f87055be08acb9d6805104c5bff1a8f87ba0b7d613bbe92a9c2"
+    },
+    {
+      "path": "apps/api/src/db/database.service.spec.ts",
+      "bytes": 1726,
+      "sha256": "42a3a1a242056330beb51d5314f1b9e63d750f5b9e1c5332000a171600644cae"
+    },
+    {
+      "path": "apps/api/src/db/database.service.ts",
+      "bytes": 1132,
+      "sha256": "04b8492eecf64eec3fb63148615214b27757c08a41f342cc849f8696fea22d8a"
+    },
+    {
+      "path": "apps/api/src/main.ts",
+      "bytes": 526,
+      "sha256": "b3cfe4ebcfbb884ca9e8be708417b59bf6d387ef3973f1825c31dfd2046af59d"
+    },
+    {
+      "path": "apps/api/src/panel/panel.dto.ts",
+      "bytes": 242,
+      "sha256": "60956f5ad8433030813d658253f34dd1d3caad1f05e9f614b0452674c3f35f38"
+    },
+    {
+      "path": "apps/api/src/panel/panel.module.ts",
+      "bytes": 949,
+      "sha256": "6adea1bdc2c8b873a2960739ddea49b2a5191c6f39f1cf1c4cb8f978a1a8d64d"
+    },
+    {
+      "path": "apps/api/src/panel/panel.service.ts",
+      "bytes": 2253,
+      "sha256": "3afb5f34d1c9510fb4e1bc4f9e3b7f63a03bf4e7156f3ea92271fc63c5be1831"
+    },
+    {
+      "path": "apps/api/src/patients/patient-data.filter.spec.ts",
+      "bytes": 1202,
+      "sha256": "a003f50816902ff78837bf400c291628e051dc156c8da5e6e4a9b00a81e79bf0"
+    },
+    {
+      "path": "apps/api/src/patients/patient-data.filter.ts",
+      "bytes": 1004,
+      "sha256": "0ebde931d50c7de062771ce7d7f3a23885227f9effe7501bfb5bf84caddb918b"
+    },
+    {
+      "path": "apps/api/src/patients/patient-data.service.spec.ts",
+      "bytes": 2682,
+      "sha256": "81af60f58ced32e9230955d92defb76c1c9008546d6e15fb2bc3d9d38a2c8f7e"
+    },
+    {
+      "path": "apps/api/src/patients/patient-data.service.ts",
+      "bytes": 2388,
+      "sha256": "d79e7795a087ba56693b1ef73ba65e142a3f5814afd462d0f4121ffb9022791c"
+    },
+    {
+      "path": "apps/api/src/patients/patients.controller.ts",
+      "bytes": 1811,
+      "sha256": "ca232697a8c4a931ecec8b982bfae8178f8759b0f6956e0b18b4efd636c3faa5"
+    },
+    {
+      "path": "apps/api/src/patients/patients.dto.ts",
+      "bytes": 870,
+      "sha256": "570529c1e4ce2020cd34baf1a50b185233eb013cc5099ecfc2e57b3d11630a71"
+    },
+    {
+      "path": "apps/api/src/patients/patients.module.ts",
+      "bytes": 499,
+      "sha256": "8b37162082f551a7a5991c2efe04208538f3ae26f44004bd42cab61cb41a0987"
+    },
+    {
+      "path": "apps/api/src/patients/patients.service.spec.ts",
+      "bytes": 5195,
+      "sha256": "e649420a16287a18d26149e1dae196b43d7f4299d971a243f58a4113410261c6"
+    },
+    {
+      "path": "apps/api/src/patients/patients.service.ts",
+      "bytes": 7699,
+      "sha256": "889488e30cf0556f3a28cb91a7c2bc709718d0bc4b29de366e4e0f377df1ae0d"
+    },
+    {
+      "path": "apps/api/src/realtime/access.service.ts",
+      "bytes": 1340,
+      "sha256": "4d315fac3b5c86979f283132f46b319843fb48bfa4846b77e2f499c42d770d9b"
+    },
+    {
+      "path": "apps/api/src/realtime/realtime.gateway.ts",
+      "bytes": 2888,
+      "sha256": "1d9eff63064cc37a502ce2c7bcee210858fb349977b2ceef5c85b1cdcf9cc715"
+    },
+    {
+      "path": "apps/api/src/realtime/realtime.module.ts",
+      "bytes": 350,
+      "sha256": "9ca8e7e8dc151960965c35e012faf040d372a25f9afd03a80be0fa624f9c1039"
+    },
+    {
+      "path": "apps/api/src/realtime/realtime.spec.ts",
+      "bytes": 1904,
+      "sha256": "45a048cd54f6b6e7454b2f6bbc34050aaec618bdaa390cc1310c91c8b98d5b35"
+    },
+    {
+      "path": "apps/api/src/triage/triage.controller.ts",
+      "bytes": 535,
+      "sha256": "27b307c0b41b6cef8d5f888235b20c6aafea11e1f3484a9bd280e3ae32522892"
+    },
+    {
+      "path": "apps/api/src/triage/triage.dto.ts",
+      "bytes": 307,
+      "sha256": "62f7e99ced08fd8f0e43df105f854c62e05b661071de95edd2dd45ba9b8644eb"
+    },
+    {
+      "path": "apps/api/src/triage/triage.engine.spec.ts",
+      "bytes": 1569,
+      "sha256": "53835930ddcb492557650555f9b2ce8879949b0e9522e47a793009a337df787e"
+    },
+    {
+      "path": "apps/api/src/triage/triage.engine.ts",
+      "bytes": 1164,
+      "sha256": "f8399969dfef35fd9534fbe666d5968ac67beb725053ba48d7d149c71e9c03ca"
+    },
+    {
+      "path": "apps/api/src/triage/triage.module.ts",
+      "bytes": 244,
+      "sha256": "33a2c240e5e28df0a60fc45d0c7182b62f82e989f7330b453d41b32f2c9e3c2b"
+    },
+    {
+      "path": "apps/api/test/audit-date-validation.integration.spec.ts",
+      "bytes": 3437,
+      "sha256": "d00a420cfeb1571095e24a0be01607a1d0485cb92ea953cadc43f81435f267cc"
+    },
+    {
+      "path": "apps/api/test/audit-precision.regression.spec.ts",
+      "bytes": 3702,
+      "sha256": "4afce0dfc97728b16f0523fe2e7bb9e98a465acd88f5ad39ad453d8b9475e6b2"
+    },
+    {
+      "path": "apps/api/test/beds.integration.spec.ts",
+      "bytes": 18921,
+      "sha256": "8c0c4935b8af9185858d1e5230884a7f777ea833a369a389fc10a5bfcbc23192"
+    },
+    {
+      "path": "apps/api/test/inc08-harness.ts",
+      "bytes": 4212,
+      "sha256": "2c5e2c24adc06f48ea4af708f50bd02568df2447cec74a5a788588d2160598a3"
+    },
+    {
+      "path": "apps/api/test/input-security.integration.spec.ts",
+      "bytes": 8507,
+      "sha256": "4786d76afc013d4256b577c947b78e9754b827ce888ac59872dbec075432e9fc"
+    },
+    {
+      "path": "apps/api/test/panel-audit.integration.spec.ts",
+      "bytes": 20825,
+      "sha256": "d1f906fdef691599953a1ad71afeeeaaa8e37f31946fab26addb39a8f2963923"
+    },
+    {
+      "path": "apps/api/test/patients.integration.spec.ts",
+      "bytes": 20865,
+      "sha256": "b1bd9088f3a90423176a2ebe0b94875c85c25b9b7481842a06653e40fdf949c9"
+    },
+    {
+      "path": "apps/api/test/triage-boundaries.spec.ts",
+      "bytes": 1288,
+      "sha256": "93e858ce32f2e651d5bc1f32105b9da1fb1eb11e03a85af539415d6564031063"
+    },
+    {
+      "path": "apps/api/tsconfig.build.json",
+      "bytes": 96,
+      "sha256": "a3d40c1eb500b1faeb387de6bdcc1adb6ae408a41b03714d792b5e8345378b8c"
+    },
+    {
+      "path": "apps/api/tsconfig.json",
+      "bytes": 485,
+      "sha256": "913effe911e8d46312a667bf9bca574a03d430b46dd76b1649befe77539a5d9d"
+    },
+    {
+      "path": "apps/mobile/.browserslistrc",
+      "bytes": 515,
+      "sha256": "ca26ea89644689572b4862c79d28b949e02a69b89c4a9b9d4627ee04b8208d1b"
+    },
+    {
+      "path": "apps/mobile/.editorconfig",
+      "bytes": 274,
+      "sha256": "08fe692cae5731d5ff601317e427ce338b9879472552ad1c9e41e8146a99d9d8"
+    },
+    {
+      "path": "apps/mobile/.gitignore",
+      "bytes": 887,
+      "sha256": "ecf2e02cef2e0a7705628d517f9b6961348bd40c035905e77004b892e857b25e"
+    },
+    {
+      "path": "apps/mobile/.nvmrc",
+      "bytes": 8,
+      "sha256": "b2afc67902c3f2fda89443fd46f58866d10ae3313e6b23257ecf6d4b322cfc90"
+    },
+    {
+      "path": "apps/mobile/.prettierignore",
+      "bytes": 195,
+      "sha256": "20193aa728b131bcfb39d251738d52958a6ad1d3f43db3e0257259f780d4aab9"
+    },
+    {
+      "path": "apps/mobile/README.md",
+      "bytes": 1711,
+      "sha256": "ff2339a86699d678a61f56f458d0a27ef8e90babac4d66ca5fae0a869e6cc623"
+    },
+    {
+      "path": "apps/mobile/android-debug.cmd",
+      "bytes": 539,
+      "sha256": "88689482c6467e88d716d26aa26f3a5330913e8da74eb6420f5b061bd834a503"
+    },
+    {
+      "path": "apps/mobile/android/.gitignore",
+      "bytes": 1824,
+      "sha256": "065e4a92a240fe11a0ea230491ad9dabef143f5fd5a3e6884ad6f0395666a971"
+    },
+    {
+      "path": "apps/mobile/android/app/.gitignore",
+      "bytes": 26,
+      "sha256": "99c54e51ee601a60fbde8016b2cbf717483bc2e92773be86c9247d02a7fa6ea4"
+    },
+    {
+      "path": "apps/mobile/android/app/build.gradle",
+      "bytes": 2247,
+      "sha256": "5074eaaa4355399cb7ce3b45973507a09c16ce7f285089ca22e559f444e35a98"
+    },
+    {
+      "path": "apps/mobile/android/app/capacitor.build.gradle",
+      "bytes": 565,
+      "sha256": "3bb1f25d0c92c3109eb87e3129d8fbdae4b98a75df022a046e82ac5e81862e3f"
+    },
+    {
+      "path": "apps/mobile/android/app/proguard-rules.pro",
+      "bytes": 751,
+      "sha256": "1cf8c57e8f79c250b0af9c1a5a4edad71a5c348a79ab70243b6bae086c150ad2"
+    },
+    {
+      "path": "apps/mobile/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java",
+      "bytes": 769,
+      "sha256": "3f977364891da7cbe1ef77badfc5da671b5d0c0e4877ba325d16e5bbdc5d107d"
+    },
+    {
+      "path": "apps/mobile/android/app/src/androidTest/java/edu/sitcama/mvp/NetworkPolicyTest.java",
+      "bytes": 1066,
+      "sha256": "283884227f76c8ffd9182ac7933e1f1e84cb60e02f62c12ada8c10c682fd3319"
+    },
+    {
+      "path": "apps/mobile/android/app/src/debug/java/edu/sitcama/mvp/SitcamaRealtimePlugin.java",
+      "bytes": 3039,
+      "sha256": "04374cd7b0208aa3e1b9ea560b0d87e8a05558a2d6b59037c6b4caba4ed9d99b"
+    },
+    {
+      "path": "apps/mobile/android/app/src/debug/res/xml/network_security_config.xml",
+      "bytes": 597,
+      "sha256": "86873046d9401e6c9a4837709ddeada3fc6b116641c9963fe2c6fb3c8640720a"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/AndroidManifest.xml",
+      "bytes": 1651,
+      "sha256": "09d41074d0ba4aba17f9952bd658fa121676805cb9a26aa0e2a4c0e9673351a6"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/java/edu/sitcama/mvp/MainActivity.java",
+      "bytes": 369,
+      "sha256": "e42ade2561845ab533e3aa90fc94953e49e6969fc04fc6e1ca44391310f68830"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/java/edu/sitcama/mvp/SitcamaRuntimePlugin.java",
+      "bytes": 609,
+      "sha256": "471567c9d25dc25b9e385572cbcf6d06ee6fb14fd5d76e7248c9f429829f5510"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-hdpi/splash.png",
+      "bytes": 7705,
+      "sha256": "08cc34ad7713fe7ed58bceaa37b2387b670c53cd60264b4bd6442db3098e75dc"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-mdpi/splash.png",
+      "bytes": 4040,
+      "sha256": "5cf98b4451bd99b20df26f9e608a46946118be6b0ae90762f9ca1786a30c76ff"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-xhdpi/splash.png",
+      "bytes": 9251,
+      "sha256": "22f87e1e3bc89aa01a7dbc39c9a4db058cd0bf4ad3fe9f55712bf69eb997f4bf"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-xxhdpi/splash.png",
+      "bytes": 13984,
+      "sha256": "42aa26392546fcdee1b8d3ac6d4b41bfcceb41dc6a4f3a3c30c24a8a8f4db862"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-land-xxxhdpi/splash.png",
+      "bytes": 17683,
+      "sha256": "60393ce8636fd263e4e1fea3fd4ab2de948c6295e898fda9b50ac4e5283be809"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-hdpi/splash.png",
+      "bytes": 7934,
+      "sha256": "c5015f4ba3628392b538386c5e210f0b94f352a3160adab934fd0311972137ca"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-mdpi/splash.png",
+      "bytes": 4096,
+      "sha256": "07fa579e1c83e04ba7f9cbcbfcf41b68e15fe3638f2c44a04e58b809103e6b69"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-xhdpi/splash.png",
+      "bytes": 9875,
+      "sha256": "b73049cb37fe76d6c11b87a796766bf6af0c85483b31eb6a921657b0d764a4b9"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-xxhdpi/splash.png",
+      "bytes": 13346,
+      "sha256": "0c7f1212f25b7b90e9a6e1d320013e4ff3d3e03e634cbb07b7b7981cac51627f"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-port-xxxhdpi/splash.png",
+      "bytes": 17489,
+      "sha256": "3db071a03b2f8ffe0dfd4170fc59842d53cd15bba5e88af59401d58efabf7827"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml",
+      "bytes": 1880,
+      "sha256": "a8514094f754b099d3e55ce1d6e0b2de79db418b2eeacb0fc2a6bb0bfadef221"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable/ic_launcher_background.xml",
+      "bytes": 5606,
+      "sha256": "718ba51adf166bb55c3e9936bb8199a0148457f7f0191aaa2f37a94f3159d6ec"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/drawable/splash.png",
+      "bytes": 4040,
+      "sha256": "5cf98b4451bd99b20df26f9e608a46946118be6b0ae90762f9ca1786a30c76ff"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/layout/activity_main.xml",
+      "bytes": 535,
+      "sha256": "5d770feb791313b947020cbfc57e5c733c556dac5e9e49261a1190e527073253"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "bytes": 265,
+      "sha256": "9c3a7e0a6515c6e1a7ae834a9ae430311ebc3241f7b2e5e7f0460aa690709a7c"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "bytes": 265,
+      "sha256": "9c3a7e0a6515c6e1a7ae834a9ae430311ebc3241f7b2e5e7f0460aa690709a7c"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "bytes": 2786,
+      "sha256": "72b71c3581ca3b5a23b1c168d69b9d855b3f184fa079902a01f088eb4f0607d5"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+      "bytes": 3450,
+      "sha256": "32baa10d2632a4417454a579f992bd640e0a3cec79321423559b2c9940de58a9"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png",
+      "bytes": 4341,
+      "sha256": "bfcc1b0fa931b14bb241372c76ab4f04374b67d02363c98d9cb12edfdacdf5f3"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "bytes": 1869,
+      "sha256": "27ed3603010ebc278f64f8645741ab132ff517abb5308eb9df6c8e42a48956b2"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+      "bytes": 2110,
+      "sha256": "58e78a618778926b1f6d9472a6468de878de8530970934e94aab5ba4ba08cc00"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png",
+      "bytes": 2725,
+      "sha256": "0166fc333074c373fbd0ce6b5defd71552166165ac778121ca9c9dff6b83f0fc"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "bytes": 3981,
+      "sha256": "d35dbfff175b83c13ef59cf924abfc810f7b6a158595d7417c5498ea8c7c7ed1"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+      "bytes": 5036,
+      "sha256": "6f88083b8166cc559102f7044688de7525287632ebe09ac45d001ac8bf4b3eae"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png",
+      "bytes": 6593,
+      "sha256": "40911a00922868686854a4804b93fd6e56b503664696de03f450bff690affb6d"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "bytes": 6644,
+      "sha256": "ed346eb1e3f0280f15709393705899b3ff55c20b88f4e0308006b3c33cf5fe14"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+      "bytes": 9793,
+      "sha256": "4a82bc1e9923576275869998925ce0ae021a79aa18b24a0dd87ad6b61ca85053"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png",
+      "bytes": 10455,
+      "sha256": "1ee4cd9ff371dcb2e3938097e434f6fb8731688ed7165e61fc63693ad5b2f455"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "bytes": 9441,
+      "sha256": "87cb2f2ffe992652bb4fa768c73719a37b5852ab17fbf8e170e888f7a42b0761"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+      "bytes": 15529,
+      "sha256": "bd24fd383253bf8d43f0a81f11c071d76d1d555114376dd647cd9fb38fa0a9da"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png",
+      "bytes": 15916,
+      "sha256": "ab93096331e7cd8ec379f73f1e9adcaaa9ee1115c9f4ff10411a811fb9700174"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/values/ic_launcher_background.xml",
+      "bytes": 120,
+      "sha256": "cd40bafe618ff506f4088778b135cb4faa15f25e0c9b475e22d730c74b7be115"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/values/strings.xml",
+      "bytes": 286,
+      "sha256": "569e855f7f49d40f56414d77519a599491242aff209345cd48ce02a615bc8bfc"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/values/styles.xml",
+      "bytes": 823,
+      "sha256": "18ebba36575e9461347ee67361b23caf095f158ee85dbefe1b83a4669ba5bd6c"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/xml/file_paths.xml",
+      "bytes": 213,
+      "sha256": "a46ed43ef65c90cb6778f4581decf3556e3f0055aad8f36d69dae16f9a0e99aa"
+    },
+    {
+      "path": "apps/mobile/android/app/src/main/res/xml/network_security_config.xml",
+      "bytes": 463,
+      "sha256": "2824cef6ee6b012d07af2ee2596e8fb796187dcc8b30a08f42a22c27b79e19f4"
+    },
+    {
+      "path": "apps/mobile/android/app/src/release/java/edu/sitcama/mvp/SitcamaRealtimePlugin.java",
+      "bytes": 553,
+      "sha256": "446f354ca6804622f2c66daf9eae70b0ea6181e54ab635f5dcc513af152455f1"
+    },
+    {
+      "path": "apps/mobile/android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java",
+      "bytes": 402,
+      "sha256": "d4045ae8fac1f0807e6b24eb34e68409a9a235df9d1a3f896fb8c9a49424363d"
+    },
+    {
+      "path": "apps/mobile/android/build.gradle",
+      "bytes": 637,
+      "sha256": "46ade7db7afeb8049ccea59fce83095dca736ceb8c9acd79cc944e988c3357d9"
+    },
+    {
+      "path": "apps/mobile/android/capacitor.settings.gradle",
+      "bytes": 719,
+      "sha256": "be0115fc6a59229f65747cf2ac5a715f2988b65b07148597d0535307c2f9437e"
+    },
+    {
+      "path": "apps/mobile/android/gradle.properties",
+      "bytes": 987,
+      "sha256": "3bab15c5b8bc4c2f4b6cf525497d15ad4abca53a460e6dd2eb0f0135817d31e6"
+    },
+    {
+      "path": "apps/mobile/android/gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 43764,
+      "sha256": "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172"
+    },
+    {
+      "path": "apps/mobile/android/gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 253,
+      "sha256": "9a479a85aa879bb55284fc16d0de5b81a745c3854f4e2d88c42e7debaf007435"
+    },
+    {
+      "path": "apps/mobile/android/gradlew",
+      "bytes": 8733,
+      "sha256": "b187b4c52e749f5760afdd6fadc31b2a98ad35fb249bf0dff03b72650f320409"
+    },
+    {
+      "path": "apps/mobile/android/gradlew.bat",
+      "bytes": 2937,
+      "sha256": "1d297e00bd21de3ace22b4d7f2de1f9dfa858883d66bbf7c1ccbecccec8f4f3b"
+    },
+    {
+      "path": "apps/mobile/android/settings.gradle",
+      "bytes": 208,
+      "sha256": "6ce098d15ebd69b44c4ecd786bca1bdc366340d2459b2af4d7bb0ab317aa9669"
+    },
+    {
+      "path": "apps/mobile/android/variables.gradle",
+      "bytes": 498,
+      "sha256": "83d502c9ed8fcf1dd4791482067abeedbebae49fafe9cd14a8a1f5891deb0d88"
+    },
+    {
+      "path": "apps/mobile/angular.json",
+      "bytes": 4934,
+      "sha256": "5e65815ade24d27d4491bb1b0b28cf979c293da063f90bc532281b5bb190789c"
+    },
+    {
+      "path": "apps/mobile/build.cmd",
+      "bytes": 358,
+      "sha256": "07ea7744b608b47a1af618b29c7d5be99a51498d066c0e5318e55793bf1a7547"
+    },
+    {
+      "path": "apps/mobile/capacitor.config.ts",
+      "bytes": 309,
+      "sha256": "351951e952a224e94932daf5cb81013302ef5e617450fb33f0d09726314da8f2"
+    },
+    {
+      "path": "apps/mobile/e2e/android-panel-audit.cjs",
+      "bytes": 9781,
+      "sha256": "66bc222b102dba2922bea9eeb0e53a81645eda36401234681de7747a253267d6"
+    },
+    {
+      "path": "apps/mobile/e2e/android-smoke.cjs",
+      "bytes": 2220,
+      "sha256": "d930c3e5c71f980f797e5536d582d81708ed47685ca1a62c099c06593cc9d168"
+    },
+    {
+      "path": "apps/mobile/e2e/api-server.cjs",
+      "bytes": 2479,
+      "sha256": "36525b947e5652df6deb6dc3985e1bcbdcc5c7be8c6cc948b93292c1ee63fba9"
+    },
+    {
+      "path": "apps/mobile/e2e/app.spec.ts",
+      "bytes": 7840,
+      "sha256": "330f109a7ad046ca1fe1875d4f0366cdf47c850c579173cd0cb0d719aa0d1a92"
+    },
+    {
+      "path": "apps/mobile/e2e/beds.spec.ts",
+      "bytes": 6725,
+      "sha256": "4ed375b7375a7f6262a0285d97e5ce23072ee85acf67358d766038b6afe37b69"
+    },
+    {
+      "path": "apps/mobile/e2e/database.cjs",
+      "bytes": 1565,
+      "sha256": "2d06d9466304966190e9b5a2bffd77094de9edd9de6bc2204aaad640a8f89f14"
+    },
+    {
+      "path": "apps/mobile/e2e/global-setup.cjs",
+      "bytes": 675,
+      "sha256": "4e45a15ecd72860001249cf2c95909be116575f6d1cccf25d0d74a93cb53fbc7"
+    },
+    {
+      "path": "apps/mobile/e2e/input-security.spec.ts",
+      "bytes": 5258,
+      "sha256": "554e2db746fc2664edbbf99a246ebc04b2e0927f6a0ad118b89ed2c0923b3fa7"
+    },
+    {
+      "path": "apps/mobile/e2e/panel-audit.spec.ts",
+      "bytes": 7306,
+      "sha256": "8ca95090d2232abef8f2bcb2cd1fb99972e8d7f3e9824e40b15830f7cebbb13f"
+    },
+    {
+      "path": "apps/mobile/e2e/responsive.spec.ts",
+      "bytes": 7971,
+      "sha256": "a5430e9d36f2cc213cdb084854fb4687f73e2d4f90beba773da8457e9b7c9a97"
+    },
+    {
+      "path": "apps/mobile/eslint.config.js",
+      "bytes": 1091,
+      "sha256": "26bef7e4034675d6d5b07989712763b0c7694efdb885a1819c324c656d77a11c"
+    },
+    {
+      "path": "apps/mobile/ionic.config.json",
+      "bytes": 100,
+      "sha256": "1fc246eb14127f606d31f7a832c6aaefb4818da7bfbad2f17e249ae6b22c5036"
+    },
+    {
+      "path": "apps/mobile/package-lock.json",
+      "bytes": 436097,
+      "sha256": "ed897501149a5dadbb160121fd9417d868194732fe12351c929a4bcb26bb63fd"
+    },
+    {
+      "path": "apps/mobile/package.json",
+      "bytes": 2189,
+      "sha256": "b6ea6dc8143d3b6637a4ab2c067e0e459dac0517c23f7a39e04058347953bac0"
+    },
+    {
+      "path": "apps/mobile/playwright.config.ts",
+      "bytes": 1840,
+      "sha256": "d9a1a75940d0637f671b2ed66b53addafcc2e7c08bbb9f3c4371b7b092114308"
+    },
+    {
+      "path": "apps/mobile/serve.cmd",
+      "bytes": 366,
+      "sha256": "2accbd6140035933ae00184e2d35503ec3163805ff6684a054b5672d344cf093"
+    },
+    {
+      "path": "apps/mobile/src/app/app.component.html",
+      "bytes": 144,
+      "sha256": "48e68d6df47f7f0b8e722912f430694f396806f784c1c6e95f0949284241e1fe"
+    },
+    {
+      "path": "apps/mobile/src/app/app.component.scss",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "apps/mobile/src/app/app.component.spec.ts",
+      "bytes": 508,
+      "sha256": "c218ff1717021db7a34d4d6d1924b4f82362285289f1c7c02f500fd817a7da4f"
+    },
+    {
+      "path": "apps/mobile/src/app/app.component.ts",
+      "bytes": 274,
+      "sha256": "9ef0d944af87850d25c79bc3cdabae7410fc32c91be8b3c9f20839dd0ebd0a3c"
+    },
+    {
+      "path": "apps/mobile/src/app/app.routes.spec.ts",
+      "bytes": 921,
+      "sha256": "f55fda24db4c26ef5caa42a3f5636b854a5b9698a46105aaf4c1a07df42e8714"
+    },
+    {
+      "path": "apps/mobile/src/app/app.routes.ts",
+      "bytes": 1607,
+      "sha256": "ea10b27b9df9327da1ce3c54f96083d656e494cfdab16c19d7771504390281e0"
+    },
+    {
+      "path": "apps/mobile/src/app/audit/audit.page.html",
+      "bytes": 5417,
+      "sha256": "6e2d8af5b42b26e28946b65b62bf7922014fd320e2b83dc9ffb1a716e882e248"
+    },
+    {
+      "path": "apps/mobile/src/app/audit/audit.page.spec.ts",
+      "bytes": 1918,
+      "sha256": "2c8ab521d410992f516f08af2a26de5059d7c18eb80c6f5dac1e07859dc96e6a"
+    },
+    {
+      "path": "apps/mobile/src/app/audit/audit.page.ts",
+      "bytes": 3018,
+      "sha256": "8cee3fd874fb7833aad244c7b87aed1d377b6c3721ffe796702ad5d1c4af322c"
+    },
+    {
+      "path": "apps/mobile/src/app/beds/beds.page.html",
+      "bytes": 10337,
+      "sha256": "2a0e944ea70effa0728f03721bd76aefcf78ac57fa5b58136705163a05347dfb"
+    },
+    {
+      "path": "apps/mobile/src/app/beds/beds.page.spec.ts",
+      "bytes": 6253,
+      "sha256": "6798c5cee80c435e032aa4c1a2d25cf6f926fd043a07a297a47a654c45644ef6"
+    },
+    {
+      "path": "apps/mobile/src/app/beds/beds.page.ts",
+      "bytes": 9112,
+      "sha256": "5de967a4bb452828f24fd9052c3e8c47e46e7b8326a2749ead78cc4b459ae303"
+    },
+    {
+      "path": "apps/mobile/src/app/core/api-config.ts",
+      "bytes": 1536,
+      "sha256": "da8d17b58463b1685d02795e80b183b4b8975b76026e884f791c4ee2e4a98a90"
+    },
+    {
+      "path": "apps/mobile/src/app/core/api-errors.spec.ts",
+      "bytes": 1354,
+      "sha256": "ecc8e6f4bb1447452c4782d85f6e4a63403d1c969658711093a9e086eeba543c"
+    },
+    {
+      "path": "apps/mobile/src/app/core/api.service.spec.ts",
+      "bytes": 6008,
+      "sha256": "006136e5331143d332d9db37ada6a6bac77b260e439959921b654134d96359ed"
+    },
+    {
+      "path": "apps/mobile/src/app/core/api.service.ts",
+      "bytes": 4516,
+      "sha256": "b5d0f78dce537de1d9c4c1dd8004c14d4b7240d4dcca8011ee4e0b45f65600ff"
+    },
+    {
+      "path": "apps/mobile/src/app/core/auth.guards.spec.ts",
+      "bytes": 1441,
+      "sha256": "2e04e5b7b75fa5fe7ad0f8da4a1c9092ff779fda07cc47df9d15a877ddf3e604"
+    },
+    {
+      "path": "apps/mobile/src/app/core/auth.guards.ts",
+      "bytes": 864,
+      "sha256": "31fc338d3b930bde451ef5d24a948e2457af9370724b01319cb2d28623d77350"
+    },
+    {
+      "path": "apps/mobile/src/app/core/auth.interceptor.ts",
+      "bytes": 1162,
+      "sha256": "de54567302c0ffae621f030983fde93a654c58dacfeed8a376bd710f9cfb1881"
+    },
+    {
+      "path": "apps/mobile/src/app/core/contracts.ts",
+      "bytes": 2882,
+      "sha256": "44b4d9281744f807f6a62b5e0fa19a0c163a1141bd0fffe69ba86d1fed853bcf"
+    },
+    {
+      "path": "apps/mobile/src/app/core/emulator-http.interceptor.spec.ts",
+      "bytes": 3480,
+      "sha256": "4011fecf278017287a13554b82ceef6654a0244ec1a1fb9ac0b9d0a120eb47e5"
+    },
+    {
+      "path": "apps/mobile/src/app/core/emulator-http.interceptor.ts",
+      "bytes": 2242,
+      "sha256": "ff549f8d782c4713a125288fa1a5634d59f0b9b3a758ba0b5f264fd023755708"
+    },
+    {
+      "path": "apps/mobile/src/app/core/native-runtime.service.spec.ts",
+      "bytes": 1220,
+      "sha256": "fe87b7b206f45ef8209e829990d507a802508cb70f204860891ae37201b5119e"
+    },
+    {
+      "path": "apps/mobile/src/app/core/native-runtime.service.ts",
+      "bytes": 622,
+      "sha256": "a13f1b00241a4720b1d2a2c5895c8a21dffb81f67195617cefe5c0321ec1fcf3"
+    },
+    {
+      "path": "apps/mobile/src/app/core/panel-contracts.ts",
+      "bytes": 991,
+      "sha256": "b016f6dd6d5ab703f8c8de50f4f635dc09fc2920f543dca220c2f2be5248a8f8"
+    },
+    {
+      "path": "apps/mobile/src/app/core/realtime.service.spec.ts",
+      "bytes": 3076,
+      "sha256": "1728b2b51d99411b4ddc812f968c0c6c5c707a4c24711ba6eeff58bf840dcfd3"
+    },
+    {
+      "path": "apps/mobile/src/app/core/realtime.service.ts",
+      "bytes": 5116,
+      "sha256": "ab4f5743e38443de6e81cdf4d2fadb5c716b3c688a47705b1d12151b79153617"
+    },
+    {
+      "path": "apps/mobile/src/app/core/session.service.spec.ts",
+      "bytes": 2006,
+      "sha256": "3042fb181643dc7fc6d0c9aa87d8871c656e831297f712d323e8dc25ff1351a4"
+    },
+    {
+      "path": "apps/mobile/src/app/core/session.service.ts",
+      "bytes": 2276,
+      "sha256": "e4df5b242caa9d8959966d8cfa84cdffdd77a04a11d705ba08c9911b038bb74a"
+    },
+    {
+      "path": "apps/mobile/src/app/core/validators.ts",
+      "bytes": 884,
+      "sha256": "9655b3c6da1d7b30dbc93605270f22115b3a679c6c224767d9a1f9c4d56483a4"
+    },
+    {
+      "path": "apps/mobile/src/app/home/home.page.html",
+      "bytes": 4431,
+      "sha256": "8c8d88db3d7f848b6d92d14b25f10a422c37b5ba0c41edb8e523696042a80880"
+    },
+    {
+      "path": "apps/mobile/src/app/home/home.page.scss",
+      "bytes": 322,
+      "sha256": "a0d496d10f8a0a39b0e7b2a673b9f333076512cac03a78e85d58e111b44c871a"
+    },
+    {
+      "path": "apps/mobile/src/app/home/home.page.spec.ts",
+      "bytes": 796,
+      "sha256": "62128d6e6e79a090c87e010e21420ced485ffa19c41f8dc9380dd6bf68a7c638"
+    },
+    {
+      "path": "apps/mobile/src/app/home/home.page.ts",
+      "bytes": 1907,
+      "sha256": "7eb12bc5e7cc08502daf345e8eb5546a6779ce3c72d9f05b995996484e4b2a63"
+    },
+    {
+      "path": "apps/mobile/src/app/login/login.page.html",
+      "bytes": 4662,
+      "sha256": "3bcbc200fe0e27c66e3700bc42680e977d5f6ccc4f28cb10fe07d032bd56f711"
+    },
+    {
+      "path": "apps/mobile/src/app/login/login.page.spec.ts",
+      "bytes": 3012,
+      "sha256": "96a120a3a5017c57f59a796ceabe504e770d7a80748601d7417218f096599735"
+    },
+    {
+      "path": "apps/mobile/src/app/login/login.page.ts",
+      "bytes": 2409,
+      "sha256": "eedfbcd1e20797163dcaa673689ec09bda324e8c944f63ecfa7d99f40f95e701"
+    },
+    {
+      "path": "apps/mobile/src/app/panel/panel.page.html",
+      "bytes": 5183,
+      "sha256": "4cb8db3888781f934baf4839ed294b15fd8c98c3b922b5fa81727b1a65d9d668"
+    },
+    {
+      "path": "apps/mobile/src/app/panel/panel.page.spec.ts",
+      "bytes": 3537,
+      "sha256": "ad66c4ea158ae6d07cd5f446ee98255df5d7fc81bbc56634a70b5f649f7f65ac"
+    },
+    {
+      "path": "apps/mobile/src/app/panel/panel.page.ts",
+      "bytes": 4409,
+      "sha256": "6912137fe5fda4c96eb6571a5c4c0b915417814e4c44150f92628d1d4aa5bddf"
+    },
+    {
+      "path": "apps/mobile/src/app/patients/register-validation.spec.ts",
+      "bytes": 2804,
+      "sha256": "fab5a0d2fb162c38599a4821fa19100722e5daff299c65c5acbd542f47d6465e"
+    },
+    {
+      "path": "apps/mobile/src/app/patients/register.page.html",
+      "bytes": 8087,
+      "sha256": "a6895333ded699f0cb6377f960686b4f2fd9807d05bf3953649f11637f791a3a"
+    },
+    {
+      "path": "apps/mobile/src/app/patients/register.page.spec.ts",
+      "bytes": 3099,
+      "sha256": "e53a371c78c547a5244d29a2bfddf69255e5410b070f46986fff8f6b1984db05"
+    },
+    {
+      "path": "apps/mobile/src/app/patients/register.page.ts",
+      "bytes": 3227,
+      "sha256": "eb0a08e3785c616b83abc547b9f100b255babe303a09573186df46c8e5f5b77b"
+    },
+    {
+      "path": "apps/mobile/src/app/patients/search.page.html",
+      "bytes": 4742,
+      "sha256": "db9275ebbb37ab3591edfa8a794ea6a3b815808a906ffa4af3cc9c31d847eadb"
+    },
+    {
+      "path": "apps/mobile/src/app/patients/search.page.spec.ts",
+      "bytes": 2431,
+      "sha256": "bda77a4b5434c476b28f1041e3dc0d1c29f3cd4eb8e81335bc7818e063e5bffb"
+    },
+    {
+      "path": "apps/mobile/src/app/patients/search.page.ts",
+      "bytes": 2328,
+      "sha256": "e36863375d2bdfdf20cf5abc01e827c22d6d5f396ac15f3a94053bc715693f18"
+    },
+    {
+      "path": "apps/mobile/src/app/shared/filter-disclosure.component.spec.ts",
+      "bytes": 1893,
+      "sha256": "e39462a5ad90d301ffa6e794751a43a8eb5ecf4be997bc1efa37a220383b342e"
+    },
+    {
+      "path": "apps/mobile/src/app/shared/filter-disclosure.component.ts",
+      "bytes": 1311,
+      "sha256": "78813457337659c4dc34b4da0a4dca5787a02c9cd4f8ba1122d09d7476c5fff3"
+    },
+    {
+      "path": "apps/mobile/src/app/shared/page-header.component.ts",
+      "bytes": 522,
+      "sha256": "47d02d754d4dd178db26760150d73dbf3e34e1db0d333e4167ec9cef09d0c603"
+    },
+    {
+      "path": "apps/mobile/src/app/shared/triage-summary.component.ts",
+      "bytes": 1942,
+      "sha256": "c8460c71823ce783bf283b85c70815db2ac1183d45a69ddf11b3910074791ee8"
+    },
+    {
+      "path": "apps/mobile/src/app/shell/shell.component.html",
+      "bytes": 2907,
+      "sha256": "581469750a87e0df5f7f21c702faefd3081938ecd68112441d57be77db8d1f8f"
+    },
+    {
+      "path": "apps/mobile/src/app/shell/shell.component.spec.ts",
+      "bytes": 1241,
+      "sha256": "97ba9f3b2ea82fe54cb579089e0f7c179a0ac262308f0b6ed4ab29949b8606df"
+    },
+    {
+      "path": "apps/mobile/src/app/shell/shell.component.ts",
+      "bytes": 2122,
+      "sha256": "43f70b0be72228d4dffe76bb3d3146dec42adf357a4b2dfdf378ca1dc2f151f2"
+    },
+    {
+      "path": "apps/mobile/src/assets/icon/favicon.png",
+      "bytes": 930,
+      "sha256": "e820db45563316ad63b8557a3cb9a681a9f59faf899c250393113fcbe885d2cd"
+    },
+    {
+      "path": "apps/mobile/src/assets/shapes.svg",
+      "bytes": 1176,
+      "sha256": "cf1b68281716f452dd620f81fd31d98bfef7dd521b8098433710bda7a32918f2"
+    },
+    {
+      "path": "apps/mobile/src/environments/environment.android-debug.ts",
+      "bytes": 262,
+      "sha256": "43606351acce929c947a1c5ebdaf92444954d0b861b3ae6fa89e1bb22d80341f"
+    },
+    {
+      "path": "apps/mobile/src/environments/environment.e2e.ts",
+      "bytes": 119,
+      "sha256": "03420a656ecfc874b90c7c0bb0058054538a1192ae6cf3112028a2aaaced802f"
+    },
+    {
+      "path": "apps/mobile/src/environments/environment.prod.ts",
+      "bytes": 180,
+      "sha256": "6e1e17eda214540ca03cbebd905aa54f841e07c54104c9545162bfd381415552"
+    },
+    {
+      "path": "apps/mobile/src/environments/environment.ts",
+      "bytes": 725,
+      "sha256": "7fd5793d634ea5c9413810f1f96c0ea5e0223a6db034d2b76d2a86e52e4756f3"
+    },
+    {
+      "path": "apps/mobile/src/global.scss",
+      "bytes": 1388,
+      "sha256": "cf8f0737a269f9edf4152d1950116655c9703d12d890421ebb61940615f9588d"
+    },
+    {
+      "path": "apps/mobile/src/index.html",
+      "bytes": 773,
+      "sha256": "41f3ebb5d992e87b291f0f9c836301a3770de2cb74a6c27ac06dcbaebd461dac"
+    },
+    {
+      "path": "apps/mobile/src/main.ts",
+      "bytes": 1018,
+      "sha256": "e559aad4b4c404656947ae658f617d41a161f71d30765d0a1251509dc37e32b3"
+    },
+    {
+      "path": "apps/mobile/src/styles/_foundation.scss",
+      "bytes": 11553,
+      "sha256": "3f2df7cd5ea84320bd93446227eab9e289fcaed4ca689582ec6241e426246b58"
+    },
+    {
+      "path": "apps/mobile/src/styles/_navigation.scss",
+      "bytes": 5944,
+      "sha256": "f9b8a275e920df34a15867b06b06fd8b371c9108134a62f6bd5f33ad896f6161"
+    },
+    {
+      "path": "apps/mobile/src/styles/_pages.scss",
+      "bytes": 24930,
+      "sha256": "c22c44261612246dea006d1dd63e372b7dca24772af0b3a1d2d5db7d6e27a988"
+    },
+    {
+      "path": "apps/mobile/src/styles/workspace.scss",
+      "bytes": 61,
+      "sha256": "0261d2d84b3f9d5015ed75038a6c956a5c7e7942ad259e068d31cc50d566083a"
+    },
+    {
+      "path": "apps/mobile/src/test-setup.ts",
+      "bytes": 965,
+      "sha256": "7a285ff6d802b309adff5d706b6dc4af6b9861aee7fff90d8fcdc3de8d3675f2"
+    },
+    {
+      "path": "apps/mobile/src/theme/variables.scss",
+      "bytes": 1434,
+      "sha256": "41eedb0a7a02092a2e61679c0bce0534795d42a5cc0ada43096d2419adb44937"
+    },
+    {
+      "path": "apps/mobile/tsconfig.app.json",
+      "bytes": 263,
+      "sha256": "a184f5fb7f000739dc69163beecad2de028802e3d89216a0351d86eb55156e45"
+    },
+    {
+      "path": "apps/mobile/tsconfig.e2e.json",
+      "bytes": 256,
+      "sha256": "db1698a1d4a7598aa6d4086fe21ae6053a80e2fa35f24b4f434e7b3e877e8b70"
+    },
+    {
+      "path": "apps/mobile/tsconfig.json",
+      "bytes": 888,
+      "sha256": "d8d8b7b12662be9383da1abe9f49a9dbe533db341284eef929ce53b9c593d195"
+    },
+    {
+      "path": "apps/mobile/tsconfig.spec.json",
+      "bytes": 305,
+      "sha256": "897f6ceed3d1326d510ab42b2d5f7ded5ef65d2fbc7c871fb7cb85722711c206"
+    },
+    {
+      "path": "apps/mobile/vitest.config.mts",
+      "bytes": 369,
+      "sha256": "7396fbf339682af2f3a945f5bef373326be75a3b88a3adfb7618c2967aa278ae"
+    },
+    {
+      "path": "compose.dev.yaml",
+      "bytes": 202,
+      "sha256": "677af9f0d6657602b17b146a36cc00fb781fb50b275b7abf138d2e37184137d7"
+    },
+    {
+      "path": "compose.local.yaml",
+      "bytes": 106,
+      "sha256": "ac4362ad36f1ae8e4585222efc18ec7f3cf06df0b4e4436049e76f131b15c6d7"
+    },
+    {
+      "path": "compose.yaml",
+      "bytes": 1467,
+      "sha256": "61b42c3368c648da5b6fce92e8640f1468071c56ff03deb3cfc8e35515400a3b"
+    },
+    {
+      "path": "docs/COMO_SEGUIR.md",
+      "bytes": 2046,
+      "sha256": "0bd91ea5d0901bcdc028470599412c529aab5e3debb3012f8a42728b1e7c7776"
+    },
+    {
+      "path": "docs/CORRECCION-AUDITORIA-FECHAS.md",
+      "bytes": 7935,
+      "sha256": "48c1e448d3fea634a89a90967b7da064ddd747479608ef3f3386575fc4fa88ae"
+    },
+    {
+      "path": "docs/DEVSECOPS-ENTREGA-3.md",
+      "bytes": 18385,
+      "sha256": "757fc0bcb0fc7281cdae34a2ad6c5e849b087b67649a299f7a700d1ef25c40d0"
+    },
+    {
+      "path": "docs/HU-01-HU-03.md",
+      "bytes": 10951,
+      "sha256": "132bcc377ecce5d33e7a093996e9bf15a117789fc539235f6824786c56da8895"
+    },
+    {
+      "path": "docs/HU-02-HU-08.md",
+      "bytes": 16761,
+      "sha256": "a558fb444ba007723afcf2a632bb94eb2fb9b151de2bcb3eeecac118484258e1"
+    },
+    {
+      "path": "docs/HU-05-HU-06.md",
+      "bytes": 12441,
+      "sha256": "2f294faa5542e4fd6db53ff24eae3b308e3d8cd33e8f991f63667f2e8ec9f3c6"
+    },
+    {
+      "path": "docs/INCREMENTO-05-VISUAL.md",
+      "bytes": 12348,
+      "sha256": "7199db89f99a9e56550646282084c04d5b165fdd9119ca33866659e934e5b5a8"
+    },
+    {
+      "path": "docs/INCREMENTO-07-DOCKER.md",
+      "bytes": 16344,
+      "sha256": "be4066c70551af7a0a744ce312bb3be3bd3e7683f31046fddd247d34361ea923"
+    },
+    {
+      "path": "docs/INCREMENTO-08-PRUEBAS.md",
+      "bytes": 12607,
+      "sha256": "ac2293b343618fcb4d2b542c34dfe6c40d505a3684d64eff840e7e5a67ae37ff"
+    },
+    {
+      "path": "docs/TEMA-AZUL.md",
+      "bytes": 4924,
+      "sha256": "23d38d734842e42c8a90af5c0480a25a62dfcaa0ce090ecf08deeb81af1bea86"
+    },
+    {
+      "path": "docs/android-debug.md",
+      "bytes": 10526,
+      "sha256": "b35f9c882a22436e98aef84ceb65ecdede115fe8568fd02f462f181a1f6dd56b"
+    },
+    {
+      "path": "docs/android.md",
+      "bytes": 1530,
+      "sha256": "cc6aec34387af025d046e42761c02a6599161021a9f6e4c1de6115063cddc790"
+    },
+    {
+      "path": "docs/backlog.md",
+      "bytes": 8777,
+      "sha256": "2c631e130e7a9bcbe16cc676d25d3befbb801ea0b815d3cf01bc021252a268ce"
+    },
+    {
+      "path": "docs/decisiones-mvp.md",
+      "bytes": 2763,
+      "sha256": "b77a2c4111d3c097f9b9220a0599f87ee80a4dd54f77c7773f771c8fcdf845ad"
+    },
+    {
+      "path": "docs/frontend.md",
+      "bytes": 15119,
+      "sha256": "1b0b4806349db63673409d95b5079d98bc0a40c538f3821203035ed9ecf6df04"
+    },
+    {
+      "path": "docs/plan-entrega.md",
+      "bytes": 2816,
+      "sha256": "4ec57b84b3e309c158ac14a5d3a3f9a3fed392db1f4b183a79799b936bf9274b"
+    },
+    {
+      "path": "docs/registro-uso-llm.md",
+      "bytes": 6828,
+      "sha256": "39f006e01fadd985319f5739f21d3cc7ddbaf9ae128a1ce46b7204c4f0fa2de2"
+    }
+  ],
+  "fileCount": 277,
+  "totalBytes": 2074952
+}

@@ -1,0 +1,105 @@
+<div class="page-container">
+  <app-page-header
+    eyebrow="PACIENTES / CONSULTA EXACTA"
+    title="Buscar paciente"
+    subtitle="Una consulta precisa, con la información permitida."
+    ><span class="pill outline">Consulta protegida</span></app-page-header
+  >
+  <div class="search-layout">
+    <div>
+      <section class="panel search-panel">
+        <span class="action-icon"><ion-icon name="search-outline" aria-hidden="true" /></span>
+        <h2>Consulta por documento</h2>
+        <p>Usa el documento completo de un paciente sintético. No se realizan coincidencias parciales.</p>
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate autocomplete="off" [attr.aria-busy]="loading()">
+          <div class="field">
+            <label for="search-document">Documento exacto</label
+            ><input
+              id="search-document"
+              formControlName="document"
+              (input)="clearResult()"
+              maxlength="40"
+              spellcheck="false"
+              [readOnly]="loading()"
+              placeholder="Documento sintético completo"
+              aria-describedby="search-help"
+              [attr.aria-invalid]="form.controls.document.touched && form.controls.document.invalid"
+            />
+            <small
+              id="search-help"
+              [class.field-error]="form.controls.document.touched && form.controls.document.invalid"
+              >@if (form.controls.document.touched && form.controls.document.invalid) { Ingresa un documento válido de
+              3–40 caracteres. } @else { Letras, números, puntos y guiones. Comienza con letra o número. }</small
+            >
+          </div>
+          <div class="button-row">
+            <button class="primary-button" type="submit" [disabled]="loading()">
+              @if (loading()) { <ion-spinner name="crescent" aria-label="Buscando" /> Buscando… } @else { Buscar
+              paciente <ion-icon name="search-outline" aria-hidden="true" /> }</button
+            ><button type="button" class="text-button" (click)="clear()" [disabled]="loading()">
+              Limpiar consulta
+            </button>
+          </div>
+        </form>
+      </section>
+      <div class="privacy-note">
+        <ion-icon name="shield-checkmark-outline" aria-hidden="true" />
+        <p>La consulta queda auditada. Se omiten identidad, motivo de consulta y signos vitales.</p>
+      </div>
+    </div>
+    <div class="search-results" aria-live="polite">
+      @if (error()) {
+      <div class="notice danger" role="alert">{{ error() }}</div>
+      } @if (notFound()) {
+      <section class="panel empty-state" role="status">
+        <ion-icon name="search-outline" aria-hidden="true" />
+        <h2>Sin coincidencias</h2>
+        <p>
+          No se encontró un paciente con ese documento exacto. Revisa la escritura o prueba otro documento sintético.
+        </p>
+      </section>
+      } @if (result(); as found) {
+      <section class="panel search-result" aria-label="Resultado de búsqueda" role="status">
+        <div class="section-line">
+          <h2>Registro encontrado</h2>
+          <span class="pill success">Coincidencia exacta</span>
+        </div>
+        <dl class="detail-list">
+          <div>
+            <dt>Identificador</dt>
+            <dd class="mono">{{ found.patientId }}</dd>
+          </div>
+          <div>
+            <dt>Fecha de registro</dt>
+            <dd>{{ found.createdAt | date:'dd/MM/yyyy, HH:mm' }}</dd>
+          </div>
+          <div>
+            <dt>Registro provisional</dt>
+            <dd>{{ found.provisional ? 'Sí' : 'No' }}</dd>
+          </div>
+          <div>
+            <dt>Estado del triaje</dt>
+            <dd>
+              {{ found.triageStatus === 'PENDING_TRIAGE' ? 'Pendiente de triaje' : found.triageStatus ===
+              'PENDING_CLINICAL_REVIEW' ? 'Pendiente de revisión clínica' : 'Clasificación demostrativa' }}
+            </dd>
+          </div>
+        </dl>
+        <app-triage-summary [summary]="found.latestTriage" />
+      </section>
+      } @else if (!error() && !notFound() && !loading()) {
+      <section class="panel search-placeholder">
+        <span class="search-placeholder-mark" aria-hidden="true">⌕</span
+        ><span class="eyebrow">EL RESULTADO APARECERÁ AQUÍ</span>
+        <h2>Empieza con una búsqueda exacta</h2>
+        <p>
+          Verás el identificador, las fechas y el resumen de triaje permitido, únicamente si existe una coincidencia.
+        </p>
+        <span class="pill neutral">Sin búsqueda por nombre</span>
+      </section>
+      } @if (loading()) {
+      <div class="panel loading-state" role="status"><ion-spinner name="crescent" /> Consultando registro…</div>
+      }
+    </div>
+  </div>
+</div>
