@@ -2,7 +2,11 @@
 
 **Repositorio local:** C:\Users\Usuario\Downloads\SIT-CAMA-github
 
-**Rama / HEAD:** feature/sit-cama-mvp-entrega-3 / 50d7c0cdc39332a7b9e1837476f3c3060d78ae4f
+**Rama:** feature/sit-cama-mvp-entrega-3
+
+**HEAD de esta actualización documental:** bb8f0be2b3a75ba94f5201706f3ed32a56f2515f
+
+**Commit de las evidencias técnicas del pipeline aprobado:** 50d7c0cdc39332a7b9e1837476f3c3060d78ae4f; sus resultados no se atribuyen al HEAD documental ni a una ejecución nueva.
 
 **Corte:** 16/11/2026, hora de Bogotá. Las verificaciones posteriores a 00:00 UTC del 17/11 corresponden todavía al 16/11 en Bogotá.
 
@@ -35,7 +39,7 @@ Se verificaron los **314 miembros de seis ZIP**, sin errores de CRC/descompresi�
 
 Completitud significa **completos respecto a su selección declarada**, no una copia de todo .reports ni de las bases de vulnerabilidades.
 
-La revisión de miembros buscó JWT completos, PAT, claves privadas y asignaciones explícitas de contraseñas/Authorization; no obtuvo coincidencias. Se contrastó además la procedencia sintética y se inspeccionaron las cuatro capturas web usadas. Los certificados públicos de Cosign y sus firmas son evidencia pública, no claves privadas. No se anexan .env, bases clínicas, node_modules, APK, herramientas descargadas, caches ni índices Git. Este resultado describe los archivos seleccionados y no certifica todo el disco.
+La revisión de miembros buscó JWT completos, PAT, claves privadas y asignaciones explícitas de contraseñas/Authorization; no obtuvo coincidencias. Se contrastó además la procedencia sintética y se inspeccionaron las cuatro capturas web usadas. Esta actualización añade la inspección de dos capturas ALM, conservadas fuera de los seis ZIP originales. Los certificados públicos de Cosign y sus firmas son evidencia pública, no claves privadas. No se anexan .env, bases clínicas, node_modules, APK, herramientas descargadas, caches ni índices Git. Este resultado describe los archivos seleccionados y no certifica todo el disco.
 
 Registro detallado: **.reports/final-entrega-3/archive-review.json**. Su lista contiene ruta, tamaño y SHA-256 de cada miembro de los seis ZIP.
 
@@ -72,13 +76,36 @@ Los archivos quality-approved-excerpt.log e image-dast-approved-excerpt.log son 
 | Frontend y E2E | A6: frontend-tests.json, e2e-tests.json bajo .reports/devsecops/ | 105 unitarias y 43 E2E aprobadas; no cobertura Android nativa. |
 | DAST | A5: dast.json y zap-medico/auditor.html/json | Informes, acceso autenticado y sondas RBAC; contrato parcial, no cobertura total de API. |
 | SBOM/runtime | A5: image.json, sbom.cdx.json, trivy-image-gate.json, runtime-verification.json | 1681 componentes, cero bloqueantes, runtime no root probado; publicación sigue bloqueada. |
-| ALM | github-issue-12.json a github-issue-19.json, github-pr11.json y github-reviews.json | Ocho Issues abiertos, referencias retrospectivas y cero revisiones formales registradas; no prueba de tablero Projects. |
+| ALM | Consultas históricas github-issue-12.json a github-issue-19.json, github-pr11.json y github-reviews.json; nueva inspección projects-review.json y dos capturas en docs/evidence/entrega-3/ | Tablero_Kanban configurado con las ocho HU, campos y estados comprobados por capturas. Cuatro In Progress, cuatro Security Review y cero Done. Siguen pendientes revisión por pares, aceptación PO y trazabilidad histórica estricta. |
 | MVP web | docs/evidence/tema-azul/360/, cuatro PNG inspeccionados | Demostración web sintética de 14/11; no capturas Android. |
 | Android | docs/android-debug.md, docs/android.md y apps/mobile/android/ | Implementación y registro histórico; APK/captura no presentes en este clon. |
 
 La carpeta manual **.reports/experimento-1/** contiene otro positive-controls.json, timestamp 22:19:36 UTC. Se conserva, pero el informe utiliza el original de **A6, timestamp 18:01:49 UTC**, para atribuir la ejecución al pipeline aprobado. Los nombres similares no hacen intercambiables sus procedencias.
 
 Históricos útiles: [PR #8](https://github.com/yuliethqui/sit-cama-devsecops/pull/8) y [run 42743048872](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/42743048872) para Express/Semgrep anterior; [PR #10](https://github.com/yuliethqui/sit-cama-devsecops/pull/10) y [run 42752729344](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/42752729344) para firma Express. No sustituyen evidencias del MVP.
+
+### Actualización ALM: GitHub Projects
+
+El proyecto **Tablero_Kanban**, vista **Planificación SIT-CAMA**, está configurado con las ocho HU #12–#19. Las dos capturas originales de docs/evidence/entrega-3/ fueron inspeccionadas visualmente; muestran los campos **Épica, Sprint, Prioridad, Story Points y Status** y estos valores:
+
+| HU / Issue | Épica | Sprint | Prioridad | Story Points | Status |
+|---|---|---|---|---:|---|
+| HU-01 / #12 | EP-01 | Sprint 1 | Must Have | 5 | In Progress |
+| HU-02 / #13 | EP-01 | Sprint 1 | Must Have | 3 | Security Review |
+| HU-03 / #14 | EP-01 | Sprint 1 | Should Have | 2 | In Progress |
+| HU-04 / #15 | EP-02 | Sprint 2 | Must Have | 5 | Security Review |
+| HU-05 / #16 | EP-02 | Sprint 2 | Must Have | 3 | Security Review |
+| HU-06 / #17 | EP-02 | Sprint 2 | Should Have | 3 | In Progress |
+| HU-07 / #18 | EP-03 | Sprint 1 | Must Have | 3 | Security Review |
+| HU-08 / #19 | EP-03 | Sprint 2 | Must Have | 3 | In Progress |
+
+Totales de las ocho HU: **tres épicas, dos sprints, seis Must Have, dos Should Have y 27 Story Points**. Hay cuatro In Progress y cuatro Security Review; **ninguna está en Done**. Las seis tarjetas históricas adicionales en Backlog no se incluyen en esos totales. Security Review no equivale a revisión por pares aprobada ni a aceptación del Product Owner.
+
+**URL directa:** no verificada. Las capturas no contienen la barra de direcciones; el acceso al navegador se detuvo por no poder determinar con confianza su URL y la búsqueda pública no devolvió un enlace comprobable. Se documenta la configuración acreditada por las capturas sin inventar una dirección.
+
+La fecha exacta de toma de las capturas no está acreditada; la inspección documental es del 16/11/2026, hora de Bogotá. Se conservan los nombres originales con doble extensión .png.png. No muestran credenciales, JWT ni datos clínicos. Su inspección no cambia el alcance de los escaneos ni de las pruebas históricas. Procedencia, hashes, valores transcritos y consulta actual del PR: **.reports/final-entrega-3/projects-review.json**.
+
+**Pendientes ALM:** revisión por pares, aceptación del Product Owner y trazabilidad histórica estricta. Configurar el tablero no completa la DoD de las HU.
 
 ## 5. Catálogo de archivos esenciales y hashes
 
@@ -131,10 +158,13 @@ El catálogo completo de estos archivos está en **.reports/final-entrega-3/evid
 | [docs/evidence/tema-azul/360/10-auditoria.png](../docs/evidence/tema-azul/360/10-auditoria.png) | 44352 | 07b270baf3dd8800d9b50a78f6e9fa2e61d06706a85ba6aeacdae0cc053c4d88 |
 | [.reports/final-entrega-3/quality-approved-excerpt.log](../.reports/final-entrega-3/quality-approved-excerpt.log) | 1482 | 93e3c620b58135c59604aee4d0fa1560f2c738f33b8876217ce67d9aa43e8f05 |
 | [.reports/final-entrega-3/image-dast-approved-excerpt.log](../.reports/final-entrega-3/image-dast-approved-excerpt.log) | 10566 | f948a45700206af010d525cc0a4bf98356ded7598b4e08099049339972650246 |
+| [docs/evidence/entrega-3/github-projects-kanban.png.png](../docs/evidence/entrega-3/github-projects-kanban.png.png) | 99119 | 6b8cace375567c41f8af68e2d7c27bbf606d34c99b4732f8f9f4e49ddea86d4b |
+| [docs/evidence/entrega-3/github-projects-planificacion.png.png](../docs/evidence/entrega-3/github-projects-planificacion.png.png) | 115664 | b40325306a9d8000a0f87f04c9321a6f742ca0564900a4a92b1cf4401ae2cccd |
+| [.reports/final-entrega-3/projects-review.json](../.reports/final-entrega-3/projects-review.json) | 3769 | 657b96628ba8a9cf1af53a453cec471618445a1ec74db4296beef08e764975ea |
 
-Los cuatro PNG fueron inspeccionados visualmente: login sin credenciales, registro identificado como sintético, panel y auditoría con UUID de los fixtures documentados. No deben presentarse como datos clínicos reales o como evidencia Android.
+Las cuatro capturas funcionales de tema-azul/360/ fueron inspeccionadas visualmente: login sin credenciales, registro identificado como sintético, panel y auditoría con UUID de los fixtures documentados. Las dos capturas nuevas de entrega-3/ acreditan únicamente ALM. Ninguna debe presentarse como evidencia Android.
 
-Los manifiestos de A2–A4 contienen también hashes de fixtures, reportes JSON, comandos y extractos históricos. archive-review.json conserva esos hashes sin obligar a duplicar aquí las 314 filas. El manifiesto final de los dos documentos preparados es **.reports/final-entrega-3/manifest-final.json**; se genera después de terminar los textos y excluye su propio hash, evitando autorreferencia.
+Los manifiestos de A2–A4 contienen también hashes de fixtures, reportes JSON, comandos y extractos históricos. archive-review.json conserva esos hashes sin obligar a duplicar aquí las 314 filas. El manifiesto final de los documentos y anexos seleccionados es **.reports/final-entrega-3/manifest-final.json**; se recalcula tras esta actualización e incluye las dos capturas ALM y projects-review.json. Excluye su propio hash. El catálogo y manifiesto anteriores y la comprobación de integridad previa se conservan en .reports/final-entrega-3/history/before-projects-update-*.json. Los ZIP A1–A6 permanecen idénticos; las capturas ALM se adjuntan por separado.
 
 ## 6. Anexos que el estudiante debe adjuntar manualmente
 
@@ -146,6 +176,7 @@ Los manifiestos de A2–A4 contienen también hashes de fixtures, reportes JSON,
 - [ ] .reports/final-entrega-3/archive-review.json, evidence-catalog.json, verified-results.json y manifest-final.json.
 - [ ] Consultas github-run-approved.json, github-jobs.json, github-artifacts.json, github-pr11.json, github-reviews.json y los ocho github-issue-*.json.
 - [ ] Las cuatro capturas web inspeccionadas de docs/evidence/tema-azul/360/, con su contexto sintético. Usar los hashes de la sección 5.
+- [ ] Las dos capturas originales de docs/evidence/entrega-3/ y .reports/final-entrega-3/projects-review.json, con los hashes de la sección 5; están fuera de A1–A6.
 - [ ] Referencia al PDF oficial con su hash; si la plataforma exige adjuntarlo, aportar el original como fuente docente separada. No publicar sus ejemplos de credenciales como hallazgos del MVP.
 - [ ] Completar portada institucional, integrantes y datos académicos reales que no se encuentran acreditados en el repositorio.
 
@@ -153,7 +184,7 @@ Los manifiestos de A2–A4 contienen también hashes de fixtures, reportes JSON,
 
 | Pendiente | Qué debe aportar o realizarse después |
 |---|---|
-| GitHub Projects | URL y captura/exportación del tablero con ocho HU, épica, sprint, prioridad, SP, estados y DoR/DoD/Gherkin. No se verificó en esta revisión. |
+| URL directa de GitHub Projects | Tablero y planificación acreditados por las capturas disponibles; queda verificar la URL exacta y adjuntarla. La configuración ya no se considera pendiente. |
 | Aceptación y revisión | Revisión formal por pares y aceptación del Product Owner, con alcance y criterios pendientes. PR #11 permanece abierto; no se solicita ni simula aprobación. |
 | APK Android debug | Archivo exacto, tamaño y SHA-256; commit/configuración de build, dispositivo/emulador y fecha. En este clon no existe apps/mobile/android/app/build/outputs/apk/debug/app-debug.apk. |
 | Funcionamiento Android | Capturas o video con cuentas y pacientes sintéticos, inspeccionados antes de adjuntar, distinguiendo conexión 401 de login válido y de validación funcional. No existe apps/mobile/test-results/android-debug-login.png en este clon. |
@@ -186,4 +217,4 @@ Get-FileHash -Algorithm SHA256 .reports\final-entrega-3\github-artifacts\image-s
 Get-Content .reports\final-entrega-3\manifest-final.json
 ```
 
-Esta preparación no requiere commit, push, merge, publicación ni firma. Los 317 archivos originales se comparan byte a byte mediante SHA-256 con baseline.json; se verifica además HEAD, rama, índice y política blocked. Los únicos archivos nuevos visibles por Git son los dos documentos finales. El resultado final de esa comprobación queda en .reports/final-entrega-3/final-integrity.json.
+Esta actualización no requiere commit, push, merge, publicación ni firma. Se conserva baseline.json como referencia de los 317 archivos originales y projects-update-baseline.json como referencia del HEAD documental bb8f0be (319 archivos versionados). Solo se modifican estos dos documentos; las dos capturas ALM ya estaban presentes y no versionadas al comenzar. Se comprueban también rama, HEAD, índice Git, hashes de las capturas y política blocked. No se repiten pruebas de aplicación ni se reescriben los ZIP. La comprobación actual queda en .reports/final-entrega-3/final-integrity.json; la anterior se conserva en history/.

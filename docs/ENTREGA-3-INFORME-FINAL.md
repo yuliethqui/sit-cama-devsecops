@@ -2,6 +2,8 @@
 
 **Corte documental:** 16 de noviembre de 2026, hora de Bogotá. **Repositorio:** [yuliethqui/sit-cama-devsecops](https://github.com/yuliethqui/sit-cama-devsecops). **Rama:** feature/sit-cama-mvp-entrega-3. **Commit evaluado:** [50d7c0cdc39332a7b9e1837476f3c3060d78ae4f](https://github.com/yuliethqui/sit-cama-devsecops/commit/50d7c0cdc39332a7b9e1837476f3c3060d78ae4f).
 
+**Actualización ALM:** 16 de noviembre de 2026, sobre HEAD documental bb8f0be2b3a75ba94f5201706f3ed32a56f2515f. Se incorporan las capturas de GitHub Projects; las pruebas y el run aprobado citados siguen correspondiendo a 50d7c0c, sin atribuirlos a una nueva ejecución.
+
 **Estado de entrega:** MVP académico con controles técnicos comprobados y requisitos pendientes. PR #11 abierto; HU #12–#19 abiertas; publicación y firma del backend MVP bloqueadas. Este informe no constituye aceptación clínica, habilitación sanitaria ni autorización de despliegue.
 
 ## 1. Introducción
@@ -53,18 +55,18 @@ Fuentes: [README](../README.md), [decisiones](decisiones-mvp.md), [HU-01/HU-03](
 
 Se conservan los nombres oficiales: **EP-01 Triaje clínico digital normativo (Resolución 5596/2015)**; **EP-02 Censo y disponibilidad de camas en tiempo real**; **EP-03 Seguridad asistencial, trazabilidad y cumplimiento normativo**. Son categorías del backlog, no certificaciones de cumplimiento.
 
-| HU / Issue | Épica | Sprint previsto | Prioridad / SP | Estado comprobado y aceptación pendiente |
-|---|---|---|---|---|
-| [HU-01 / #12](https://github.com/yuliethqui/sit-cama-devsecops/issues/12) | EP-01 | 1 | Must / 5 | Parcial: demostración I/II; faltan I–V completos y validación clínica. |
-| [HU-02 / #13](https://github.com/yuliethqui/sit-cama-devsecops/issues/13) | EP-01 | 1 | Must / 3 | Panel, eventos y alarma implementados; activación de sonido por el usuario y aceptación formal pendientes. |
-| [HU-03 / #14](https://github.com/yuliethqui/sit-cama-devsecops/issues/14) | EP-01 | 1 | Should / 2 | Búsqueda exacta implementada; falta acreditar <500 ms bajo carga acordada y espera asistencial real. |
-| [HU-04 / #15](https://github.com/yuliethqui/sit-cama-devsecops/issues/15) | EP-02 | 2 | Must / 5 | Censo e interfaz presentes; aceptación institucional y sincronización entre clientes pendientes. |
-| [HU-05 / #16](https://github.com/yuliethqui/sit-cama-devsecops/issues/16) | EP-02 | 2 | Must / 3 | Limpieza autorizada y auditoría implementadas; DoD y aceptación formal pendientes. |
-| [HU-06 / #17](https://github.com/yuliethqui/sit-cama-devsecops/issues/17) | EP-02 | 2 | Should / 3 | Parcial: asignación actual solo MEDICO; la guía contempla médico o enfermero y actualización WebSocket <1 s no acreditada. |
-| [HU-07 / #18](https://github.com/yuliethqui/sit-cama-devsecops/issues/18) | EP-03 | 1 | Must / 3 | JWT/RBAC y minimización comprobados técnicamente; validación institucional de privacidad pendiente. |
-| [HU-08 / #19](https://github.com/yuliethqui/sit-cama-devsecops/issues/19) | EP-03 | 2 | Must / 3 | Parcial: consulta y protección de auditoría; falta reclasificación III→II por especialista con motivo y prueba de inmutabilidad frente al administrador de BD. |
+| HU / Issue | Épica | Sprint previsto | Prioridad / SP | Status en Projects | Alcance comprobado y aceptación pendiente |
+|---|---|---|---|---|---|
+| [HU-01 / #12](https://github.com/yuliethqui/sit-cama-devsecops/issues/12) | EP-01 | 1 | Must Have / 5 | In Progress | Parcial: demostración I/II; faltan I–V completos y validación clínica. |
+| [HU-02 / #13](https://github.com/yuliethqui/sit-cama-devsecops/issues/13) | EP-01 | 1 | Must Have / 3 | Security Review | Panel, eventos y alarma implementados; activación de sonido por el usuario y aceptación formal pendientes. |
+| [HU-03 / #14](https://github.com/yuliethqui/sit-cama-devsecops/issues/14) | EP-01 | 1 | Should Have / 2 | In Progress | Búsqueda exacta implementada; falta acreditar <500 ms bajo carga acordada y espera asistencial real. |
+| [HU-04 / #15](https://github.com/yuliethqui/sit-cama-devsecops/issues/15) | EP-02 | 2 | Must Have / 5 | Security Review | Censo e interfaz presentes; aceptación institucional y sincronización entre clientes pendientes. |
+| [HU-05 / #16](https://github.com/yuliethqui/sit-cama-devsecops/issues/16) | EP-02 | 2 | Must Have / 3 | Security Review | Limpieza autorizada y auditoría implementadas; DoD y aceptación formal pendientes. |
+| [HU-06 / #17](https://github.com/yuliethqui/sit-cama-devsecops/issues/17) | EP-02 | 2 | Should Have / 3 | In Progress | Parcial: asignación actual solo MEDICO; la guía contempla médico o enfermero y actualización WebSocket <1 s no acreditada. |
+| [HU-07 / #18](https://github.com/yuliethqui/sit-cama-devsecops/issues/18) | EP-03 | 1 | Must Have / 3 | Security Review | JWT/RBAC y minimización comprobados técnicamente; validación institucional de privacidad pendiente. |
+| [HU-08 / #19](https://github.com/yuliethqui/sit-cama-devsecops/issues/19) | EP-03 | 2 | Must Have / 3 | In Progress | Parcial: consulta y protección de auditoría; falta reclasificación III→II por especialista con motivo y prueba de inmutabilidad frente al administrador de BD. |
 
-Son **27 SP planificados**: 13 en Sprint 1 y 14 en Sprint 2; seis Must y dos Should. No se presenta velocidad, burndown ni ejecución de sprints sin evidencia.
+La vista **Planificación SIT-CAMA** contiene los campos Épica, Sprint, Prioridad, Story Points y Status. Las ocho HU suman **27 SP planificados**: 13 en Sprint 1 y 14 en Sprint 2, distribuidos en **tres épicas, dos sprints, seis Must Have y dos Should Have**. Hay cuatro HU en **In Progress** (HU-01, HU-03, HU-06 y HU-08) y cuatro en **Security Review** (HU-02, HU-04, HU-05 y HU-07). **Ninguna HU está en Done ni se declara formalmente completada.** Security Review expresa un estado de trabajo; no acredita revisión por pares ni aprobación de seguridad. No se presenta velocidad, burndown ni ejecución de sprints sin evidencia.
 
 ### DoR, DoD y Gherkin
 
@@ -78,7 +80,11 @@ Ejemplo oficial HU-08: Dado un paciente III y un especialista autorizado, cuando
 
 [PR #11](https://github.com/yuliethqui/sit-cama-devsecops/pull/11) sigue abierto. Su cuerpo enlaza #12–#19 y reconoce **trazabilidad retrospectiva**. La guía pide que cada rama y commit partan de un Issue: añadir referencias posteriormente no demuestra esa disciplina histórica.
 
-La consulta de revisiones del PR devuelve una lista vacía. No se verificó URL, exportación ni captura de GitHub Projects con las ocho HU y sus campos; Issues creados no prueban pertenencia al tablero. Ambos puntos deben adjuntarse o completarse manualmente sin inventar aprobaciones.
+El proyecto GitHub Projects **Tablero_Kanban** está configurado con las ocho HU #12–#19. Se inspeccionaron las capturas de [Kanban](evidence/entrega-3/github-projects-kanban.png.png) y [Planificación SIT-CAMA](evidence/entrega-3/github-projects-planificacion.png.png): confirman los campos, los valores de planificación y los estados indicados arriba. También muestran seis elementos históricos en Backlog; los totales de esta sección se refieren únicamente a HU-01–HU-08.
+
+**URL directa del tablero:** no verificada en esta revisión. Las capturas no incluyen la barra de direcciones y no fue posible comprobarla mediante el navegador; no se inventa un enlace. Las rutas originales, los hashes y el alcance de la inspección constan en el [inventario](ENTREGA-3-INVENTARIO-EVIDENCIAS.md).
+
+La nueva consulta de revisiones del PR devuelve una lista vacía. **Siguen pendientes la revisión por pares, la aceptación del Product Owner y la trazabilidad histórica estricta de ramas, commits y PRs desde los Issues.** La configuración del tablero no subsana retrospectivamente esos requisitos ni acredita la DoD.
 
 ## 5. Arquitectura DevSecOps y Quality Gates
 
@@ -208,7 +214,7 @@ En este clon **no están** app-debug.apk ni la captura android-debug-login.png c
 |---|---|
 | Aceptación clínica incompleta, HU-01 y HU-08 parciales | Protocolo y responsables clínicos; separar presentación III–V, decisión profesional, tiempos institucionales y reglas aprobadas; validar reclasificación y trazabilidad. |
 | Diferencias de HU-03/HU-06 | Mediciones acordadas <500 ms / <1 s, espera por episodio y resolución explícita de permisos de asignación. No ampliar permisos de clasificación del enfermero. |
-| Gobernanza ALM | Exportación/captura de Projects, estados y campos; revisión por pares, aceptación PO y trazabilidad histórica honesta. |
+| Gobernanza ALM | Tablero, campos y estados acreditados por dos capturas; falta verificar su URL directa. Mantener pendientes revisión por pares, aceptación PO y trazabilidad histórica estricta. |
 | Experimentos 1–3 sin PR vulnerable bloqueado | Evidencia del check fallido atribuible al detector y protección de merge, en entorno autorizado; no publicar fixtures peligrosos en el MVP. |
 | Empaquetado paralelo al SAST | Evaluación del orden exigido por la guía; la publicación sí depende de ambos jobs. No se cambió CI en este trabajo. |
 | Firma del backend MVP pendiente | Revisión zlib y autorización formal; luego publicación/firma/verificación del digest propio. |
@@ -222,7 +228,7 @@ Las ponderaciones se transcriben de la guía. **No se asigna nota ni porcentaje 
 
 | Dimensión oficial | Peso oficial | Criterio oficial de aceptación y evidencia requerida | Estado sustentado |
 |---|---:|---|---|
-| 1. Gestión ALM y Backlog Completo | 20% | Las 8 Historias de Usuario (HU-01 a HU-08) cargadas en el tablero Kanban con DoR, DoD, criterios Gherkin y trazabilidad estricta de ramas y PRs. | Parcial: ocho Issues documentados; tablero no verificado, trazabilidad retrospectiva y DoD pendientes. |
+| 1. Gestión ALM y Backlog Completo | 20% | Las 8 Historias de Usuario (HU-01 a HU-08) cargadas en el tablero Kanban con DoR, DoD, criterios Gherkin y trazabilidad estricta de ramas y PRs. | Parcial: ocho HU en Tablero_Kanban con campos y estados acreditados por capturas, cero Done; revisión por pares, aceptación PO, trazabilidad histórica estricta y DoD pendientes. |
 | 2. Shift-Left Local y Secret Scanning | 20% | Hook pre-commit funcional y pipeline de CI bloqueando credenciales simuladas en el Experimento 1. | Hook y control positivo en Actions comprobados; falta PR vulnerable bloqueado conforme al procedimiento oficial. |
 | 3. Calidad Estática (SAST) y Dependencias (SCA) | 25% | Semgrep y Trivy configurados correctamente bloqueando la inyección SQL (Experimento 2) y dependencias vulnerables (Experimento 3). | Rechazo local demostrado; faltan PRs bloqueados y detención previa al empaquetado del Experimento 2. |
 | 4. Seguridad en Contenedores y Firma Cosign | 20% | Dockerfile optimizado, imagen OCI escaneada y verificación criptográfica exitosa con Cosign (Experimento 4). | Construcción/escaneo/runtime comprobados. Firmas base e histórica válidas; firma de imagen MVP pendiente. |
@@ -254,6 +260,8 @@ Syft inventaría componentes del artefacto; permite relacionarlos con advisories
 
 ## 15. Conclusiones
 
+El tablero Tablero_Kanban acredita la planificación de las ocho HU: tres épicas, dos sprints y 27 SP, con cuatro In Progress y cuatro Security Review. Ninguna HU se declara Done; revisión por pares, aceptación PO y trazabilidad histórica estricta siguen pendientes.
+
 El MVP cuenta con pruebas y controles de seguridad reproducibles, un pipeline remoto aprobado y evidencia de acceso autenticado con RBAC. Los experimentos 1–3 prueban localmente rechazo selectivo; Actions ejecutó controles positivos, pero no se demostraron PRs vulnerables bloqueados con la configuración vigente.
 
 Cosign verificó correctamente Distroless y Express histórico. La firma del backend, los requisitos clínicos pendientes y la aceptación formal continúan abiertos. Mantener blocked preserva una decisión de seguridad explícita aunque los escaneos automáticos no reporten HIGH/CRITICAL.
@@ -264,6 +272,7 @@ La entrega se apoya en ZIP íntegros y hashes comprobados, y hace visible qué d
 
 - Guía oficial suministrada: C:\Users\Usuario\Downloads\Guia-Entrega-3-SIT-CAMA-v3.pdf; páginas y SHA-256 identificados en la introducción. Es la única fuente de rúbrica y cuestionario.
 - [PR #11 y referencias HU](https://github.com/yuliethqui/sit-cama-devsecops/pull/11); [Quality aprobado](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43924092624/job/133498820735); [Image/DAST aprobado](https://github.com/yuliethqui/sit-cama-devsecops/actions/runs/43924092624/job/133498821235).
+- Capturas ALM inspeccionadas: [Kanban](evidence/entrega-3/github-projects-kanban.png.png) y [Planificación SIT-CAMA](evidence/entrega-3/github-projects-planificacion.png.png), con hashes en el inventario. No se verificó una URL directa del proyecto.
 - Originales locales: .reports/experiment-1/result.json y .reports/experiment-2, experiment-3 y experiment-4/export-reviewed/. Los anexos Gitleaks entregables excluyen su marcador.
 - [Advisory CVE-2022-23539](https://github.com/advisories/GHSA-8cf7-32gw-wr33), [CVE-2022-23540](https://github.com/advisories/GHSA-qwph-4952-7xr6), [CVE-2022-23541](https://github.com/advisories/GHSA-hjrf-2m68-5959): fuentes preservadas en Experimento 3.
 - [Revisión de zlib existente](../.reports/experiment-4/export-reviewed/zlib-review.json); fuentes y límites registrados allí, sin alterar la investigación.
